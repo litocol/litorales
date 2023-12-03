@@ -342,3 +342,51 @@ Autor: Nombre, identificación, apodo o seudónimo a través del cual se identif
 - Fecha: Relaciona la fecha en la que se realiza la fotografía, su formato es el tipo fecha dd/mm/aa y cuando no se conoce con claridad se especifica como “ND”.
 
 Como conclusiónn entiendase que estos atributos proporcionan información detallada sobre las imágenes en la base de datos y permiten categorizar, organizar y buscar fotografías según diversos criterios. Se agradece usar esta en la medida de los posible para dar continuidad ordenada al proyecto.
+
+## Bibliografía recomendada
+
+A continuación, se hace una selección bibliográfica de recursos relevantes para el conocimiento de los litorales colombianos y su contexto espacial. En el caso de artículos científicos estos pueden requerir conocimientos técnicos previos para su entendimiento. 
+
+El índice de recursos se halla acompañado de su idioma [ Es “Español”, En “Inglés”,  Pt “Portugués” ] y tipo de trabajo ó temática:
+
+* [Es – Metodología] / Agudelo Bermúdez, A., Parra León, N., & Álvarez Orduz, O. S. (2023). Generalidades metodológicas entorno a la caracterización geomorfológica del litoral caribe colombiano. Boletín País de Mares – DIMAR – CIOH. Por publicar.
+* [Es – Metodología] / Carvajal, H. (2011). Propuesta de estandarización de la cartografía geomorfológica en Colombia.
+* [Es – Metodología] / IDEAM. (2013). Guía metodológica para la elaboración de mapas geomorfológicos a escala 1:100.000. http://www.ideam.gov.co/documents/11769/152722/Guia_Enero_201401+%281%29.pdf/501aa421-a0e4-4a1d-a5c8-d6cb1b0de520#:~:text=La%20Gu%C3%ADa%20Metodolog%C3%ADa%20para%20el,etapas%20futuras%20a%20escalas%20mayores.
+* [Es – Metodología] / IGAC. (2021a). Elaboración de cartografía geomorfológica aplicada a levantamiento de suelos.
+
+* [Es – Glosario] / Gómez, J. F., Carvajal, J. H., & Otero García Javier. (2012). Propuesta de estandarización de los levantamientos geomorfológicos en la zona costera del Caribe colombiano. In Publicación especial de cooperación Colciencias - Gobernación del Magdalena - Invemar (pp. 1–113). Instituto de investigaciones Marinas y Costeras. https://observatorio.epacartagena.gov.co/ftp-uploads/pub-propuesta-de-estandarizacion.
+* [Es – Glosario] / Servicio Geológico Colombiano. (2023). Anexo A. Glosario de Unidades y Subunidades Geomorfológicas. http://www.unalmed.edu.co/~geomorfo/ArticulosEstructuras/000e0020m.htm.http://www.unalmed.edu.co/~geomorfo/ArticulosEstructuras/000e0020m.htm.
+* [Es – Glosario] / IGAC. (2021b). Glosario de términos geomorfológicos aplicados a levantamientos de suelo. http://igacnet2.igac.gov.co/intranet/UserFiles/File/DOCUMENTOS%20SGI%202021/GAG/PC-GAG-04/IN-GAG-PC04-02%20Glosario%20de%20terminos%20geomorfologicos.pdf.
+
+* [Es – Especial] /  INVEMAR. (2010). Biodiversidad del Margen Continental del Caribe Colombiano. In Serie de Publicaciones Especiales No. 20. (pp. 1–458). Instituto de investigaciones Marinas y Costeras “José Benito Vives De Andréis.” http://www.invemar.org.co/redcostera1/invemar/docs/8868Version_Final_Libro_Invemar-ANH.pdf.
+
+* [Es – Libro] / Tarbuck, E. J., Lutgens, F., & Tasa, D. (2004). Ciencias de la Tierra, una introducción a la geología física (M. martín-Romo, Ed.; 8th ed.). Prentice Hall / Pearson.
+* [En – Libro] / Condie, K. C. (2005). Earth as an evolving planeary system. https://www.sciencedirect.com/book/9780128199145/earth-as-an-evolving-planetary-system
+* [En – Libro] / Davidson-Arnott, R., Bauer, B., & Houser, C. (2019). Introduction to Coastal Processes and Geomorphology (2nd ed., Vol. 1). Cambridge University Press. https://doi.org/https://doi.org/10.1017/9781108546126.
+* [Pt – Libro] / Christofoletti. (1980). Geomorfologia (Edgar Blücher Ltda, Ed.; 1st ed., Vol. 2). Editora. https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxkYWxpZ2VvYmlibGlvdGVjYXxneDo2ODAwNjI5M2NhMjI4OGU1.
+
+* [Es – Reporte] / Posada Posada, B. O., & Henao Pineda, W. (2008). Diagnóstico de la erosión en la zona costera del Caribe colombiano. http://www.invemar.org.co/redcostera1/invemar/docs/605220080501_AErosionCaribeContinentalColombia.pdf.
+* [Es – Reporte] / Posada Posada, B. O., Henao Pineda, W., & Guzmán Ospitia, G. (2009). Diagnóstico de la Erosion en la Zona Costera del Pacifico colombiano. https://centrodocumentacion.invemar.org.co/cgi-bin/koha/opac-detail.pl?biblionumber=16871.
+* [Es – Atlas] / Dimar-CIOH. (2013). Atlas Geomorfológico del Litoral Caribe Colombiano (Dirección General Marítima - Centro de Investigaciones Oceanográficas e Hidrográficas del Caribe, Ed.; Pub. Esp. Vol. 8). Dimar. https://doi.org/10.26640/9789585772373.2013.
+* [Es – Atlas] / INGEOMINAS. (1998). Atlas de geomorfología y aspectos erosivos del litoral caribe colombiano (pp. 1–35). http://geonodesiam.invemar.org.co/documents/4363.
+* [Es – Atlas] / Fundación MarViva, CODECHOCÓ, Fundación PLAN, & CORPARIEN. (2019). Atlas Marino-Costero del Bajo Baudó, Colombia. https://marviva.net/wp-content/uploads/2021/11/atlas2019_web2.pdf.*
+
+* [Es – Geología, geomorfología y fisiografía] / Carvajal, J. H., Mendivelso, D., Forero, H., Castiblanco, C. R., Pinzón, L. M., & Prada, M. (2010). Investigación del diapirismo de lodo y evolución costera del Caribe colombiano. https://recordcenter.sgc.gov.co/B12/23008002524448/documento/pdf/2105244481101000.pdf.
+* [Es – Geología, geomorfología y fisiografía] / López Mendivelso, D., Carvajal, J. H., & Marléen Pinzón, L. (2010). Estudio geomorfológico del sector comprendido entre Bocatocino, Atlántico y Ciénaga, Magdalena. https://recordcenter.sgc.gov.co/B12/23008002524436/Documento/PDF/2105244361101000.pdf.
+* [En – Geología, geomorfología y fisiografía] / Carvajal, J. H. (2016). Mud Diapirism in the Central Colombian Caribbean Coastal Zone. In M. Hermelín (Ed.), World Geomorphological Landscapes book series. Landscapes and Landforms of Colombia. (pp. 35–53). Springer. https://doi.org/10.1007/978-3-319-11800-0_3.
+* [En – Geología, geomorfología y fisiografía] / Correa Arango, I. D., & Paniagua-Arroyave, J. F. (2016). The Arboletes-Punta Rey Littoral, Southern Caribbean Coast. In M. Hermelin (Ed.), World Geomorphological Landscapes book series. Landscapes and Landforms of Colombia (pp. 55–63). Springer. https://doi.org/10.1007/978-3-319-11800-0_4.
+* [En – Geología, geomorfología y fisiografía] / Posada, B. O. (2016). Cabo de La Vela (“La Vela” Cape) and Surroundings. In M. Hermlín (Ed.), World Geomorphological Landscapes book series. Landscapes and Landforms of Colombia. (pp. 23–34). Springer. https://doi.org/10.1007/978-3-319-11800-0_2.
+* [Es – Geología, geomorfología y fisiografía] / Álvarez-Gutiérrez, Y., Amaya-López, C., Barbosa-Mejía, L. N., Builes-Carvajal, J. S., Henao-Casas, J. D., Montoya-Cañola, S. M., Pacheco-Sintura, P. A., Ramírez-Hoyos, L. F., Urrego-Osorio, S., Zapata-Montoya, A., Ordóñez-Carmona, O., & Restrepo-Álvarez, J. J. (2014). Descripción e interpretación geológica de las Isla de Providencia y Santa Catalina. Boletín Ciencias de La Tierra, 35, 67–81.
+* [Es – Geología, geomorfología y fisiografía] / Palacin Suárez, A. P. (2022). Análisis geomorfológico de los fondos submarinos de las islas Cayos de Quitasueño y Cayos de Serrana en el Archipiélago de San Andrés, Providencia y Santa Catalina (Caribe Colombiano) [Tesis de pregrado para oprtar por el título de Geóloga]. Universidad del Norte.
+* [Es – Geología, geomorfología y fisiografía] / Velasco, E. R., & López, G. I. (2016). Marco conceptual para investigaciones tsunamigénicas: Caso litoral pacífico Colombiano. Boletín de Geología, 38(4), 79–106. https://doi.org/10.18273/revbol.v38n4-2016005
+* [Es – Geología, geomorfología y fisiografía] / Bermúdez Rivas, C., Constanza Álvarez Machuca, M., & Niño Pinzón, D. C. (2014). Caracterización de la geomorfología costera y sus coberturas vegetales asociadas, a través de sensores remotos, en la costa de Tumaco, Nariño. Boletín Científico CIOH, 32, 29–46.
+* [Es – Geología, geomorfología y fisiografía] / Álvarez M., M. C., Bermúdez-Rivas, C., & Niño P., D. C. (2016). Caracterización de la geomorfología costera y sus coberturas vegetales asociadas, a través de sensores remotos en la bahía de Buenaventura, Valle del Cauca. Boletín Científico CIOH, 34, 49–63. https://doi.org/10.26640/22159045.426.
+* [Es – Geología, geomorfología y fisiografía] / Cuervo Londoño, G. A., & Perdomo Rodríguez, L. C. (2021). Malpelo como Patrimonio Geológico Sumergido. Ensayos Sobre Estrategia Marítima, 5(13), 69–84. https://doi.org/https://doi.org/10.25062/2500-4735.2327.
+* [Es – Geología, geomorfología y fisiografía] / Blanco-Chao, R., Pedoja, K., Witt, C., Martinod, J., Husson, L., Regard, V., Audin, L., Nexer, M., Delcaillau, B., Saillard, M., Melnick, D., Dumont, J. F., Santana, E., Navarrete, E., Martillo, C., Pappalardo, M., Ayala, L., Araya, J. F., Feal-Pérez, A., … Arozarena-Llopis, I. (2014). The rock coast of South and Central America. Geological Society Memoir, 40(1), 155–191. https://doi.org/10.1144/M40.10
+
+* [Es – Tectónica] / Bedoya, G., Cediel, F., Restrepo-Correa, I., Cuartas, C., Montenegro, G., Marin-Cerón, M. I., Mojica, J., & Cerón, R. (2009). Aportes al conocimiento de la evolución geológica de las cuencas Atrato y San Juan dentro del Arco Panamá-Chocó. Boletín de Geología, 31(2), 1–14.
+* [Es – Tectónica] / Duque Caro, H. (1978). Geotectónica y evolución de la región Noroccidental Colombiana. Boletín Geológico, 23(3), 4–37.
+* [En – Tectónica] / Duque-Caro, H. (1990). The Choco Block in the northwestern corner of South America: Structural, tectonostratigraphic, and paleogeographic implications. In Journal of South American Earth Sciences (Vol. 3, Issue I).
+* [En – Tectónica] / Montes, C., Rodriguez-Corcho, A. F., Bayona, G., Hoyos, N., Zapata, S., & Cardona, A. (2019). Continental margin response to multiple arc-continent collisions: The northern Andes-Caribbean margin. In Earth-Science Reviews (Vol. 198). Elsevier B.V. https://doi.org/10.1016/j.earscirev.2019.102903.
+* [En – Tectónica] / Piraquive, A. (2017). Structural framework, deformation and exhumation of the Santa Marta Schists: Accretion and deformational history of the Caribbean Terrane at the north of the Sierra Nevada de Santa Marta [Ph. D. Thesis]. Universidad Nacional de Colombia.
+
