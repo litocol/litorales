@@ -1,0 +1,11 @@
+/* Pone un párrado al lado de otro */	
+#conceptoParalelo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+/* Para una nota */
+span .note {
+  font-style: italic;
+}

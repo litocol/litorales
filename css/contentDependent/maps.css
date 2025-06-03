@@ -1,0 +1,6 @@
+.quantumGisImage {
+    width: 80%;
+    font-weight: bold;
+    display: block;        /* <img> pasa de inline a block  */
+    margin: 0 auto;        /* margen superior-inferior 0, laterales automáticos */
+}

@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="Artículo sobre el formato SIG GML por Litorales de Colombia." />
+  <title>Acerca de - Litorales de Colombia</title>
+  <meta name="keywords" content="Litorales de Colombia, Geografía, Geociencias, Artículos, Lectura, Proyecto abierto">
+  <meta name="author" content="Andrés Agudelo Bermúdez"/>
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Recomendación para aclarar las direcciones, siempre poner "/archivo o carpeta/siguiente directorio...
+   porque así se enlaza la raíz de todo el directorio, no guarda relación a la ubicación del HTML y eso
+   permite la mantenibilidad del sitio web y la comprensión con los usuarios" -->
+
+  <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+  <!-- El icono de página corresponde al logo de proyecto, Imagen Dunas del taroa -->
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons/css/flag-icons.min.css" />
+  
+  <!-- Estilos orgánicos del proyecto -->
+  <link href="/css/styles.css" rel="stylesheet"/>
+  <!-- Estilos únicos del capítulo o subcapítulo-->
+   <link href="/css/contentDependent/maps.css" rel="stylesheet"/>
+   <link href="/css/contentDependent/toBegin.css" rel="stylesheet"/>
+   <link href="/css/contentDependent/aboutLit.css" rel="stylesheet"/>
+
+  <!-- Estilos dependientes de características -->
+  <link href="/css/featureDependent/cardShowing.css" rel="stylesheet"/>
+  <link href="/css/featureDependent/accordionButton.css" rel="stylesheet"/>
+
+  <!-- Para mapas si se usa -->
+  <!-- Hoja de estilos de Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <!-- Recursos de plotly -->
+  <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+  
+  <!-- Lógica de interactividad del proyecto -->
+  <script src="/js/scriptTopNavbar.js"></script>
+  <script src="/js/scriptSidebar.js"></script>
+  <script src="/js/scriptSidebarbuttons.js"></script>
+  <script src="/js/scriptObserver.js"></script>
+  <script src="/js/scriptBreadcrumbs.js"></script>
+  <script src="/js/scriptDropWrench.js"></script>
+  <script src="/js/scriptUserErrorReport.js"></script>
+  <script src="/js/scriptFontSizing.js"></script>
+  <script src="/js/scriptChangeHeroImage.js"></script>
+  <script src="/js/scriptBackgroundChange.js"></script>
+  <script src="/js/scriptLanguageChange.js"></script>
+  <script src="/js/scriptSearchMenu.js"></script>
+  <script src="/js/scriptScroll.js"></script>
+  <script src="/js/scriptAccordion.js"></script>
+  <script src="/js/scriptActiveButColoring.js"></script>
+
+  <!-- Estilos dependientes de características -->
+  <link href="/css/featureDependent/cardShowing.css" rel="stylesheet"/>
+  <link href="/css/featureDependent/accordionButton.css" rel="stylesheet"/>
+
+</head>
+
+<!-- El header contiene toda la lógica de los menús de navegación de la cabecera -->
+<header class="topbar">
+    <!-- Comienza la cabecera de navegación a títulos principales -->
+    <nav class="topnav" aria-label="Menú superior de navegación global">
+      <!-- El botón de despliegue del menú lateral izquierdo vertical se halla aquí -->
+      <button class="topSideBar" aria-label="Botón dedespliegue de Menú lateral vertical de navegación tipo índice">
+        <span class="bars">
+          <div class="bar bar1"></div>
+          <div class="bar bar2"></div>
+          <div class="bar bar3"></div>
+        </span>
+        <span>Índice</span>
+      </button>
+      <!-- Siguen los links horizontales -->
+      <a href="/index.html"><i class="fas fa-house"></i>&nbsp;&nbsp;Inicio</a>
+      <a href="/html/articles.html">Artículos</a>
+      <a href="/html/galery.html">Galería de fotos</a>
+      <a href="/html/maps.html">Mapas</a>
+      <a href="#inicio" class= "active"><i class="fas fa-info-circle"></i>&nbsp;&nbsp;Acerca de litorales</a>
+      <a href="/html/commingSoon.html">Próximos desarrollos</a>
+    </nav>
+    <!-- Menú lateral desplegable -->
+    <nav class="sideNav" aria-label="Menú lateral vertical de navegación del tipo índice">
+      <a class= "active" href="#description">Descripción</a>
+      <a href="#values">Valores</a>
+      <a href="#authors">Autores</a>
+      <a href="#peopleCollab">Colaboradores</a>
+      <a href="#legalIssues">Legal</a>
+      <a href="#faq">Preguntas frecuentes</a>
+      <a href="#bibliography">Bibliografía</a>
+      <a href="#credits">Créditos</a> 
+    </nav>
+    <!-- Menú de volver, las migajas-->
+    <nav class="breadcrumbs" aria-label="Menú superior de navegación hacia atrás en la web">
+      <a class="backBtn" href="/index.html"><i class="fas fa-caret-left"></i></a>
+      <span>Conozca:</span>
+      <a href="/html/aboutLit/values.html">Valores del proyecto</a>
+      <a href="/html/aboutLit/authors.html">Autores</a>
+      <a href="/html/aboutLit/collabLitorales.html">Colaboradores</a>
+      <a href="/html/aboutLit/callToCollab.html">Convocatoria</a>
+      <a href="/html/aboutLit/legal.html">Legalidad</a>
+      <a href="/html/aboutLit/legal.html">FAQ</a>
+    </nav>
+  </header>
+  
+  <!-- Aquí se inyecta el fondo del heroimage, a su imagen no le importan los desplegables -->
+  
+  <div class="heroImage"></div>
+  
+  <!-- Contenido de lleno es el que se programa semi-responsive -->
+  <main class="content">
+    <!-- Aquí van los textos que juegan con el heroimage, estos sí reponden a los desplegables -->
+    <!-- Su versión de código depende de si es un contenido árbol o rama (enlaza o es un producto final)-->
+    <div class="heroText" id="inicio">
+        <h1 class="heroTitle">Acerca del proyecto</h1>
+        <p class="herosubchapter">Capitulo 4 del proyecto cartográfico y geocientífico Litorales de Colombia</p>
+    </div>
+
+    <p class="mensaje-informativo">Archivo sin características responsivas. Apto para la vista en ordenadores. Navegue al menú de herramientas superior derecho <span class="arrow">&#10148;</span> para mejorar su experiencia.<br>
+    <div class="citing">
+    <p>- ¿Cómo citar este recurso? - Litorales de Colombia. (2025). Capítulo de proyecto 4 - Acerca del proyecto. Proyecto colaborativo en descripción cartográfica y geocientífica de las costas colombianas. Recurso en línea sobre su versión 2.0.0., licencias GNU GPL v3. para datos y código / CC BY-NC 4.0. para multimedia. Disponible a través la web www.desarrolloscreativos.dev.</p></div>
+
+    <!-- Descripción de los botónes del menú vertical derecho de herramientas -->
+    <nav class="icon-bar">
+      <!-- Sobre este botón operan códigos interactivos y de despliegue del siguiente div -->
+      <button class="wrench-btn" aria-label="Botón desplegable de Herramientas"><i class="fas fa-wrench"></i></button>
+      <div class="dropWrench">
+        <button class="searcher" aria-label="Botón de búsquedas internas sin terminar"><i class="fa fa-search"></i></button>
+          <div class="search-menu">
+            <form>
+              <input type="text" id="searchInput" placeholder="Busque en el artículo..." />
+              <div class="search-results">
+                <button type="button" id="previousResult" aria-label="Ir al anterior resultado"><i class="fas fa-caret-up"></i></button>
+                <button type="button" id="nextResult" aria-label="Ir al siguiente resultado"><i class="fas fa-caret-down"></i></button>
+              </div>
+              <button type="submit" id="searchSubmit" aria-label="Buscar en la web (no funcional todavía)"><i class="fas fa-arrow-right"></i></button>
+            </form>
+          </div>
+        <!-- Este botón actua sobre el heroImage -->
+        <button class="imageChange" aria-label="Cambiar el fondo de la web"><i class="fas fa-image"></i></button>
+        <!-- Este botón cambia los colores de letras incluidos los textos del título -->
+        <button class="contrastChange" aria-label="Cambiar el contraste de la web"><i class="fas fa-adjust"></i></button>
+        <!-- Este botón cambia el tamaño de la letra -->
+        <button id="fontToggleButton" aria-label="Cambiar el tamaño del texto de 17 pixeles a 20 pixeles"><i class="fas fa-plus toggle-icon"></i><i class="fas fa-font"></i></button>
+        <!-- Este botón despliega un menú de reporte de errores de la web -->
+        <button id="alerta" aria-label="Reportar un error de la web"><i class="fas fa-exclamation-triangle"></i></button>
+        <button id="langToggle" aria-label="Cambiar el lenguaje"><i class="fas fa-language"></i></button>
+        <div class="language-menu" id="languageMenu">
+          <button id="espanishBtn" class="active" aria-label="Lenguaje español Colombia"><span class="fi fi-co"></span></button> 
+          <button id="englishBtn" aria-label="Lenguaje inglés"><span class="fi fi-gb"></span></button>
+          <button id="germanBtn" aria-label="Lenguaje alemán"><span class="fi fi-de"></span></button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Tarjeta flotante tipo popup -->
+    <div id="reportCard" class="floating-card hidden">
+      <!-- Formulario de reporte de error -->
+      <form id="errorForm">
+        <!-- Botón de cerrar -->
+        <button id="closeButton" class="close-btn">X</button>
+        <h3>¿Desea reportar un error? <span>(En construcción, sin funcionalidad)</span></h3>
+        <textarea name="message" placeholder="Describa el problema que evidencia en su navegación... (Sin registro en la presente versión)" required></textarea>
+        <input type="email" name="email" autocomplete="email" placeholder="Indique su correo electrónico para ser informado de la solución del caso (Campo opcional)">
+        <div class="actions">
+          <button type="submit" id="submitButton" aria-label="Enviar reporte de error en la web">Enviar</button>
+          <button type="button" id="cancelButton" aria-label="Cancelar el reporte de error en la web">Cancelar</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Apenas empiezan los contenidos comunes -->
+    <section id="intro">
+
+      <article id="description">
+
+        <h2>Descripción</h2>
+          <p>En esta sección puede encontrar todo lo relacionado con la historía, nombre, logotipo, concepto organizativo y filosófico del proyecto “Litorales de Colombia” © 2025, así como ideas y figuras que en su versión 2.0.0., la actual del proyecto, que se encuentran protegido bajo diferentes licencias, entre ellas las de derechos de autor centrados en el administrador principal del proyecto, así como las abiertas que garantizan la permanencia en disponibilidad y uso de la mayoría de contenidos, entre estos los aportados por autores y colaboradores en distintos aspectos.</p>
+
+          <p>Conozca acerca del recorrido del proyecto:</p>
+
+          <button class="accordion">
+            <span class="accordionText">Expandir la lectura...</span><i class="fas fa-caret-right accordionIcon"></i>
+          </button>
+          <!-- Desplegable -->
+          <div class="accordionPanel">
+
+            <h3>Historia</h3>
+
+            <p>Litorales de Colombia nace en su versión 1.0.0. del 12/11/2023 como una iniciativa para divulgar y según su versión 2.0.0, crear trabajos (de cualquier tipo) relacionados con la caracterización geográfica y geocientífica de las costas colombianas, antes aspectos limitados a fisiografía y geomorfología. A la fecha, este trabajo vincula artículos de diferente naturaleza y rigor técnico o científico, en lo que antes se entendía como monografías, con fin de detallar diferentes apectos de los conocimientos de los autores y colaboradores acerca de las costas del territorio nacional colombiano. La obra completa está dirigida a un público general, por lo que no se extrañe encontrar páginas de nivel periodístico o wiki.</p>
+
+            <p>Originalmente, la idea de Litorales de Colombia surgió de charlas fortuitas de los profesionales en geociencias Andrés Agudelo Bermúdez, Nila Parra León y Miguel Diego Gómez Sánchez, quienes se conocieron en encuentros laborales independientes en diferentes áreas del Centro de Investigaciones Oceanográficas e Hidrográficas del Caribe (CIOH), de la Dirección General Marítima (DIMAR) en Cartagena de Indias, departamento de Bolívar, Colombia.</p>
+
+            <p>Se sugirió entonces describir el territorio costero nacional a través de fotografías y pequeñas síntesis de trabajos que fueran conocidos por los participantes y se resolvió compartir dichos insumos en internet, todo como una forma conveniente de dar alcance al público de manera independiente a cualquier otro medio editorial. En su primera publicación incluso se usó publicar una nota técnica para la revista País de Mares de la DIMAR, como una solicitud de difusión del proyecto, el cual se compuso inicialmente de imágenes parcialmente georeferenciadas que aportaron amigos y familiares del administrador del proyecto Andrés Agudelo</p>
+
+            <p>Fecha de la Declaración: 01/06/2025. Versión 1.</p>
+
+            <h3>De la nueva entrega</h3>
+              
+            <p>A pesar del empuje inicial, durante poco más de un año el proyecto no recibió actualizaciones en vilo de los aprendizajes técnicos de los participantes para generar un despliegue sostenible que pudiera albergartodos los contenidos que se esperaban incluir en la web, en este lapso se pierde contacto con Miguel Diego Gómez Sánchez y Nila Parra León puede apoyar solo desde la revisión de contenidos.</p>
+            
+            <p>Cabe aclarar que el proyecto tiene un caracter descentralizado, que aunque puede colaborar con instituciones públicas y proivadas para su difusión, figura de ahora en más como una marca registrada para la protección de la iniciativa abierta que produce paulatinamente.</p>
+            
+            <p>En esta versión, los recursos del proyecto todavía se entienden como insumos educativos para la conceptualización espacial de las diversas características fisiográficas, geológicas, climatológicas y geomorfológicas de los litorales colombianos extendiendose a horizontes geocientíficos. Sigue tratándose de una herramienta para que todo usuario pueda interpretar algún aspecto técnico o paisajístico relevante de franjas costeras colombianas.</p>
+            
+            <p>En esta ocasión las imágenes georeferenciadas pierden un pocon de relevancia aunque se ordenan y con ello se hacela introducción de frameworks de mapas web interactivos para el disfrute de los usuarios del proyecto.</p>
+
+            <p>Fecha de la Declaración: 01/06/2025. Versión 2.</p>
+            
+            <h3>Normas de la comunidad</h3>
+
+            <p>Una vez accede a la información del proyecto o colabora con este, usted es parte de esta comunidad. Para garantizar una adecuada experiencia educativa y colaborativa se pide amablemente:</p>
+                <ul>
+                  <li>Aporte a discusiones en una tónica constructiva</li>
+                  <li>Haga uso de alias respetuosos cuando pida anonimato</li>
+                  <li>Reporte el comportamiento inapropiado de otros usuarios</li>
+                  <li>Sugiere activamente temas de exposición y errores en datos</li>
+                  <li>Da visibilidad al proyecto a través de reacciones y compartidos</li>
+                  <li>No tergiverse información con fuentes especulativas o sin sustento técnico</li>
+                  <li>Documéntese acerca del proyecto para evitar malentendidos relacionados con su exploración de datos</li>
+                  <li>Explore de manera responsable el contenido, siempre en respeto de derechos de autor y reglas de uso</li>
+                  <li>Manténgase al tanto de actualizaciones y novedades del proyecto para encontrar información relevante y de interés</li>
+                  <li>Comparta, comente y participe de publicaciones a través de comentarios y sugerencias en uso de un lenguaje claro y respetuoso</li>
+                  <li>No discrimine, ni tenga juicios de valor frente al origen profesional de los recursos, céntrese en la evaluación de la calidad de la información</li>
+                  <li>Si desea colaborar en el desarrollo de investigaciones, monografías, figuras y mapas, use los canales correspondientes para llamar la atención de este proceso</li>
+                  <li>Si desea aportar fotografías a la base de datos por encuesta o hilos del repositorio, recuerde llenar adecuadamente los campos de metadatos para contar con una rápida y eficiente aceptación de su información</li>
+                </ul>
+            <p>Gracias por ser parte de esta comunidad. Su participación contribuye a hacer de este proyecto un espacio enriquecedor para todos. Si tiene preguntas o sugerencias, no dude en ponerse en contacto con los colaboradores.</p>
+
+            <p>Fecha de la Declaración: 01/06/2025. Versión 2.</p>
+          </div>
+
+      </article>
+
+      <article id="values">
+
+        <h2>Valores del Proyecto</h2>
+          <p>Se trata de las creencias profundas, duraderas y abstractas que sostienen la idea de litorales de Colombia, deben reflejarse no solo en ideas sino en hechos materiales por ende: en toda la arquitectura del proyecto se imprimen conceptos como el compromiso por lo colectivo, mejor expresado en las licencias libres de los contenidos; la accesibilidad, que más que verse en el despliegue web se traduce en múltiples botónes con descripciones y funcionalidades bien indicadas; la autonomía editorial, como una forma de dar independencia al conocimiento de medios complejos; la innovación, traducida en lo particular de la iniciativa sin incentivo económico académico inmediato para los colaboradores por ser más una fuente de validación del compromiso con sus conocimientos y el amor a su oficio.</p>
+
+          <p>Entre otras ideas que busca el proyecta está conseguir la dirversidad de perspectivas, el compartir historias y traducir contenidos inéditos para el público, así como desarrollar un ejercicio de memoria y reconocimiento del territorio colombiano.</p>
+          
+          <p>A pesar de que Litorales de Colombia es consciente del paso del tiempo y del relevo tecnológico que implican las inteligencias artificiales en estos aspectos, el proyecto quiere ser una alternativa de consejo, recomendación y ruta de contenidos cartográficos y geocientíficos. De hecho, como se reconoce en la bibliografía, en múltiples ocasiones el proyecto puede acudir a estas herramientas dejando en claro sus créditos y entendiendolas como de propósitos secundarios. Así que no dude de verificar, contrastar o mejorar su compresión de los temas en ambos recursos.</p>
+
+          <button class="accordion">
+            <span class="accordionText">Expandir la lectura...</span><i class="fas fa-caret-right accordionIcon"></i>
+          </button>
+          <!-- Desplegable -->
+          <div class="accordionPanel">
+          <p>Conforme lo anterior, organizacionalmente el proyecto publica:</p>
+          
+            <h3>Objetivos</h3>
+              <ul>
+                <li>Fomentar la interacción de usuarios con la información que hace alusión a características de la zona costera colombiana</li>
+                <li>Difundir estudios básicos y temáticos de carácter costero de las regiones Caribe y Pacífico continental e insular colombiano</li>
+                <li>Traducir gráficamente análisis sencillos y complejos de las costas colombianas a través de su ilustración en fotografías georreferenciadas</li>
+                <li>Presentar espacios para la colaboración y transferencia de información entre usuarios y autores con apartados educativos en línea</li>
+                <li>Reconocer recursos cartográficos y geocientíficos generales y técnicos, los cuales tengan relación con los valores del proyecto para el reconocimiento de los espacios litorales nacionales</li>
+                <li>Presentar una cara más amigable y accesible de las costas colombianas a nacionales e internacionales</li>
+              </ul>
+            
+            <p>Fecha de la Declaración: 01/06/2025. Versión 2.</p>
+
+            <h3>Misión del proyecto</h3>
+              <p>Dar síntesis y divulgación de trabajos generales y técnicos que reflejen la caracterización geográfica y geocientífica de los litorales colombianos, lo que sirve para la conceptualización espacial y reconocimiento del territorio nacional. Esto puede conjugar artículos, antes monografías, figuras, cartografías y fotografías que buscan ser en su mayoría inéditas. Dicha labor también pretende alimentarse de la colaboración de terceros y nuevos autores que expanden los contenidos para el público al cual se ofrecen en su mayoría de manera abierta.</p>
+              <p>Fecha de la Declaración: 01/06/2025. Versión 3.</p>
+              
+            <h3>Visión del proyecto</h3>
+              <p>Promover la conceptualización espacial de los elementos paisajísticos de los diferentes litorales colombianos, a través de la presentación de recursos educativos geográficos y geocientíficos, en formatos web accesibles para el público general. Este presente proyecto se visualiza como un insumo para la educacióncontinua de los colombianos acerca de sus litorales, lo que además de construir conocimiento, quiere desarrollar comunidad y responsabilidad.</p>
+              <p>Fecha de la Declaración: 01/06/2025. Versión 3.</p>
+
+          </div>
+      </article>
+
+      <article id="authors">
+        <h2>Autores</h2>
+          <p>Este segmento pertenece </p>
+          <p>A mediano y largo plazo tras una entrevista o filtro técnico y de confianza, el equipo de Litorales de Colombia dispone de la posibilidad de asignar roles temporales o permanentes dentro de la organización y esto lo hace bajo un organigrama preciso, que separa grupos, cargos y jerarquías para la identificación de límites y responsabilidades de cada integrante del proyecto. Este segmento se reserva para quienes desean involucrarse activamente dentro de el versionamiento del contenido en algun aspecto particular; cabe aclarar que en la versión inmediata ningun participante antiguo, nuevos o intermitente recibe algun tipo remuneración económica o en especie, por lo que la gratificación de la colaboración se refleja en el registro de participación y los créditos sobre el material que se aporte.</p>
+          
+          <h3>¿Quienes participan?</h3>
+            <!-- Tarjeta Andrés Agudelo Bermúdez -->
+            <div class="author-row">
+              <div class="container">
+                <img class="author-pic" src="/assets/img/auxiliary/jpeg/about/andresAgudelo.jpeg" alt="Andrés Agudelo Bermúdez">
+                <div class="overlay">
+                  <div class="text"><a href="https://www.linkedin.com/in/andr%C3%A9s-agudelo-berm%C3%BAdez-833b781b8/" class="authorsLinkedIn" target="_blank" aria-label="Interactivo de LinkedIn del autor"><i class="fa-brands fa-linkedin"></i><br>LinkedIn<br>del autor</a></div>
+                </div>
+              </div>
+              <div class="author-text">
+                <h4>Andrés Agudelo Bermúdez</h4>
+                <p>Ingeniero Geólogo (BSc), Aprendiz de formación en análisis y desarrollo de software.</p>                
+                <ul class="author-meta">
+                  <li><strong>Administrador del registro Litorales de Colombia</strong></li>
+                  <li><strong>Roles en el proyecto:</strong> Editor a cargo, (sub)coordinador editorial,  maquetador/diseñador de la web</li>
+                  <li><strong>Desde:</strong> 12/11/2023</li>
+                  <li><strong>Hasta:</strong> Indefinido</li>
+                  <li><strong>Ocupación actual (fuera del proyecto):</strong> CPS Ingeniero geólogo en (SHN-CIOH-DIMAR)</li>
+                  <li><strong>País de residencia:</strong> Colombia &nbsp;<i class="fi fi-co"></i></li>
+                  <li><strong>Teléfono:</strong> +57 323 421 3355</li>
+                  <li><strong>Correo:</strong> <a href="mailto:andrellagudelo@gmail.com">andresllagudelo@gmail.com</a></li>
+                  <li><strong>LinkedIn:</strong> 
+                    <a href="https://www.linkedin.com/in/andres-agudelo" target="_blank" aria-label="LinkedIn del autor">
+                      <i class="fa-brands fa-linkedin"></i> Perfil profesional
+                    </a>
+                  </li>
+                  <li><strong>Orcid:</strong> <a href="https://orcid.org/0000-0002-7842-3017" target="_blank" aria-label="LinkedIn del autor">https://orcid.org/0000-0002-7842-3017</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Tarjeta Nila Parra León -->
+            <div class="author-row">
+              <div class="container">
+                <img class="author-pic" src="/assets/img/auxiliary/jpeg/about/nilaParra.jpg" alt="Nila Parra León">
+                <div class="overlay">
+                  <div class="text"><a href="https://www.linkedin.com/in/nila-parra-le%C3%B3n-77ba7016/" class="authorsLinkedIn" target="_blank" aria-label="Interactivo de LinkedIn de la autora"><i class="fa-brands fa-linkedin"></i><br>LinkedIn<br>de la autora</a></div>
+                </div>
+              </div>
+              <div class="author-text">
+                <h4>Nila Parra León</h4>
+                <p>Ingeniera Geóloga (BSc), Especialista en Sistemas de Información Geográfica, Magister en Geografía (MSc)</p>                
+                <ul class="author-meta">
+                  <li><strong>Roles en el proyecto:</strong> A cargo del grupo de textos</li>
+                  <li><strong>Desde:</strong> 12/11/2023</li>
+                  <li><strong>Hasta:</strong> Indefinido</li>
+                  <li><strong>Ocupación actual (fuera del proyecto):</strong> Profesional en investigación Científica Marina, Sección Manejo Integrado de Zona Costera en (SMIZC–CIOH–DIMAR)</li>
+                  <li><strong>País de residencia:</strong> Colombia &nbsp;<i class="fi fi-co"></i></li>
+                  <li><strong>Teléfono:</strong> Sin información</li>
+                  <li><strong>Correo:</strong> <a href="mailto:nilaparra@gmail.com">nilaparra@gmail.com</a></li>
+                  <li><strong>LinkedIn:</strong> 
+                    <a href="https://www.linkedin.com/in/nila-parra-le%C3%B3n-77ba7016/" target="_blank" aria-label="LinkedIn de la autora">
+                      <i class="fa-brands fa-linkedin"></i> Perfil profesional
+                    </a>
+                  </li>
+                  <li><strong>Orcid:</strong> <a href="https://orcid.org/0000-0002-4103-1757" target="_blank" aria-label="LinkedIn del autor">https://orcid.org/0000-0002-4103-1757</a></li>
+                </ul>
+              </div>
+            </div>
+            
+            <!-- Tarjeta Yorlenys Romaña -->
+            <div class="author-row">
+              <div class="container">
+                <img class="author-pic" src="/assets/img/auxiliary/jpeg/about/yorlenysRomana.jpg" alt="Yorlenys Parra León">
+                <div class="overlay">
+                  <div class="text"><a href="https://www.linkedin.com/in/yorlenysromana/" class="authorsLinkedIn" target="_blank" aria-label="Interactivo de LinkedIn de la autora"><i class="fa-brands fa-linkedin"></i><br>LinkedIn<br>de la autora</a></div>
+                </div>
+              </div>
+              <div class="author-text">
+                <h4>Yorlenys Romaña</h4>
+                <p>Oceanógrafa (BSc), Magister en Ciencias del Mar (MSc)</p>                
+                <ul class="author-meta">
+                  <li><strong>Roles en el proyecto:</strong> (Sub)Coordinadora de redes y publicaciones</li>
+                  <li><strong>Desde:</strong> 02/06/2025</li>
+                  <li><strong>Hasta:</strong> Indefinido</li>
+                  <li><strong>Ocupación actual (fuera del proyecto):</strong> CPS Oceanógrafa en (SHN-CIOH-DIMAR)</li>
+                  <li><strong>País de residencia:</strong> Colombia &nbsp;<i class="fi fi-co"></i></li>
+                  <li><strong>Teléfono:</strong> Sin información</li>
+                  <li><strong>Correo:</strong> <a href="#inicio">Sin información</a></li>
+                  <li><strong>LinkedIn:</strong> 
+                    <a href="https://www.linkedin.com/in/andres-agudelo" target="_blank" aria-label="LinkedIn del autor">
+                      <i class="fa-brands fa-linkedin"></i> Perfil profesional
+                    </a>
+                  </li>
+                  <li><strong>Orcid:</strong> Sin información</li>
+                </ul>
+              </div>
+            </div>
+            
+            <p>Entre autores inactivos de la versión 1.0.0, se hace mención de Miguel Diego Gómez Sánchez, Magister y pregrado en Oceanografía, quien sugirió la idea de alojar el repositorio en la web de Github e introdujo a los participantes aún activos en los conceptos de código HTML y CSS a través de plantillas Bootstrap</p>
+
+            <p>Conozca a detalle la organización:</p>
+            
+            <!--Inicia botón acordeón-->
+            <button class="accordion">
+              <span class="accordionText">Expandir la lectura...</span><i class="fas fa-caret-right accordionIcon"></i>
+            </button>
+            <!-- Desplegable -->
+            <div class="accordionPanel">
+              <p>A continuación, se presenta el organigrama del proyecto</p>
+              <h3>Grupos y responsabilidades</h3>
+              <img src="/assets/img/auxiliary/png/instructions/organigramaLitorales.png" alt="Organigrama del proyecto" class="diagramImage2">
+
+              <h3>Roles</h3>
+
+              <p>El proyecto litorales de Colombia se adapta para introducir un sistema jerárquico vertical, especialmente adecuado para sus inicios donde no percibe una alta colaboración; sin embargo, propone la separación de grupos semi-horizontales en relación con los aspectos de procesos especiales, redes sociales y publicaciones, procesos editoriales y trabajo de textos.
+
+              <p>En la versión anterior 1.0.0., se trató de desarrollar un sistema de comités y participación igualitaria; sin embargo, esta opción no pudo realizarse dados los esfuerzos y posibilidades de construir la web que se desarrolla de maneras diferentes entre los participantes.</p>
+
+              <p>La nueva apuesta de Litorales de Colombia destina las credenciales de administración según las competencias del equipo, de manera que existe un control de llaves y chequeos de seguridad que permiten la protección de la obra en los aspectos necesarios. Esto no es precisamente rígido ya que cualquier persona, incluso sin ser autor puede inyectar código en el repositorio a través de los mecanismos de solicitudes, inspección e integración de GitHub.</p>
+
+              <p>Algunas de las funciones sugeridas de los roles son:</p>
+
+              <ul>
+                <li><strong>Editor a cargo:</strong> Responsable general del proyecto. Supervisa, articula y da dirección estratégica y editorial a todas las áreas. Toma decisiones finales sobre contenidos, procesos y estructura del proyecto.</li><br>
+
+                <li><strong>Coordinador de redes y publicaciones:</strong> Se encarga de liderar la estrategia de comunicación en redes sociales y de coordinar la publicación de materiales (digitales e impresos) cuando los haya. Asegura coherencia entre la imagen del proyecto y los contenidos divulgados.</li><br>
+
+                <li><strong>Coordinador editorial:</strong> Encargado de supervisar el desarrollo, edición y curaduría de los contenidos editoriales. Articula con los subprocesos editoriales y los distintos autores o equipos de redacción.</li><br>
+
+                <li><strong>Editor técnico:</strong> Responsable de garantizar que los contenidos cumplan con los estándares técnicos y científicos necesarios. Puede revisar citaciones, estructuras formales y aspectos técnicos de los textos </li><br>
+
+                <li><strong>Subcoordinación de procesos editoriales:</strong> Apoya la coordinación editorial en tareas operativas: planificación de entregas, control de versiones, comunicación con autores y revisión de estilo.</li><br>
+
+                <li><strong>Subcoordinación de divulgación:</strong> Asiste en la implementación de la estrategia de divulgación. Participa en la redacción, edición y difusión de contenidos dirigidos a públicos amplios.</li><br>
+
+                <li><strong>Grupo de textos:</strong> Encargo de la generación y edición de contenidos específicos. Podría incluir ensayos, crónicas, artículos de opinión u otros textos de autoría.</li><br>
+
+                <li><strong>Coordinador de procesos especiales:</strong> Puesto estratégico para gestionar procesos que escapen a la rutina editorial: colaboraciones institucionales, investigaciones aplicadas, convocatorias o nuevos formatos de difusión.</li><br>
+              </ul>
+              <p>Fecha de la Declaración: 01/06/2025. Versión 2.</p>
+
+            <h3>Privacidad</h3>
+              <p>Todo autor o colaborador de Litorales de Colombia puede decidir por la medida del reconocimiento de sus datos personales hacia el público, esto es incluir su nombre en los archivos de los cuales es resposnsable, así como tener a la vista sus datos de contacto. Este tipo de información se concilia antes de cada publicación colaboración con otros responsables.</p>
+            <h3>Inactivos</h3>
+              <p>No todos los autores permanecen vinculados al proyecto tras su participación, puesto que en cierta medida, los créditos de cada nueva versión corresponden a quienes apoyan el proyecto de manera vigente y activa. Cuando esto ocurre, son mencionados y su participación es recordada según el formato de la versión.</p>
+          </div>
+      </article>
+      
+      <article id="peopleCollab">
+        <h2>Colaboradores</h2>
+          <p>Esta etiqueta pertenece a toda persona que haya enviado algún tipo de información al proyecto Litorales de Colombia, independientemente de su impacto o grado de compromiso, se trata de personas que apoyaron el proyecto de manera desinteresada con ánimo de ver sus recursos en línea con contexto de presentación del litoral colombiano. Sus ayudas no relacionan un rol específico dentro del organigrama, ni funciones sostenidas con el proyecto.</p>
+          <h3>Agradecimientos</h3>
+            <p>A aquellos que se emplearon en buscar en sus registros personales fotografías aptas para su publicación y georreferencia en Litorales de Colombia. A continuación, se mencionan algunos de estos: Marjohnny Monterroza, Juan Esteban Montoya Moreno, Laura Mejía Patiño, Daniela Alejandra Cabrera Agudelo, Andrés Agudelo Bermúdez, Daniela Alejandra Cabrera Agudelo, Bonilla, Diana Natali Pantoja López, Sebastián Muñoz Noriega, Jefferson Uribe, Daniela Alvarado Torrado, Danilo Chamorro, Laura María Rodas Blanco, Valentina Giraldo, entre otros</p>
+            <p>Fecha de la Declaración: 01/06/2025. Versión 2.</p>
+          
+          <button class="accordion">
+            <span class="accordionText">Expandir la lectura...</span><i class="fas fa-caret-right accordionIcon"></i>
+          </button>
+          <!-- Desplegable -->
+          <div class="accordionPanel">
+          <p>La mayoría de las personas que colaboraron en este segmento, lo hicieron a través de la sugerencia de fotografías sobre las cuales dieron información contextual que se refleja en las tablas de atributos de los recursos de Litorales de Colombia, aquí un aparte de estos:</p>
+          <h3>Metadatos de fotografías</h3>
+            <p>Los siguientes datos hacen referencia a la descripción de imágenes, su localización y contexto espacial. El comité editorial en su repositorio local lleva hojas de cálculo y tablas de atributos en formatos SIG, los cuales se integran para el crecimiento de la base de datos en siguientes versiones. A continuación, se señalan campos y valores de<a href="https://github.com/litocol/litorales/tree/main/assets/data/vector/geojson_gml/georefPictures">set de datos geográficos</a>. Por favor, si tiene dudas o encuentra errores en su uso informe al grupo de trabajo a través de sus contactos:</p>
+
+            <ul>
+              <li>id: Se trata de un identificador único de imagen que la distingue de entre todas las demás de proyecto. Es de tipo cadena al tratarse de la combinación de una letra alusiva a la región o localización de fotografía, seguido de una raya al piso y el consecutivo del orden en que se ingresa la información al paquete de datos. Las imágenes del Caribe se identifican con el formato C_# y las del pacífico P_#. Imágenes insulares se denominan I_# independientemente de ubicarse en océanos diferentes a razón de haberlas identificado de esta manera anteriormente. En un futuro pueden existir identificadores particulares para figuras y mapas, los cuales se especifican y cambian a lo largo de nuevas versiones de proyecto. Este atributo busca facilitar la indexación, búsqueda y enlace de la información del proyecto de forma eficiente.
+              </li><br>
+              <li>point_x, point_y: Se trata de las coordenadas que se pide a los usuarios en EPSG 4326 WGS 84.</li><br>
+              <li>Adicionales: El proyecto cuenta con información adicional opcional como coordenadas planas en EPSG 32617, 32618 y 32619 que corresponden a proyecciones UTM Norte.</li><br>
+              <li>coast: Indica la región litoral colombiana a la cual pertenece la costa que se visualiza en la fotografía. Puede tener cuatro (4) valores con algunas anotaciones y es un valor del tipo cadena de caracteres (string).<br>
+                <ul>
+                  <li>Caribe continental: Región comprendida entre la línea de costa de Cabo Tiburón en la frontera colombo-panameña y Punta Castilletes en la frontera colombo-venezolana. Señala la interfase tierra-océano que marca el fin de la continuidad de tierras emergidas del continente sur americano a favor de la extensión del mar Caribe. Comprende áreas unidas a tierra firme a lo largo de estrechos o franjas de tierra emergida permanentemente, se incluyen masas peninsulares cortadas por obras o ríos, así como secciones de espigas y deltas producto de la desembocadura de ríos de origen continental.</li><br>
+                  <li>Insular Caribe: Región comprendida por sistemas de salientes, rocas, bajos, cayos, islas y archipiélagos de distintos orígenes, los cuales se presentan rodeados por aguas del mar caribe de manera permanente. Hacen parte de este grupo, a pesar tener relación geológica y geomorfológica con unidades continentales, todas aquellas unidades paisajísticas que no tienen puente terrestre a alguna sección de tierra firme de extensión significativa. La definición no se extiende a islas fluviales.</li><br>
+                  <li>Pacífico continental: Región comprendida entre la línea de costa al norte de Punta Ardita en la frontera colombo-panameña y la sección norte de la bahía de Mataje en la frontera colombo-ecuatoriana. Señala la interfase tierra-océano que marca el fin de la continuidad de tierras emergidas del continente sur americano a favor de la extensión del océano pacífico. Comprende áreas unidas a tierra firme a lo largo de estrechos o franjas de tierra emergida permanentemente, se incluyen masas peninsulares cortadas por obras o ríos, así como secciones de espigas y deltas producto de la desembocadura de ríos de origen continental.</li><br>
+                  <li>Insular Pacífico: Región comprendida por sistemas de salientes, rocas, bajos, cayos, islas y archipiélagos de distintos orígenes, los cuales se presentan rodeados por aguas del océano pacífico de manera permanente. Hacen parte de este grupo, a pesar tener relación geológica y geomorfológica con unidades continentales, todas aquellas unidades paisajísticas que no tienen puente terrestre a alguna sección de tierra firme de extensión significativa. La definición no se extiende a islas fluviales.</li><br>
+                </ul>
+              </li>
+              <li>Departamento: Se trata de la división administrativa dentro del territorio nacional colombiano en el que el insumo se encuentra mayoritariamente contenido, esto en un sentido espacial. Globalmente es la región geográfica donde se encuentra un lugar fotografiado o cartografiado y es un valor del tipo cadena de caracteres (string). Se hace la salvedad de que en Colombia pueden existir regímenes administrativos especiales para espacios como parques nacionales, a pesar de esto los recursos se ligan a los departamentos conforme los límites geográficos establecidos por información geoespacial del DANE en su portal https://geoportal.dane.gov.co/. Este atributo abarca once (11) opciones de entre los treinta y dos (32) departamentos que hacen parte del territorio colombiano y se describen administrativamente de la siguiente manera:<br><br>
+                <ul>
+                  <li>Archipiélago de San Andrés, Providencia y Santa Catalina: Conjunto de islas que hacen el único territorio colombiano enteramente insular, por referencia se ubica a 720 km de la línea de costa continental colombiana y a unos 110 de la nicaragüense, hacia las coordenadas 12° 35' 37" y 14° 42' de latitud norte y 81° 40' 49" y 81° 43' 13" de longitud oeste. Su territorio comprende una extensión aproximada de 350.000 km2, con tierras emergidas de 52,2 km². Esta y más información puede consultarse a través de: https://www.sanandres.gov.co/index.php?option=com_content&view=article&id=116.</li><br>
+                  <li>Guajira: Territorio que comprende una masa continental litoral que va desde la desembocadura del río Palomino, hasta el sector de Punta Castilletes en límites con Venezuela, ocasionalmente se hallan salientes rocosas asociadas a sectores acantilados que figuran dentro del concepto insular de base de datos de proyecto. Su extensión ronda los 20.848 km² y su capital es Riohacha, ciudad localizada en latitud 11°32′39″ norte y longitud 72°54′25″ oeste. Esta y más información puede consultarse a través de: https://www.laguajira.gov.co/LaGuajira/Paginas/La-Guajira.aspx.</li><br>
+                  <li>Magdalena: Territorio que comprende una masa continental litoral que va desde Bocas de Ceniza en la desembocadura del río Magdalena y la desembocadura del río Palomino Ocasionalmente se hallan salientes rocosas asociadas a sectores acantilados que figuran dentro del concepto insular en la base de datos de proyecto. El departamento cubre un área de 23.188 km² y capital es la ciudad de Santa Marta, cuya localización es latitud 11°14′10″ norte y longitud 74°12′06″ oeste. Esta y más información puede consultarlo a través de: https://www.gobernaciondelmagdalena.gov.co/geografia-y-regiones/.</li><br>
+                  <li>Atlántico: Territorio que comprende una masa continental litoral que va desde el occidente en cercanías al sector de Galerazamba, hasta el sector de Bocas de Ceniza en la desembocadura del río Magdalena. El departamento cubre un área de 3.386 km² y se extiende entre las latitudes 10º 15' 36 'y 11º 06' 37'' norte, mientras que su longitud va de 74º 42' 47'' a 75º 16' 34''. Esta y más información puede consultarse a través de: https://www.atlantico.gov.co/index.php/departamento/presentaciondepartamento-45237.</li><br>
+                  <li>Bolívar: Territorio que comprende una masa continental litoral que va desde del sector de Galerazamba hasta punta Barbacoas, así como una masa insular que recoge grupos de islas y archipiélagos hasta inmediaciones del Urabá antioqueño. Las coordenadas extremas de departamento, incluyendo tierra firme son 07° 00' 04" y 10° 48' 24" de latitud norte y 73° 44' 59" y 75° 42' 31" de longitud oeste. Su territorio comprende una extensión aproximada de 25.978 Km². Esta y más información puede consultarse a través de https://www.todacolombia.com/departamentos-de-colombia/bolivar/index.html.</li><br>
+                  <li>Córdoba: Territorio que comprende una masa continental litoral que va desde a su norte inmediaciones del sur del golfo de Morrosquillo y su sur el sector de punta Arboletes y su localización se centra hacia los 7° 22’ y 9° 26’ de latitud norte y a los 74° 47’ y 76° 30’ de longitud al oeste. Este territorio comprende una extensión aproximada de 132 000 km². Esta y más información puede consultarse a través de https://www.cordoba.gov.co/publicaciones/36/informacion-general/.</li><br>
+                  <li>Antioquia: Territorio que comprende una masa continental litoral y fragmentos insulares en torno a aguas abiertas del Caribe y el Golfo de Urabá, sección se desarrolla desde el occidente sobre boca tarena del Río Atrato hasta playas del municipio de Arboletes. Su localización se centra entorno a las coordenadas 6°41′00″N de latitud norte y 75°34′00″﻿ de longitud al oeste en comprensión de 63.612 Km². Esta y más información puede consultarse a través de https://antioquia.gov.co/mapa-de-antioquia.</li><br>
+                  <li>Chocó: Territorio que comprende una masa continental litoral e insular a lo largo de dos mares desde el límite colombo-panameño hacia el interior del país. En su sección norte frente al Caribe, el departamento se extiende desde Cabo Tiburón Caribe hasta Boca Tarena, presentando algunas salientes rocosas características de la serranía del Darién. En su sección sur, se extiende desde Punta Ardita hasta Bocas del Río San Juan, presentado el litoral en estribaciones de la serranía del Baudó. Sus dimensiones se especifican entre los latitud 04º00’50’’ y 08º41’32’’ norte y longitud 76º02’57’’ y 77º53’38’’ oeste en comprensión de 46.530 km². Esta y más información puede consultarse a través de: https://www.choco.gov.co/tema/departamento.</li><br>
+                  <li>Valle del Cauca: Territorio que comprende una masa continental litoral e insular a lo largo de la costa pacífica. Su interfaz costera continental bordea Boca San Juan hasta hasta Boca del Naya, mientras que entre su territorio insular se extiende sobre el Santuario de Flora y Fauna de Isla Malpelo. Sus dimensiones se especifican entre los 05º02’08’’ y 03º04’02’’ de latitud norte y los 72º42’27’’ y 74º27’13’’ de longitud oeste en comprensión de 22.140 km². Esta y más información puede consultarse a través de: https://www.valledelcauca.gov.co/publicaciones/60137/mapas-y-territorios/.</li><br>
+                  <li>Cauca: Territorio que comprende una masa continental litoral e insular del pacífico. Su interfaz costera continental va desde Boca del Naya hasta la Bahía de Guapí en el sector de Obregones; por otro lado, su sistema insular comprende las islas del Parque Nacional Natural Gorgona. Este departamento se extiende entre los 00º58’54’’ y 03º19’04’’ de latitud norte y los 75º47’36’’ y 77º57’05’’ de longitud oeste, en suma de 29.308 km². Esta y más información puede consultarse a través de: https://www.cauca.gov.co/Dependencias/OficinaAsesoradePlaneacion/InformacioneIndicadores/Perfil%20Departamento%20del%20Cauca.pdf.</li><br>
+                  <li>Nariño: Territorio que comprende una masa continental litoral que va desde Bahía de Guapí hasta la Bahía Ancón de Sardinas en la frontera con Ecuador. La capital de este departamento es Pasto y se localiza en latitud 1°12′36’’ norte y longitud 77°16′29″O’’ oeste, en suma de 25.740  Km².  Esto y más información puede consultarse a través de: https://sitio.narino.gov.co/mapa/.</li><br>
+                </ul>
+              </li>
+              <li>Municipio: Es la subdivisión administrativa de un departamento o región sobre la cual se extiende mayoritariamente el contenido de la fotografía. Se trata de una cadena de caracteres (String) donde, los valores dependen de jurisdicciones nacionales, a veces interrumpidas por áreas protegidas como áreas de los Parques Nacionales Naturales PNN, entre otros. Cuando es así, se detalla el acrónimo “NA” de No Aplica.</li><br>
+              <li>Sitio: Hace referencia al lugar específico geográficamente reconocido donde se tomó la fotografía, su referencia se halla dentro del contexto municipal o departamental. Puede ser una alusión cultural a un punto de interés, una atracción turística, entre otros.</li><br>
+              <li>Posición: Describe la ubicación o las coordenadas geográficas del lugar exacto donde se capturó la fotografía. Se trata de un atributo del tipo cadena de caracteres (string).<br>
+                <ul>
+                  <li>Real: Detalla que el autor de la fotografía tiene pleno conocimiento de la ubicación de la misma, colabora en su georeferencia y da certeza acerca del contexto espacial del recurso.</li><br>
+                  <li>Aproximada: El autor de la fotografía tiene conocimiento acertado aunque no exacto de la ubicación en que se tomó la fotografía. Este reconoce el área geográfica en que se realiza la captura, los elementos paisajísticos y geográficos que esta contiene pero no su ubicación exacta por lo que existe el error en escala métrica; a pesar de esto, la calificación da fé de la validez del insumo para su relación a la conceptualización del área.</li><br>
+                  <li>Sospechada: Se trata de una referencia de ubicación poco confiable, señalada al autor de base de datos a través de un voz a voz que conecta aparentemente alusiones a áreas y elementos geográficos del registro y de mapas.</li><br>
+                </ul>
+              </li>
+              <li>Enfoque: Indica la dirección en que apunta la cámara o sensor pasivo cuando se acciona la captura de su registro. Se trata de una variable tipo cadena (string) de máximo tres caracteres producto de la alusión o combinación de los puntos cardinales: “N”, “S”, “E”, “W”, es válido indicar inclinaciones como “NE”, “NW”, “SE”, “SW” y nomenclaturas que fraccionan aún más el tablero geográfico en suma de los cardinales principales, ejemplo “NEE”, “NEN”, “SWW” y así sucesivamente. Esta referencia es cualitativa ya que se construye de manera subjetiva, para nada cuantitativa al no contar siempre con información fiable de la dirección de captura de imágenes a falta de sensores en los equipos utilizados para el registro.
+              </li><br>
+              <li>Interés: Palabra que refleja un contenido por el cual puede ser de interés general la fotografía. Puede estar relacionado con elementos paisajísticos, fisiográficos, geográficos, geológicos, geomorfológicos, entre otros. Sirve para el análisis de datos y la síntesis de características similares de fotografías. Se trata de un atributo del tipo cadena de caracteres (String).</li><br>
+              <li>Autor: Nombre, identificación, apodo o seudónimo a través del cual se identifica el fotógrafo o creador de la imagen, en monografías y referencias la alusión a este atributo se cita en formato APA 7ma edición. Se trata de un atributo del tipo cadena de caracteres (String)</li><br>
+              <li>HD: Se refiere a la calidad de la imagen, indicando si la fotografía está en alta definición o no. Con esto se refiere a insumos en 720p, 1080p, 4K, el cual se informa como un valor booleano del tipo TRUE y FALSE a través de los equivalentes “sí” y “no”, temporalmente este atributo se trata como un valor del tipo cadena de caracteres (String).</li><br>
+              <li>Toma: Información relacionada con la técnica o el proceso de la toma fotográfica. Se trata de un atributo del tipo cadena de caracteres (String).<br>
+                <ul>
+                  <li>Panorámica: Se trata de fotografías cuya relación ancho : alto supere con creces la magnitud de 1 : 1. Generalmente, este valor se relaciona con un modo de fotografía, el cual se incluye en distintas plataformas de fotografía; sin embargo, el término abarca aquellas fotografías que recogen contexto del litoral sea por medio de una vista elevada o por una extensión paisajística de su visual.</li><br>
+                  <li>Amplia: Se trata de fotografías con dimensiones cercanas al 1 : 1, la cual subjetivamente se determina que incluye contexto espacial del litoral además de presentar sus características de manera adecuada. Es decir, presenta la interfase tierra-agua y en buena medida la dominancia, interacción y papel de cada uno de estos ambientes en la toma.</li><br>
+                  <li>Cerrada: Señala la presentación de elementos puntuales del litoral, en ausencia de contexto o enriquecimiento de detalles. Se trata de fotografías de playas, costas o rocas que, a pesar de señalar características importantes y repetitivas del litoral, no permiten al usuario identificar procesos macroscópicos o de contexto. Sin embargo, su valor puntual se reconoce al incluirse dentro de la base de datos.</li><br>
+                </ul>
+              </li>
+              <li>Infraestructura: Indica la presencia de edificios, puentes, carreteras o infraestructuras portuarias y de protección en la imagen, se informa como un valor booleano del tipo TRUE y FALSE a través de los equivalentes “sí” y “no”. Temporalmente este atributo se trata como un valor del tipo cadena de caracteres (String).</li><br>
+              <li>Personas: Indica la presencia de personas en la imagen, se informa como un valor booleano del tipo TRUE y FALSE a través de los equivalentes “sí” y “no”. Temporalmente este atributo se trata como un valor del tipo cadena de caracteres (String).</li><br>
+              <li>Periodo: Hace referencia a la presencia o ausencia de luz en una fotografía a partir de términos periódicos alusivos al transcurrir del la jornada. Este atributo se trata de un valor del tipo cadena de caracteres (String).<br>
+                <ul>
+                  <li>Día: Alude a condiciones favorables de iluminación en el recurso coincidentes con el brillo característico del sol en horas de la mañana y mediodía de latitudes ecuatoriales.</li><br>
+                  <li>Atardecer: Alude a condiciones opacas de iluminación donde, la fotografía se limita en términos de la cantidad de detalles e información que entrega al usuario acerca del litoral. Sin embargo, en ocasiones sus características dejan en evidencia atributos paisajísticos y resaltan rasgos geomorfológicos y geográficos de interés, lo que lo hace un insumo funcional.</li><br>
+                </ul>
+              </li>
+              <li>Descripción: Texto descriptivo que proporciona información adicional sobre la imagen o el motivo de interés paisajístico detrás de su captura.</li><br>
+              <li>Fecha: Relaciona la fecha en la que se realiza la fotografía, su formato es el tipo fecha dd/mm/aa y cuando no se conoce con claridad se especifica como “ND”.</li><br>
+            </ul>
+
+            <p>Estos y otros atributos proporcionan información detallada sobre las imágenes del set de datos y permiten categorizar, organizar y buscar fotografías según diversos criterios. Se agradece usar esta estructura de datos si se hacen modificaciones directas en el repositorio para en la medida de los posible, dar continuidad ordenada al proyecto.</p>
+        </div>
+      </article>
+
+      <article>
+        <h2>Convocatoria</h2>
+          <p>La viabilidad en el largo plazo de Litorales de Colombia, depende además de sus medios de publicación PaaS de GitHub como servidor, cuenta mucho del lleno de contenidos de los usuarios y potenciales interesados en enrolarse como autores de artículos concretos u ocupados de la arquitectura de software del proyecto, así se abren canales para su participación:</p>
+          <h3>Redes sociales</h3>
+            <p>El proyecto de litorales de Colombia cuenta con un instagram, el cual sirve para además de difundir asuntos publicitarios y de apoyo del proyecto, contactar con los autores y coordinar un aporte.</p>
+          <h3>Contacto directo</h3>
+            <p>El correo de litorales de colombia siempre está disponible como <a href="mailto:litoralescolombia@gmail.com">litoralescolombia@gmail.com</a> o el teléfono del administrador +57323 421 3355.</p>
+          <h3>Inyección de código/archivos en el repositorio</h3>
+            <p>El <a href="https://github.com/litocol/litorales/tree/main">repositorio GitHub</a> siempre es una opción para aquellos que se encuentren más comodos con sus conocimientos de código y con el despliegue de aportes de manera más independiente</p>
+          <h3>Formulario de carga de fotos</h3>
+            <p>Se trata <a href="https://forms.gle/3TyQEQMEnhocmzpt8">formulario de carga individual de fotografías costeras con metadatos</a> diseñado en un servicio Google que notifica los correos del proyecto de sus aportes sin ninguna clase de contacto con los autores o administradores.</p>
+      </article>
+
+      <article id="legalIssues">
+        <h2>Legalidad</h2>
+          <p>Puede encontrar el original de las siguientes declaraciones en la <a href="https://github.com/litocol/litorales/tree/main">documentación del repositorio</a></p>
+          <p>Como aviso sobre el uso del nombre, similares y la identidad del proyecto: **“Litorales de Colombia”**, en ocasiones referenciado aquí como el proyecto, es un nombre protegido y no está disponible para su uso por terceros sin autorización expresa. El concepto general del proyecto, su estructura organizativa, filosofía y narrativa identitaria forman parte de una obra intelectual original y esto sí están sujetos a derechos reservados con marca registrada © 2025. Aunque el código fuente de este proyecto está licenciado bajo **GNU GPL v3** y los contenidos multimedia se distribuyen bajo **Creative Commons BY-NC 4.0**, el uso del nombre “Litorales de Colombia” y la reproducción de su concepto no están cubiertos por dichas licencias.</p>
+
+          <p>El uso, reproducción, imitación o adaptación del nombre, logotipo, concepto organizativo o filosófico de este proyecto en otros países, contextos o iniciativas similares, requiere autorización previa por escrito de los administradores del proyecto o en casos concretos, la relación colaborativa con el desarrollo y difusión de contenidos del proyecto, en cuyo caso deben existir evidencias de la voluntad de los autores por generar y prolongar dichas interacciones. Cualquier conducta inadecuada en estos aspectos puede ser sujeta de reclamaciones legales.</p>
+          <p>Fecha de las declaraciones: 01/06/2025.</p>
+
+          <button class="accordion">
+            <span class="accordionText">Expandir la lectura...</span><i class="fas fa-caret-right accordionIcon"></i>
+          </button>
+          <!-- Desplegable -->
+          <div class="accordionPanel">
+
+            <h3>Descargos</h3>
+              
+              <p>En su versión 2.0.0., Litorales de Colombia cuenta con 3 licencias vigentes para distintos aspectos del proyecto. AHora, en síntesis el material que puede llegar a interesar a los usuarios en su mayoría de caracter abierto bajo condiciones bien establecidas de no uso comercial y reproducción libre bajo referencia del proyecto y uso de licencias compatibles que exceptuan la copia del nombre e identidad del proyecto.</p>
+              <p>Dado lo anterior se especifica:</p>
+
+              <h4>De la introducción de material con nuevas licencias</h4>
+                <p>A pesar del caracter libre, condicional de introducir referencias para el uso y la restricción de incluir el material del proyecto litorales de Colombia en obras comerciales, según el despliegue de la versión 2.0.0. de los contenidos etiquetados **GNU GPL v3** y **CC BY-NC 4.0**, el proyecto se reserva la posibilidad de introducir sobre nuevas versiones de despliegue y contenido inédito, hipervínculos y sugerencias de enrutamiento a trabajos que contengan licencias comerciales propias o de terceros, las cuales pueden actuar en cualquier modalidad sin comprometer el acceso libre a la información ya publicada que se seguirá distribuyendo bajos susrespectivos términos en el repositorio, independientemente de su versionado.</p>
+
+                <p>Lo anterior busca proteger la obra, esfuerzos o intereses sobre nuevos proyectos que requieren algún tipo de rentabilidad para su despliegue por parte de los autores del proyecto, de manera que se garantiza la salida al público de materiales inéditos que también pueden ser de su interés en el marco de la producción de contenido cartográfico y geocientífico de los litorales colombianos. Esto también posibilita la alianza educativa con terceros sin comprometer productos a la filosofía abierta de la mayoría de los contenidos del proyecto.</p>
+
+                <p>Del mismo modo, el destino de cualquier beneficio económico o en especie de la inclusión de material con licencias restrictivas directo o indirecto debe conciliar un protocolo según la conciliación de los colaboradores activos que ocupan cargos de mediano y largo plazo en el proyecto. Este y otros qué haceres documentales se irán esclareciendo con la marcha del desarrollo de nuevas versiones de proyecto.</p>
+
+                <p>De tener las capacidades técnicas para la introducción de cookies, el proyecto se compromete a introducir apartados como el Banner o aviso de cookies en el ingreso, explicaciones de uso y destino con un apartado informativo exclusivo y señalizado para los usuarios, opciones de aceptación o rechazo para su administración, así como documentación relacionada a políticas de privacidad complacientes con las normativas nacionales e internacionales tales como: Ley 1581 de 2012 – Protección de datos personales, la guía de tratamiento de datos personales en Internet de La Superintendencia de Industria y Comercio de 2015, así como principios del Reglamento General de Protección de Datos (GDPR – Unión Europea) y la Directiva ePrivacy (UE), una vez se esyablezcan las capacidades.</p>
+
+                <p>Del mismo modo, la normativa anterior también puede servir para el desarrollo de la arquitectura de usuarios que puede instalar el proyecto en futuras entregas.</p>
+                <p>Fecha de las declaraciones: 01/06/2025.</p>
+
+              <h4>De los perjuicios que pueden surgir del mal uso del proyecto</h4>
+                <p>Litorales de Colombia, así como el equipo de trabajo que incluye autores y colaboradores en distintos grados de colaboración y volumen de suministro de contenidos, no se hace responsable de los perjuicios materiales o inmateriales que terceros puedan hacer a otros usuarios o no usuarios del proyecto con el uso indebido de los contenidos abiertos o incluso con la violación de los términos de las licencias restrictivas, último caso que es más bien un perjuicio dirigido también a la imagen y viabilidad del proyecto.</p>
+
+                <p>Con esta declaración, se busca informar de la no responsabilidad del proyecto Litorales de Colombia en estafas, malinterpretaciones de datos, informes y trabajos que no tengan conexión con la creación de contenidos del grupo de trabajo o los autores por y para el proyecto, la introducción malintencionada de inexactitudes extractos de los artículos con fines maliciosos o con resultados negativos a pesar de cualquier tipo de intención sobre la modificación de estos</p>
+
+                <p>Aplica la desresponsabilización sobre las futuras prácticas de individuos a nombre propio o de terceros que inicialmente hayan hecho uso de la información por los conductos señalados como la copia la copia del repositorio bajo la publicación de licencias compatibles con las correspondientes.</p>
+
+                <p>Por último se hace la anotación de que, las publicaciones de Litorales de Colombia al punto de su versión 2.0.0. y siguientes que no impliquen un salto de versionamiento mayor (3 en adelante), tienen un caracter netamente educativo y dado el sesgo filosófico y de incertidumbre de las ciencias que abarca, cabe la introducción de conflictos sobre la validez y acierto completo del material, razón por la cual a los usuarios se les pide discresión en el uso de dichos contenidos.</p>
+
+                <p>La legitimidad de Litorales de Colombia se basa pues en la confianza de los autores que se referencian debidamente en sus artículos finales (contenidos rama) y lanzamientos mayores (contenidos nodo). De esta forma se recomienda dividir las responsabilidades ya de por sí limitadas a la enseñanza y no extendida a la práctica, sobre todo el equipo de creación de  la información; esto es, autores, colaboradores, editores, revisores y divulgadores cuya relación la puede encontrar en los pie de cada página la cual en ocasiones puede contar con revisiones. Adicionalmente se anota que, este contenido no busca reemplazar ninguna clase de educación formal, se aconseja usar los contenidos como una fuente de información secundaria para el apoyo de ideas inéditas y simplificadas de otras ya públicamente extendidas con fines del fortalecimiento del conocimiento cartográfico y geocientífico con contexto especial colombiano.</p>
+                <p>Fecha de las declaraciones: 01/06/2025.</p>
+
+              <h4>Del vinculo con autores y colaboradores</h4>
+
+                <p>El proyecto segmenta dos tipo de relaciones con creadores de contenido, los autores que son quienes desempeñan roles dentro del organigrama y cumplen tareas concretas a largo plazo y los colaboradores que, de manera independiente aportan al proyecto bajo los medios dispuestos para esto como la inyección de código y multimedia en el repositorio con "pull requests", los formularios o el contacto mediado por los autores. En la versión 2.0.0., no hay ninguna clase de recomensa económica a las actividades de ninguno de participantes de ambos segmentos más que el reconocimiento de sus aportes con el adecuado etiquetado editorial hacia estos, lo que ahora se considera suficiente y no desarrolla ningún tipo de relación laboral dada la naturaleza colaborativa del proyecto y su filosofía.</p>
+                
+                <p>Litorales de Colombia tampoco reconoce, intercambia o compra ningún tipo de contenido a través de dinero o bienes, por lo que se avisa de esto a sus usuarios con el fin para evitar malentendidos y posibles suplantaciones e inconvenientes. En el fondo, el proyecto sintetiza los aportes sobres sus archivos abiertos, vea <a href="#licencias"></a> como colaboraciones sin la búsqueda de ánimo de lucro mutuo donde, Litorales presta su plataforma y capacidad de para el despliegue de trabajos de entusiastas de la cartografía y las geociencias del ámbito costero; es decir, muchas de las obras del proyecto se toman como conjuntas sin reclamo de pago y esto es independiente de su nivel de participación.</p>
+                <p>Fecha de las declaraciones: 01/06/2025.</p>
+
+            <h3 id="licencias">Licencias</h3>
+              <p>Como se especificó anteriormente, a la vigencia litorales de Colombia cuenta con coberturas del tipo:</p>
+              
+              <h4>Marca registrada © 2025</h4>
+              <p>Todos los derechos reservados sobre el nombre, concepto, filosofía, identidad organizativa y narrativa del Litorales de Colombia, también referenciado como el proyecto.</p>
+              <p>Esta en específico es una declaración de derechos de autor de la forma clásica que otorga protección total a la idea en manos de los colaboradores activos con el fin de evitar suplantaciones del proyecto o versiones alternativas que con temáticas similares, lo que busca inhabilitar a personas inescrupulosas de aprovechar los conceptos libres para incluso robarse el crédito de los esfuerzos o estafar y engañar a personas interesadas en la colaboración con el concepto original.</p>
+
+              <p>Del mismo, esto permite al equipo de Litorales actuar con libertad en la toma de decisiones creativas y desarrollar redes sociales y otras identificaciones de red y estatales que de otra forma podrían reclamarse de manera injusta por ajenos al proyecto.</p>
+              
+              <h4>sobre los contenidos multimedia estándar</h4>
+                <p>Este archivo aplica a los contenidos del tipo imágenes, audio, video y texto ubicados en las siguientes carpetas de la versión 2.0.0. del proyecto Litorales de Colombia que se despliega el 01 de junio de 2025 bajo el dominio de https://desarrolloscreativos.dev/ con hosting PaaS de Github con referencia a https://litocol.github.io/litorales/: - `assets.</p>
+                
+                <p>Esta no es válida para las fuentes, frameworks e íconos de terceros que se usan en el proyecto a las cuales se hace referencia directa e indirectamente también en el código.</p>
+
+                <p>Aplica entonces **Creative Commons Atribución-NoComercial 4.0 Internacional (CC BY-NC 4.0)**. Busque la copia original en https://creativecommons.org/licenses/by-nc/4.0/ para conocer todos los derechos y obligaciones sobre la consulta y uso del material.</p>
+
+                <p>Para todo lo demás, esto significa que puedes: - Compartir: copiar y redistribuir el material en cualquier .medio o formato; así como - Adaptar: remezclar, transformar y construir a partir del material. Esto es válido siempre y cuando no se violen los derechos reservados del nombre, concepto, filosofía, identidad organizativa y n.arrativa del proyecto Litorales de Colombia que se aclaran anteriormente.</p>
+
+                <p>Con esto se entiende el uso de esta  licencia se limita sobre la suplantación total del contendio con fines maliciosos, lo cual no debe implicar una contradicción en el uso responsable y diligente de la información, la cual aplica las condiciones de **Atribución**: Debes dar crédito adecuado. **No Comercial**: No puedes usar el material con fines comerciales.</p>
+
+              <h4>sobre los contenidos de código del repositorio</h4>
+
+                <p>Este archivo aplica a los contenidos de código ubicados en las siguientes carpetas de la versión 2.0.0. del proyecto Litorales de Colombia que se despliega el 01 de junio de 2025 bajo el dominio de https://desarrolloscreativos.dev/ con hosting PaaS de Github con referencia a https://litocol.github.io/litorales/:<br><br>
+
+                - `html<br>
+                - `css<br>
+                - `js<br>
+                - `index.html<br>
+                - `CNAME<br>
+                - `README.md<br>
+                - `LICENSE<br>
+                - `LICENSE-media.md<br>
+                - `gitignore<br>
+                - `ChangeLog.md<br><br>
+
+                  GNU GENERAL PUBLIC LICENSE<br>
+                  Version 3, 29 June 2007<br>
+
+                  Copyright (C) 2025 Litorales de Colombia<br>
+
+                  Everyone is permitted to copy and distribute verbatim copies of this 
+                  license document, but changing it is not allowed ...<a href="https://github.com/litocol/litorales/tree/main">Continuar esta lectura en el repositorio</a><br><br>
+
+                  GNU GENERAL PUBLIC LICENSE<br>
+                        Version 3, 29 June 2007... continue la lectura en la <a href="">documentación del repositorio</a>, donde también podrá encontrar una traducción al español no oficial de <a href="https://lslspanish.github.io/translation_GPLv3_to_spanish/">https://lslspanish.github.io/translation_GPLv3_to_spanish/</a>.</p>
+        
+                        <p>Fecha de las declaraciones: 01/06/2025.</p>
+
+          </div>
+      </article>
+
+      <article id="faq">
+        <h2>Preguntas frecuentes (FAQ)</h2>
+          <p>A la espera de censo de preguntas</p>
+      </article>
+
+      <article id="continueLearning">
+        <h3>¿Desea seguir aprendiendo?</h3>
+          <p>Puede consultar:</p>
+          <!-- Acordeón -->
+          <button class="accordion">
+            <span class="accordionText">Expandir la lectura...</span><i class="fas fa-caret-right accordionIcon"></i>
+          </button>
+          <!-- Desplegable -->
+          <div class="accordionPanel">
+            <p>Formatos para la manipulación de datos geográficos:</p>
+            <div class="showingCards">
+              <a href="/html/articles/varietyMagazine/gis/programming/formats/geojson.html" class="card-link-wrapper">
+                <h4>Geojson &nbsp;&nbsp;<i class="fas fa-file-code"></i></h5>
+                <p>Una alternativa para la comunicación web de datos geoespaciales liviana.</p>
+              </a>
+              <a href="/html/articles/varietyMagazine/gis/programming/formats/shp.html" class="card-link-wrapper">
+                <h4>Shp &nbsp;&nbsp;<i class="fas fa-file-code"></i></h5>
+                <p>Un archivo de alta compatibilidad y soporte a lo largo de múltiples SIG.</p>
+              </a>
+              <a href="/html/articles/varietyMagazine/gis/programming/formats/kmlKmz.html" class="card-link-wrapper">
+                <h4>Kml/Kmz &nbsp;&nbsp;<i class="fas fa-file-code"></i></h5>
+                <p>Archivos con sintaxis similar a XML.</p>
+              </a>
+            </div>
+          </div>
+          <br>
+          <p>Descubra otros contenidos:</p>
+          <!-- Acordeón -->
+          <button class="accordion">
+            <span class="accordionText">Expandir la lectura...</span><i class="fas fa-caret-right accordionIcon"></i>
+          </button>
+          <!-- Desplegable -->
+          <div class="accordionPanel">
+            <p>Contenidos geomorfológicos:</p>
+            <div class="showingCards">
+              <a href="/html/articles/geosciences/geomorphology/vocabulary/delts.html" class="card-link-wrapper">
+                <h4>Deltas &nbsp;&nbsp;<i class="fas fa-water"></i></h5>
+                <p>Edificios geomorfológicos que se desarrollan en medios submarinos y subaéreos por un régimen de sedimentación impuesto por desembocaduras fluviales.</p>
+              </a>
+              <a href="/html/articles/geosciences/geomorphology/vocabulary/coastLine.html" class="card-link-wrapper">
+                <h4>Línea de costa &nbsp;&nbsp;<i class="fas fa-umbrella-beach"></i></h5>
+                <p>Interfaz litoral dinámica que marca el límite momentaneo del nivel de la columna de agua frente a la costa</p>
+              </a>
+              <a href="/html/articles/geosciences/geomorphology/vocabulary/bays.html" class="card-link-wrapper">
+                <h4>Bahías &nbsp;&nbsp;<i class="fas fa-anchor"></i></h5>
+                <p>Elementos geográficos costeros que dan abrigo a multitud de puertos y playas de Colombia</p>
+              </a>
+            </div>
+            <br>
+          </div>
+    </article>
+
+
+
+        <!-- Octavo artículo -->
+        <article id="bibliography">
+          <h2>Bibliografía</h2>
+            
+            <p>La mayoría de contenidos de Litorales de Colombia pueden usar imágenes y textos de terceros que presentan su información como pública y esto aplica especialmente cuando aluden a una licencia de este tipo. Como precaución legal y recocimiento justo de los derechos y mérito de sus obras, siempre se referencian en una suerte de normas APA v7. en español.</p>
+            <p>A pesar de que en esta ocasión la mayor parte de los contenidos son originales, vale la pena sugerir trabajos y herramientas que son utiles para el desarrollo del proyecto:</p>
+            <!--Botón acordeón -->
+            <button class="accordion">
+              <span class="accordionText">Expandir la lectura...</span><i class="fas fa-caret-right accordionIcon"></i>
+            </button>
+            <!-- Desplegable -->
+            <div class="accordionPanel">
+              <nav>
+                <ul>
+                  <li>Banco de Occidente. (2025). Colección ecológica del banco de occidente. Índice de contenidos con diversos autores en internet. Editorial: I/M Editores. Disponible en la web <a href="https://www.imeditores.com/banocc/" target="_blank" rel="noopener noreferrer" title="Ir a la web de GIT">https://www.imeditores.com/banocc/</a>.
+                  </li><br>
+                  <li>Dirección General Marítima. (2025). Revista País de Mares. Producto informativo del sector marítimo colombiano. DIMAR. Disponible en la web <a href="https://mindefensa.primo.exlibrisgroup.com/discovery/collectionDiscovery?vid=57MDN_INST:CECOLDO&collectionId=8138330770007231&lang=es" target="_blank" rel="noopener noreferrer" title="Ir a la web de GIT">https://mindefensa.primo.exlibrisgroup.com/discovery/collectionDiscovery?vid=57MDN_INST:CECOLDO&collectionId=8138330770007231&lang=es</a>.
+                  </li><br>
+                  <li>W3Schools. (2025). W3Schools. Tutoriales de programación. Disponible en la web <a href="https://www.w3schools.com/" target="_blank" rel="noopener noreferrer" title="Ir a la web de GIT">https://www.w3schools.com/</a>.
+                  </li><br>
+                  <li>Microsoft Corporation. (2025). Visual Studio Code. Editor de código. Disponible en la web <a href="https://code.visualstudio.com" target="_blank" rel="noopener noreferrer" title="Ir a un glosario de formatos SIG">https://code.visualstudio.com</a>.
+                  </li><br>
+                  <li>Google. (2025). Google Colaboratory. Entorno de desarrollo interactivo. Disponible en la web <a href="https://www.imeditores.com/banocc/sierras/indice.htm" target="_blank" rel="noopener noreferrer" title="Ir a la web de GIT">https://colab.research.google.com/</a>.
+                  </li><br>
+                  <li>OpenAI. (2025). ChatGPT (modelo o3). Modelo de lenguaje. OpenAI. Disponible en la web <a href="https://chat.openai.com" target="_blank" rel="noopener noreferrer" title="Ir a la wiki relacionada al servicio WFS">https://chat.openai.com</a>.
+                  </li><br>
+                  <li>Git. (2025). Git (versión 2.x) [Software]. Disponible en la web <a href="https://git-scm.com" target="_blank" rel="noopener noreferrer" title="Ir a la web de GIT">https://git-scm.com</a>.
+                  </li><br>
+                  <li>GitHub. (2025). GitHub [Sitio web]. Disponible en la web <a href="https://github.com" target="_blank" rel="noopener noreferrer" title="Ir a la wiki relacionada al formato GML">https://github.com</a>.
+                  </li><br>
+                  <li>Agafonkin, V. (2024). Leaflet: una biblioteca JavaScript de código abierto para mapas interactivos. Disponible en la web <a href="https://leafletjs.com" target="_blank" rel="noopener noreferrer" title="Ir a la wiki relacionada al servicio WFS">https://leafletjs.com </a>.
+                  </li><br>
+                  <li>Plotly Technologies Inc. (2025). Plotly. Plataforma de visualización de datos. Disponible en la web <a href="https://plotly.com" target="_blank" rel="noopener noreferrer" title="Ir a la wiki relacionada al servicio WFS">https://plotly.com/</a>.
+                  </li>
+                </ul>
+              </nav>
+            </div>
+
+            <h3>Recomendada</h3>
+              <p>A continuación, se hace una selección bibliográfica de recursos relevantes para el conocimiento de los litorales colombianos y su contexto espacial. En el caso de artículos científicos estos pueden requerir conocimientos técnicos previos para su entendimiento.</p>
+
+              <button class="accordion">
+              <span class="accordionText">Expandir la lectura...</span><i class="fas fa-caret-right accordionIcon"></i>
+              </button>
+              <!-- Desplegable -->
+              <div class="accordionPanel">
+
+                <p>El índice de recursos se halla acompañado de su idioma [ Es “Español”, En “Inglés”,  Pt “Portugués” ] y tipo de trabajo ó temática:</p>
+                <ul>
+                  <li> [Es – Metodología] / Agudelo Bermúdez, A., Parra León, N., & Álvarez Orduz, O. S. (2023). Generalidades metodológicas entorno a la caracterización geomorfológica del litoral caribe colombiano. Boletín País de Mares – DIMAR – CIOH. Por publicar.</li><br>
+                  <li> [Es – Metodología] / Carvajal, H. (2011). Propuesta de estandarización de la cartografía geomorfológica en Colombia.</li><br>
+                  <li> [Es – Metodología] / IDEAM. (2013). Guía metodológica para la elaboración de mapas geomorfológicos a escala 1:100.000. http://www.ideam.gov.co/documents/11769/152722/Guia_Enero_201401+%281%29.pdf/ 501aa421-a0e4-4a1d-a5c8-d6cb1b0de520#:~:text=La%20Gu%C3%ADa%20Metodolog%C3%ADa%20para%20el,etapas%20futuras%20a%20escalas%20mayores. </li><br>
+                  <li> [Es – Metodología] / IGAC. (2021a). Elaboración de cartografía geomorfológica aplicada a levantamiento de suelos.</li><br>
+                  <li> [Es – Glosario] / Gómez, J. F., Carvajal, J. H., & Otero García Javier. (2012). Propuesta de estandarización de los levantamientos geomorfológicos en la zona costera del Caribe colombiano. In Publicación especial de cooperación Colciencias - Gobernación del Magdalena - Invemar (pp. 1–113). Instituto de investigaciones Marinas y Costeras. https://observatorio.epacartagena.gov.co/ftp-uploads/pub-propuesta-de-estandarizacion.</li><br>
+                  <li> [Es – Glosario] / Servicio Geológico Colombiano. (2023). Anexo A. Glosario de Unidades y Subunidades Geomorfológicas. http://www.unalmed.edu.co/~geomorfo/ArticulosEstructuras/000e0020m.htm.http://www.unalmed.edu.co/~geomorfo/ArticulosEstructuras/000e0020m.htm.</li><br>
+                  <li> [Es – Glosario] / IGAC. (2021b). Glosario de términos geomorfológicos aplicados a levantamientos de suelo. http://igacnet2.igac.gov.co/intranet/UserFiles/File/DOCUMENTOS%20SGI%202021/GAG/PC-GAG-04/IN-GAG-PC04-02%20Glosario%20de%20terminos%20geomorfologicos.pdf.</li><br>
+
+                  <li>[Es – Especial] /  INVEMAR. (2010). Biodiversidad del Margen Continental del Caribe Colombiano. In Serie de Publicaciones Especiales No. 20. (pp. 1–458). Instituto de investigaciones Marinas y Costeras “José Benito Vives De Andréis.” http://www.invemar.org.co/redcostera1/invemar/docs/8868Version_Final_Libro_Invemar-ANH.pdf.</li><br>
+
+                  <li> [Es – Libro] / Tarbuck, E. J., Lutgens, F., & Tasa, D. (2004). Ciencias de la Tierra, una introducción a la geología física (M. martín-Romo, Ed.; 8th ed.). Prentice Hall / Pearson.</li><br>
+                  <li> [En – Libro] / Condie, K. C. (2005). Earth as an evolving planeary system. https://www.sciencedirect.com/book/9780128199145/earth-as-an-evolving-planetary-system.</li><br>
+                  <li> [En – Libro] / Davidson-Arnott, R., Bauer, B., & Houser, C. (2019). Introduction to Coastal Processes and Geomorphology (2nd ed., Vol. 1). Cambridge University Press. https://doi.org/https://doi.org/10.1017/9781108546126.</li><br>
+                  <li>[Pt – Libro] / Christofoletti. (1980). Geomorfologia (Edgar Blücher Ltda, Ed.; 1st ed., Vol. 2). Editora. https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxkYWxpZ2VvYmlibGlvdGVjYXxneDo2ODAwNjI5M2NhMjI4OGU1.</li><br>
+
+                  <li>[Es – Reporte] / Posada Posada, B. O., & Henao Pineda, W. (2008). Diagnóstico de la erosión en la zona costera del Caribe colombiano. http://www.invemar.org.co/redcostera1/invemar/docs/605220080501_AErosionCaribeContinentalColombia.pdf.</li><br>
+                  <li>[Es – Reporte] / Posada Posada, B. O., Henao Pineda, W., & Guzmán Ospitia, G. (2009). Diagnóstico de la Erosion en la Zona Costera del Pacifico colombiano. https://centrodocumentacion.invemar.org.co/cgi-bin/koha/opac-detail.pl?biblionumber=16871.</li><br>
+                  <li>[Es – Atlas] / Dimar-CIOH. (2013). Atlas Geomorfológico del Litoral Caribe Colombiano (Dirección General Marítima - Centro de Investigaciones Oceanográficas e Hidrográficas del Caribe, Ed.; Pub. Esp. Vol. 8). Dimar. https://doi.org/10.26640/9789585772373.2013.</li><br>
+                  <li>[Es – Atlas] / INGEOMINAS. (1998). Atlas de geomorfología y aspectos erosivos del litoral caribe colombiano (pp. 1–35). http://geonodesiam.invemar.org.co/documents/4363.</li><br>
+                  <li>[Es – Atlas] / Fundación MarViva, CODECHOCÓ, Fundación PLAN, & CORPARIEN. (2019). Atlas Marino-Costero del Bajo Baudó, Colombia. https://marviva.net/wp-content/uploads/2021/11/atlas2019_web2.pdf.</li><br>
+                  <li>[Es – Geología, geomorfología y fisiografía] / Carvajal, J. H., Mendivelso, D., Forero, H., Castiblanco, C. R., Pinzón, L. M., & Prada, M. (2010). Investigación del diapirismo de lodo y evolución costera del Caribe colombiano. https://recordcenter.sgc.gov.co/B12/23008002524448/documento/pdf/2105244481101000.pdf.</li><br>
+                  <li>[Es – Geología, geomorfología y fisiografía] / López Mendivelso, D., Carvajal, J. H., & Marléen Pinzón, L. (2010). Estudio geomorfológico del sector comprendido entre Bocatocino, Atlántico y Ciénaga, Magdalena. https://recordcenter.sgc.gov.co/B12/23008002524436/Documento/PDF/2105244361101000.pdf.</li><br>
+                  <li>[En – Geología, geomorfología y fisiografía] / Carvajal, J. H. (2016). Mud Diapirism in the Central Colombian Caribbean Coastal Zone. In M. Hermelín (Ed.), World Geomorphological Landscapes book series. Landscapes and Landforms of Colombia. (pp. 35–53). Springer. https://doi.org/10.1007/978-3-319-11800-0_3.</li><br>
+                  <li>[En – Geología, geomorfología y fisiografía] / Correa Arango, I. D., & Paniagua-Arroyave, J. F. (2016). The Arboletes-Punta Rey Littoral, Southern Caribbean Coast. In M. Hermelin (Ed.), World Geomorphological Landscapes book series. Landscapes and Landforms of Colombia (pp. 55–63). Springer. https://doi.org/10.1007/978-3-319-11800-0_4.</li><br>
+                  <li>[En – Geología, geomorfología y fisiografía] / Posada, B. O. (2016). Cabo de La Vela (“La Vela” Cape) and Surroundings. In M. Hermlín (Ed.), World Geomorphological Landscapes book series. Landscapes and Landforms of Colombia. (pp. 23–34). Springer. https://doi.org/10.1007/978-3-319-11800-0_2.</li><br>
+                  <li>[Es – Geología, geomorfología y fisiografía] / Álvarez-Gutiérrez, Y., Amaya-López, C., Barbosa-Mejía, L. N., Builes-Carvajal, J. S., Henao-Casas, J. D., Montoya-Cañola, S. M., Pacheco-Sintura, P. A., Ramírez-Hoyos, L. F., Urrego-Osorio, S., Zapata-Montoya, A., Ordóñez-Carmona, O., & Restrepo-Álvarez, J. J. (2014). Descripción e interpretación geológica de las Isla de Providencia y Santa Catalina. Boletín Ciencias de La Tierra, 35, 67–81.</li><br>
+                  <li>[Es – Geología, geomorfología y fisiografía] / Palacin Suárez, A. P. (2022). Análisis geomorfológico de los fondos submarinos de las islas Cayos de Quitasueño y Cayos de Serrana en el Archipiélago de San Andrés, Providencia y Santa Catalina (Caribe Colombiano) [Tesis de pregrado para oprtar por el título de Geóloga]. Universidad del Norte.</li><br>
+                  <li>[Es – Geología, geomorfología y fisiografía] / Velasco, E. R., & López, G. I. (2016). Marco conceptual para investigaciones tsunamigénicas: Caso litoral pacífico Colombiano. Boletín de Geología, 38(4), 79–106. https://doi.org/10.18273/revbol.v38n4-2016005.</li><br>
+                  <li>[Es – Geología, geomorfología y fisiografía] / Bermúdez Rivas, C., Constanza Álvarez Machuca, M., & Niño Pinzón, D. C. (2014). Caracterización de la geomorfología costera y sus coberturas vegetales asociadas, a través de sensores remotos, en la costa de Tumaco, Nariño. Boletín Científico CIOH, 32, 29–46.</li><br>
+                  <li>[Es – Geología, geomorfología y fisiografía] / Álvarez M., M. C., Bermúdez-Rivas, C., & Niño P., D. C. (2016). Caracterización de la geomorfología costera y sus coberturas vegetales asociadas, a través de sensores remotos en la bahía de Buenaventura, Valle del Cauca. Boletín Científico CIOH, 34, 49–63. https://doi.org/10.26640/22159045.426.</li><br>
+                  <li>[Es – Geología, geomorfología y fisiografía] / Cuervo Londoño, G. A., & Perdomo Rodríguez, L. C. (2021). Malpelo como Patrimonio Geológico Sumergido. Ensayos Sobre Estrategia Marítima, 5(13), 69–84. https://doi.org/https://doi.org/10.25062/2500-4735.2327.</li><br>
+                  <li>[Es – Geología, geomorfología y fisiografía] / Blanco-Chao, R., Pedoja, K., Witt, C., Martinod, J., Husson, L., Regard, V., Audin, L., Nexer, M., Delcaillau, B., Saillard, M., Melnick, D., Dumont, J. F., Santana, E., Navarrete, E., Martillo, C., Pappalardo, M., Ayala, L., Araya, J. F., Feal-Pérez, A., … Arozarena-Llopis, I. (2014). The rock coast of South and Central America. Geological Society Memoir, 40(1), 155–191. https://doi.org/10.1144/M40.10.</li><br>
+
+                  <li>[Es – Tectónica] / Bedoya, G., Cediel, F., Restrepo-Correa, I., Cuartas, C., Montenegro, G., Marin-Cerón, M. I., Mojica, J., & Cerón, R. (2009). Aportes al conocimiento de la evolución geológica de las cuencas Atrato y San Juan dentro del Arco Panamá-Chocó. Boletín de Geología, 31(2), 1–14.</li>
+                  <li>[Es – Tectónica] / Duque Caro, H. (1978). Geotectónica y evolución de la región Noroccidental Colombiana. Boletín Geológico, 23(3), 4–37.</li><br>
+                  <li>[En – Tectónica] / Duque-Caro, H. (1990). The Choco Block in the northwestern corner of South America: Structural, tectonostratigraphic, and paleogeographic implications. In Journal of South American Earth Sciences (Vol. 3, Issue I).</li><br>
+                  <li>[En – Tectónica] / Montes, C., Rodriguez-Corcho, A. F., Bayona, G., Hoyos, N., Zapata, S., & Cardona, A. (2019). Continental margin response to multiple arc-continent collisions: The northern Andes-Caribbean margin. In Earth-Science Reviews (Vol. 198). Elsevier B.V. https://doi.org/10.1016/j.earscirev.2019.102903.</li><br>
+                  <li>[En – Tectónica] / Piraquive, A. (2017). Structural framework, deformation and exhumation of the Santa Marta Schists: Accretion and deformational history of the Caribbean Terrane at the north of the Sierra Nevada de Santa Marta [Ph. D. Thesis]. Universidad Nacional de Colombia.</li><br>
+                </ul>
+              </div>
+        </article>
+
+        <!-- Noveno artículo (tiene tres contenedores) -->
+        <article id="credits">
+          <h2>Créditos</h2>
+          <!-- Reorganización de contenedores uno -->
+          <div class="groupsOrder">
+            <div class="editorial">
+              <h3>Producto de Litorales, por:</h2>
+              <ul>
+              <li class="leader">Andrés Agudelo Bermúdez<br><span>Líder del equipo</span></ñi>
+              </ul>
+            </div>
+            <div class="webEdition">
+              <h3>Edición para la web</h3>
+              <ul>
+                <li><strong>Andrés Agudelo</strong><br><span>Responsable de maquetación y código</span></li>
+              </ul>
+            </div>
+            <div class="litoralsContact">
+              <h3>Aporte nuevos contenidos a:</h3>
+              <p>
+                <strong>Correo:</strong>&nbsp;&nbsp;litoralescolombia@gmail.com</li><br>
+                <strong>Celular:</strong>&nbsp;&nbsp;+57 323 421 3355 &nbsp;<i class="fi fi-co"></i>
+              </p>
+            </div>
+          </div>
+          <!-- Reorganización de contenedores dos -->
+          <div class="contentType">
+            <h3>Revisores</h3>
+            <ul>
+              <li><strong>Andrés Agudelo Bermúdez</strong><br>BSc.Ingeniero geólogo.</li>
+              <li><strong>Nila Parra León</strong><br>MSc. en Geografía, BSc. Ingeniera Geóloga.</li>
+            </ul>
+          </div>
+          <!-- Reorganización de contenedores tres -->
+          <div class="provisional-site-footer">
+            <p>Proyecto litorales de Colombia. Versión 2.0.0. de Abril de 2025. El código de este proyecto está licenciado bajo
+            <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">GNU GPL v3</a>. Los contenidos multimedia relacionan <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>.
+            </p>
+            <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" rel="license">
+              <img src="https://www.gnu.org/graphics/gplv3-127x51.png" alt="Licencia GPL v3">
+            </a>
+            <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="license">
+              <img src="https://licensebuttons.net/l/by-nc/4.0/88x31.png" alt="Licencia CC BY-NC">
+            </a>
+            <p>El proyecto se reserva la posibilidad de introducir licencias comerciales, de terceros o tipo SaaS (Software as a Service) o de suscripción para nuevos módulos de código, así como contenido multimedia que se referencie de esta manera, a partir de nuevas versiones del proyecto. No obstante, el contenido de versiones actuales permanece libre y accesible bajo sus respectivos términos.</p>
+          </div>
+        </article>
+    </section>
+  </main>
+</body>

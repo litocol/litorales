@@ -1,0 +1,89 @@
+/* ==============
+  Estilos para la web de bienvenida index.html
+  ============ */
+
+/* Empieza por los botones adicionales del título */
+.breadcrumbs span.specialNote {
+  background-color: #ffffff;
+  color: black;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  border-top: 1px solid rgba(204, 204, 204, 0.2);
+  border-bottom: 1px solid rgba(204, 204, 204, 0.2);
+}
+
+.extraLinks {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.extraLinks a {
+  text-decoration: none;
+  cursor: pointer;
+  padding: 13.5px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+a.knowMore {
+  color: white;
+}
+
+a.knowMore:hover {
+  color: white;
+}
+
+a.middleBtn {
+  background-color: rgb(255, 255, 255, 0.6);
+  color: black;
+}
+
+a.middleBtn:hover {
+  background-color: lab(21.25% 0 0.6);
+  color: white;
+}
+
+a.instagram-btn:hover {
+  background-color: rgba(185, 4, 4, 0.6);
+  color: white;
+}
+
+/* Imagen insertada 1 */
+.introImage {
+  width: 900px;
+  height: 400px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Diagrama insertado 1 */
+.diagramImage {
+  width: 1000px;
+  height: 700px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Diagrama insertado 2 */
+.diagramImage2 {
+  width: 600px;
+  height: 350px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Diagrama insertado 3 */
+.diagramImage3 {
+  width: 1000px;
+  height: 700px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+

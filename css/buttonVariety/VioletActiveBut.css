@@ -1,0 +1,77 @@
+/* ==============
+  Variedad violeta en el color de los botones activos de litorales
+  ============ */
+
+a {
+  color: #7d5ba6;
+  }
+
+a.knowMore {
+  background-color: rgb(125, 91, 166, 0.6);
+}
+
+a.knowMore:hover {
+  background-color: rgb(125, 91, 166, 1);
+}
+
+button .active {
+  background-color: #7d5ba6;
+  }
+
+.topbar a.active {
+  background-color: #7d5ba6;
+}
+
+.breadcrumbs a.active {
+  background-color: #7d5ba6;
+}
+
+.icon-bar button.active {
+  background-color: #7d5ba6;
+}
+
+.tag.warning {
+  color: #7d5ba6;
+}
+
+.flecha-icono:hover {
+  color: #7d5ba6; /* Cambia el color si quieres al hacer hover */
+}
+
+#credits .leader span {
+  color: #7d5ba6;
+}
+
+#credits ul li::before {
+  color: #7d5ba6;
+}
+
+#credits .webEdition span {
+  color: #7d5ba6;
+}
+
+/* ==============
+  Modificaciones aplicables a los featuredependent styles
+  ============ */
+
+/* Sobre el acordeón */
+.accordion.active {
+  background-color: rgb(125, 91, 166, 0.6);
+}
+
+.accordion.active:hover {
+  background-color: rgb(125, 91, 166, 0.8);
+}
+
+/* Sobre las cards */
+
+.card-link-wrapper h4::after {
+  background-color: #7d5ba6;
+}
+
+.card-link-wrapper h5::after {
+  background-color: #7d5ba6;
+}
+
+.active,.dot:hover{background:#7d5ba6;
+}

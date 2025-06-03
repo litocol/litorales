@@ -1,0 +1,81 @@
+/* ==============
+  Variedad azul-indigo en el color de los botones activos de litorales
+  ============ */
+
+a {
+  color: #304E68;
+  }
+
+button .active {
+  background-color: #304E68;
+  }
+
+.topbar a.active {
+  background-color: #304E68;
+}
+
+.breadcrumbs a.active {
+  background-color: #304E68;
+}
+
+.icon-bar button.active {
+  background-color: #304E68;
+}
+
+.tag.warning {
+  color: #304E68;
+}
+
+.flecha-icono:hover {
+  color: #304E68; /* Cambia el color si quieres al hacer hover */
+}
+
+#credits .leader span {
+  color: #304E68;
+}
+
+#credits ul li::before {
+  color: #304E68;
+}
+
+#credits .webEdition span {
+  color: #304E68;
+}
+
+/* ==============
+  Modificaciones aplicables a contentDependent styles
+  ============ */
+
+a.knowMore {
+  background-color: rgb(48, 78, 104, 0.6);
+}
+
+a.knowMore:hover {
+  background-color: rgb(48, 78, 104, 1);
+}
+
+/* ==============
+  Modificaciones aplicables a los featuredependent styles
+  ============ */
+
+/* Sobre el acordeón */
+.accordion.active {
+  background-color: rgb(48, 78, 104, 0.6);
+}
+
+.accordion.active:hover {
+  background-color: rgb(48, 78, 104, 0.8);
+}
+
+/* Sobre las cards */
+
+.card-link-wrapper h4::after {
+  background-color: #304E68;
+}
+
+.card-link-wrapper h5::after {
+  background-color: #304E68;
+}
+
+.active,.dot:hover{background:#304E68;
+}

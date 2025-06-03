@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="Artículo sobre el formato SIG GML por Litorales de Colombia." />
+  <title>Estética y Arte - Segmento de Litorales de Colombia</title>
+  <meta name="keywords" content="Litorales de Colombia, Mapas, Segmento, Estética, Arte, Proyecto abierto">
+  <meta name="author" content="Andrés Agudelo Bermúdez"/>
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Recomendación para aclarar las direcciones, siempre poner "/archivo o carpeta/siguiente directorio...
+   porque así se enlaza la raíz de todo el directorio, no guarda relación a la ubicación del HTML y eso
+   permite la mantenibilidad del sitio web y la comprensión con los usuarios" -->
+
+  <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+  <!-- El icono de página corresponde al logo de proyecto, Imagen Dunas del taroa -->
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons/css/flag-icons.min.css" />
+  
+  <!-- Estilos orgánicos del proyecto -->
+  <link href="/css/styles.css" rel="stylesheet"/>
+  <!-- Estilos únicos del capítulo o subcapítulo-->
+   <link href="/css/contentDependent/maps.css" rel="stylesheet"/>
+   <link href="/css/contentDependent/toBegin.css" rel="stylesheet"/>
+
+  <!-- Estilos dependientes de características -->
+  <link href="/css/featureDependent/cardShowing.css" rel="stylesheet"/>
+  <link href="/css/featureDependent/accordionButton.css" rel="stylesheet"/>
+
+  <!-- Para mapas si se usa -->
+  <!-- Hoja de estilos de Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <!-- Recursos de plotly -->
+  <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+  
+  <!-- Lógica de interactividad del proyecto -->
+  <script src="/js/scriptTopNavbar.js"></script>
+  <script src="/js/scriptSidebar.js"></script>
+  <script src="/js/scriptSidebarbuttons.js"></script>
+  <script src="/js/scriptObserver.js"></script>
+  <script src="/js/scriptBreadcrumbs.js"></script>
+  <script src="/js/scriptDropWrench.js"></script>
+  <script src="/js/scriptUserErrorReport.js"></script>
+  <script src="/js/scriptFontSizing.js"></script>
+  <script src="/js/scriptChangeHeroImage.js"></script>
+  <script src="/js/scriptBackgroundChange.js"></script>
+  <script src="/js/scriptLanguageChange.js"></script>
+  <script src="/js/scriptSearchMenu.js"></script>
+  <script src="/js/scriptScroll.js"></script>
+  <script src="/js/scriptAccordion.js"></script>
+  <script src="/js/scriptActiveButColoring.js"></script>
+
+</head>
+
+<!-- El header contiene toda la lógica de los menús de navegación de la cabecera -->
+<header class="topbar">
+    <!-- Comienza la cabecera de navegación a títulos principales -->
+    <nav class="topnav" aria-label="Menú superior de navegación global">
+      <!-- El botón de despliegue del menú lateral izquierdo vertical se halla aquí -->
+      <button class="topSideBar" aria-label="Botón dedespliegue de Menú lateral vertical de navegación tipo índice">
+        <span class="bars">
+          <div class="bar bar1"></div>
+          <div class="bar bar2"></div>
+          <div class="bar bar3"></div>
+        </span>
+        <span>Índice</span>
+      </button>
+      <!-- Siguen los links horizontales -->
+      <a href="/index.html"><i class="fas fa-house"></i>&nbsp;&nbsp;Inicio</a>
+      <a href="/html/articles.html">Artículos</a>
+      <a href="/html/galery.html">Galería de fotos</a>
+      <a href="/html/maps.html" class= "active">Mapas</a>
+      <a href="/html/aboutLit.html"><i class="fas fa-info-circle"></i>&nbsp;&nbsp;Acerca de litorales</a>
+      <a href="/html/commingSoon.html">Próximos desarrollos</a>
+    </nav>
+    <!-- Menú lateral desplegable -->
+    <nav class="sideNav" aria-label="Menú lateral vertical de navegación del tipo índice">
+      <a class= "active" href="#constructionQuote">En construcción</a>
+      <a href="#continueLearning">Enlaces alternativos</a>
+      <a href="#bibliography">Bibliografía</a>
+      <a href="#credits">Créditos</a> 
+    </nav>
+    <!-- Menú de volver, las migajas-->
+    <nav class="breadcrumbs" aria-label="Menú superior de navegación hacia atrás en la web">
+      <a class="backBtn" href="/html/maps.html"><i class="fas fa-caret-left"></i></a>
+      <span>Busque segmentos:</span>
+      <a href="/html/maps/bankOfMaps.html">Banco de litorales</a>
+      <a href="#inicio" class="active">Estética y Arte</a>
+      <a href="/html/maps/mapStandards.html">Estándares</a>
+      <a href="/html/maps/mapHistoricals.html">Históricos</a>
+      <span>Siga a:</span>
+      <a href="#continueLearning">Por construir</a>
+    </nav>
+  </header>
+  
+  <!-- Aquí se inyecta el fondo del heroimage, a su imagen no le importan los desplegables -->
+  
+  <div class="heroImage"></div>
+  
+  <!-- Contenido de lleno es el que se programa semi-responsive -->
+  <main class="content">
+    <!-- Aquí van los textos que juegan con el heroimage, estos sí reponden a los desplegables -->
+    <!-- Su versión de código depende de si es un contenido árbol o rama (enlaza o es un producto final)-->
+    <div class="heroText" id="inicio">
+        <h1 class="heroTitle">Estética y Arte</h1>
+        <p class="herosubchapter">Segmento 2 del capítulo de Mapas del proyecto cartográfico y geocientífico Litorales de Colombia</p>
+    </div>
+
+    <p class="mensaje-informativo">Archivo sin características responsivas. Apto para la vista en ordenadores. Navegue al menú de herramientas superior derecho <span class="arrow">&#10148;</span> para mejorar su experiencia.<br>
+    <div class="citing">
+    <p>- ¿Cómo citar este recurso? - Litorales de Colombia. (2025). Segmento Estética y Arte del capítulo Mapas de Litorales de Colombia. Proyecto colaborativo en descripción cartográfica y geocientífica de las costas colombianas. Recurso en línea sobre su versión 2.0.0., licencias GNU GPL v3. para datos y código / CC BY-NC 4.0. para multimedia. Disponible a través la web www.desarrolloscreativos.dev.</p></div>
+
+    <!-- Descripción de los botónes del menú vertical derecho de herramientas -->
+    <nav class="icon-bar">
+      <!-- Sobre este botón operan códigos interactivos y de despliegue del siguiente div -->
+      <button class="wrench-btn" aria-label="Botón desplegable de Herramientas"><i class="fas fa-wrench"></i></button>
+      <div class="dropWrench">
+        <button class="searcher" aria-label="Botón de búsquedas internas sin terminar"><i class="fa fa-search"></i></button>
+          <div class="search-menu">
+            <form>
+              <input type="text" id="searchInput" placeholder="Busque en el artículo..." />
+              <div class="search-results">
+                <button type="button" id="previousResult" aria-label="Ir al anterior resultado"><i class="fas fa-caret-up"></i></button>
+                <button type="button" id="nextResult" aria-label="Ir al siguiente resultado"><i class="fas fa-caret-down"></i></button>
+              </div>
+              <button type="submit" id="searchSubmit" aria-label="Buscar en la web (no funcional todavía)"><i class="fas fa-arrow-right"></i></button>
+            </form>
+          </div>
+        <!-- Este botón actua sobre el heroImage -->
+        <button class="imageChange" aria-label="Cambiar el fondo de la web"><i class="fas fa-image"></i></button>
+        <!-- Este botón cambia los colores de letras incluidos los textos del título -->
+        <button class="contrastChange" aria-label="Cambiar el contraste de la web"><i class="fas fa-adjust"></i></button>
+        <!-- Este botón cambia el tamaño de la letra -->
+        <button id="fontToggleButton" aria-label="Cambiar el tamaño del texto de 17 pixeles a 20 pixeles"><i class="fas fa-plus toggle-icon"></i><i class="fas fa-font"></i></button>
+        <!-- Este botón despliega un menú de reporte de errores de la web -->
+        <button id="alerta" aria-label="Reportar un error de la web"><i class="fas fa-exclamation-triangle"></i></button>
+        <button id="langToggle" aria-label="Cambiar el lenguaje"><i class="fas fa-language"></i></button>
+        <div class="language-menu" id="languageMenu">
+          <button id="espanishBtn" class="active" aria-label="Lenguaje español Colombia"><span class="fi fi-co"></span></button> 
+          <button id="englishBtn" aria-label="Lenguaje inglés"><span class="fi fi-gb"></span></button>
+          <button id="germanBtn" aria-label="Lenguaje alemán"><span class="fi fi-de"></span></button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Tarjeta flotante tipo popup -->
+    <div id="reportCard" class="floating-card hidden">
+      <!-- Formulario de reporte de error -->
+      <form id="errorForm">
+        <!-- Botón de cerrar -->
+        <button id="closeButton" class="close-btn">X</button>
+        <h3>¿Desea reportar un error? <span>(En construcción, sin funcionalidad)</span></h3>
+        <textarea name="message" placeholder="Describa el problema que evidencia en su navegación... (Sin registro en la presente versión)" required></textarea>
+        <input type="email" name="email" autocomplete="email" placeholder="Indique su correo electrónico para ser informado de la solución del caso (Campo opcional)">
+        <div class="actions">
+          <button type="submit" id="submitButton" aria-label="Enviar reporte de error en la web">Enviar</button>
+          <button type="button" id="cancelButton" aria-label="Cancelar el reporte de error en la web">Cancelar</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Apenas empiezan los contenidos comunes -->
+    <section id="intro">
+      <!-- Primer artículo -->
+      <article id="constructionQuote">
+        <h2>Contenido en construcción</h2>
+        <img src="/assets/img/auxiliary/png/instructions/underConstruction.png" alt="Logo del formato GML" class="imageConstruction">
+      </article>
+      
+      <article>
+        <h2>¿Qué encuentra aquí?</h2>
+          <p>Síntesis</p>
+          <h3>Mapa de contenidos</h3>
+          <p>Síntesis</p>
+      </article>
+    </section>
+    
+    <section>
+      <article id="continueLearning">
+        <h3>¿Desea seguir aprendiendo?</h3>
+          <p>Puede consultar:</p>
+          <!-- Acordeón -->
+          <button class="accordion">
+            <span class="accordionText">Expandir la lectura...</span><i class="fas fa-caret-right accordionIcon"></i>
+          </button>
+          <!-- Desplegable -->
+          <div class="accordionPanel">
+            <p>Formatos para la manipulación de datos geográficos:</p>
+            <div class="showingCards">
+              <a href="/html/articles/varietyMagazine/gis/programming/formats/geojson.html" class="card-link-wrapper">
+                <h4>Geojson &nbsp;&nbsp;<i class="fas fa-file-code"></i></h5>
+                <p>Una alternativa para la comunicación web de datos geoespaciales liviana.</p>
+              </a>
+              <a href="/html/articles/varietyMagazine/gis/programming/formats/shp.html" class="card-link-wrapper">
+                <h4>Shp &nbsp;&nbsp;<i class="fas fa-file-code"></i></h5>
+                <p>Un archivo de alta compatibilidad y soporte a lo largo de múltiples SIG.</p>
+              </a>
+              <a href="/html/articles/varietyMagazine/gis/programming/formats/kmlKmz.html" class="card-link-wrapper">
+                <h4>Kml/Kmz &nbsp;&nbsp;<i class="fas fa-file-code"></i></h5>
+                <p>Archivos con sintaxis similar a XML.</p>
+              </a>
+            </div>
+          </div>
+          <p>Descubra otros contenidos:</p>
+          <!-- Acordeón -->
+          <button class="accordion">
+            <span class="accordionText">Expandir la lectura...</span><i class="fas fa-caret-right accordionIcon"></i>
+          </button>
+          <!-- Desplegable -->
+          <div class="accordionPanel">
+            <p>Contenidos geomorfológicos:</p>
+            <div class="showingCards">
+              <a href="/html/articles/geosciences/geomorphology/vocabulary/delts.html" class="card-link-wrapper">
+                <h4>Deltas &nbsp;&nbsp;<i class="fas fa-water"></i></h5>
+                <p>Edificios geomorfológicos que se desarrollan en medios submarinos y subaéreos por un régimen de sedimentación impuesto por desembocaduras fluviales.</p>
+              </a>
+              <a href="/html/articles/geosciences/geomorphology/vocabulary/coastLine.html" class="card-link-wrapper">
+                <h4>Línea de costa &nbsp;&nbsp;<i class="fas fa-umbrella-beach"></i></h5>
+                <p>Interfaz litoral dinámica que marca el límite momentaneo del nivel de la columna de agua frente a la costa</p>
+              </a>
+              <a href="/html/articles/geosciences/geomorphology/vocabulary/bays.html" class="card-link-wrapper">
+                <h4>Bahías &nbsp;&nbsp;<i class="fas fa-anchor"></i></h5>
+                <p>Elementos geográficos costeros que dan abrigo a multitud de puertos y playas de Colombia</p>
+              </a>
+            </div>
+            <br>
+          </div>
+      </article>
+    </section>
+
+    <section>
+        <article id="bibliography">
+          <h2>Bibliografía</h2>
+          <nav>
+            <ul>
+              <li>Introducir referenciar aquí. Ir a la web principal de <a href="https://leafletjs.com/" target="_blank" rel="noopener noreferrer"
+                title="Ir a la web oficial de Leaflet">https://litocol.github.io/litorales/</a>.</li>
+              </ul>
+          </nav>
+        </article>
+
+        <!-- Noveno artículo (tiene tres contenedores) -->
+        <article id="credits">
+          <h2>Créditos</h2>
+          <!-- Reorganización de contenedores uno -->
+          <div class="groupsOrder">
+            <div class="editorial">
+              <h3>Producto de Litorales, por:</h2>
+              <ul>
+              <li class="leader">Andrés Agudelo Bermúdez<br><span>Líder del equipo</span></ñi>
+              </ul>
+            </div>
+            <div class="webEdition">
+              <h3>Edición para la web</h3>
+              <ul>
+                <li><strong>Andrés Agudelo</strong><br><span>Responsable de maquetación y código</span></li>
+              </ul>
+            </div>
+            <div class="litoralsContact">
+              <h3>Aporte nuevos contenidos a:</h3>
+              <p>
+                <strong>Correo:</strong>&nbsp;&nbsp;litoralescolombia@gmail.com</li><br>
+                <strong>Celular:</strong>&nbsp;&nbsp;+57 323 421 3355 &nbsp;<i class="fi fi-co"></i>
+              </p>
+            </div>
+          </div>
+          <!-- Reorganización de contenedores dos -->
+          <div class="contentType">
+            <h3>Revisores</h3>
+            <ul>
+              <li><strong>Andrés Agudelo Bermúdez</strong><br>BSc.Ingeniero geólogo.</li>
+              <li><strong>Nila Parra León</strong><br>MSc. en Geografía, BSc. Ingeniera Geóloga.</li>
+            </ul>
+          </div>
+          <!-- Reorganización de contenedores tres -->
+          <div class="provisional-site-footer">
+            <p>Proyecto litorales de Colombia. Versión 2.0.0. de Abril de 2025. El código de este proyecto está licenciado bajo
+            <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">GNU GPL v3</a>. Los contenidos multimedia relacionan <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>.
+            </p>
+            <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" rel="license">
+              <img src="https://www.gnu.org/graphics/gplv3-127x51.png" alt="Licencia GPL v3">
+            </a>
+            <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="license">
+              <img src="https://licensebuttons.net/l/by-nc/4.0/88x31.png" alt="Licencia CC BY-NC">
+            </a>
+            <p>El proyecto se reserva la posibilidad de introducir licencias comerciales, de terceros o tipo SaaS (Software as a Service) o de suscripción para nuevos módulos de código, así como contenido multimedia que se referencie de esta manera, a partir de nuevas versiones del proyecto. No obstante, el contenido de versiones actuales permanece libre y accesible bajo sus respectivos términos.</p>
+          </div>
+        </article>
+    </section>
+  </main>
+</body>

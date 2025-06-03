@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="Artículo sobre el formato SIG GML por Litorales de Colombia." />
+  <title>GeoJson, una opción liviana para compartir datos espaciales en la web</title>
+  <meta name="keywords" content="GeoJson, gis, formato, programación, Litorales de Colombia, geografía, geociencias">
+  <meta name="author" content="Andrés Agudelo Bermúdez" />
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+  <!-- El icono de página corresponde al logo de proyecto, Imagen Dunas del taroa -->
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons/css/flag-icons.min.css" />
+
+  <!-- Para mapas si se usa -->
+  <!-- Hoja de estilos de Leaflet -->
+  <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" /> -->
+  <!-- <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script> -->
+  <!-- Recursos de plotly -->
+  <!-- <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script> -->
+  
+  <!-- Estilos orgánicos del proyecto -->
+  <link href="/css/styles.css" rel="stylesheet"/>
+
+  <!-- Estilos únicos del capítulo o subcapítulo-->
+  <link href="/css/contentDependent/gml.css" rel="stylesheet"/>
+
+  <!-- Estilos dependientes de características -->
+   <link href="/css/featureDependent/cardShowing.css" rel="stylesheet"/>
+   <link href="/css/featureDependent/accordionButton.css" rel="stylesheet"/>
+
+  <!-- Lógica de interactividad del proyecto -->
+  <script src="/js/scriptTopNavbar.js"></script>
+  <script src="/js/scriptSidebar.js"></script>
+  <script src="/js/scriptSidebarbuttons.js"></script>
+  <script src="/js/scriptObserver.js"></script>
+  <script src="/js/scriptBreadcrumbs.js"></script>
+  <script src="/js/scriptDropWrench.js"></script>
+  <script src="/js/scriptUserErrorReport.js"></script>
+  <script src="/js/scriptFontSizing.js"></script>
+  <script src="/js/scriptChangeHeroImage.js"></script>
+  <script src="/js/scriptBackgroundChange.js"></script>
+  <script src="/js/scriptLanguageChange.js"></script>
+  <script src="/js/scriptSearchMenu.js"></script>
+  <script src="/js/scriptScroll.js"></script>
+  <script src="/js/scriptAccordion.js"></script>
+  <script src="/js/scriptActiveButColoring.js"></script>
+
+</head>
+
+<body>
+  <!-- El header contiene toda la lógica de los menús de navegación de la cabecera -->
+  <header class="topbar">
+    <!-- Comienza la cabecera de navegación a títulos principales -->
+    <nav class="topnav" aria-label="Menú superior de navegación global">
+      <!-- El botón de despliegue del menú lateral izquierdo vertical se halla aquí -->
+      <button class="topSideBar" aria-label="Botón dedespliegue de Menú lateral vertical de navegación tipo índice">
+        <span class="bars">
+          <div class="bar bar1"></div>
+          <div class="bar bar2"></div>
+          <div class="bar bar3"></div>
+        </span>
+        <span>Índice</span>
+      </button>
+      <!-- Siguen los links horizontales -->
+      <a href="/index.html"><i class="fas fa-house"></i>&nbsp;&nbsp;Inicio</a>
+      <a href="/html/articles.html" class="active">Artículos</a>
+      <a href="/html/galery.html">Galería de fotos</a>
+      <a href="/html/maps.html">Mapas</a>
+      <a href="/html/aboutLit.html"><i class="fas fa-info-circle"></i>&nbsp;&nbsp;Acerca de litorales</a>
+      <a href="/html/commingSoon.html">Próximos desarrollos</a>
+    </nav>
+    <!-- Menú lateral desplegable -->
+    <nav class="sideNav" aria-label="Menú lateral vertical de navegación del tipo índice">
+      <a class="active" href="#concepto">¿Qué es GeoTiff?</a>
+      <a href="#continueLearning">Consulte más</a>
+      <a href="#bibliography">Bibliografía</a>
+      <a href="#credits">créditos</a> 
+    </nav>
+    <!-- Menú de volver, las migajas-->
+    <nav class="breadcrumbs" aria-label="Menú superior de navegación hacia atrás en la web">
+      <span>Vuelva a leer:</span>
+      <a href="/html/articles/varietyMagazine.html">Variedad (Revista)</a>
+      <a href="/html/articles/varietyMagazine/gis.html">Sistemas de información geográfica</a>
+      <a href="/html/articles/varietyMagazine/gis/programming.html">Programación</a>
+      <a href="/html/articles/varietyMagazine/gis/programming/formats.html">Formatos de datos</a>
+      <span>Alterne:</span>
+      <a href="/html/articles/varietyMagazine/gis/programming/formats/geojson.html" class="active">GeoJson</a>
+      <a href="/html/articles/varietyMagazine/gis/programming/formats/geotiff.html">GeoTiff</a>
+      <a href="/html/articles/varietyMagazine/gis/programming/formats/gml.html">Gml</a>
+      <a href="/html/articles/varietyMagazine/gis/programming/formats/kmlKmz.html">Kml y Kmz</a>
+      <a href="/html/articles/varietyMagazine/gis/programming/formats/shp.html">Shp</a> 
+    </nav>
+  </header>
+  <!-- Aquí se inyecta el fondo del heroimage, a su imagen no le importan los desplegables -->
+  <div class="heroImage"></div>
+ 
+  <!-- Contenido de lleno es el que se programa semi-responsive -->
+  <main class="content">
+    <!-- Aquí van los textos que juegan con el heroimage, estos sí reponden a los desplegables -->
+    <!-- Su versión de código depende de si es un contenido árbol o rama (enlaza o es un producto final)-->
+    <div class="heroTextSubcontent">
+        <h1 class="heroTitleSubcontent">GeoJson, una opción liviana para compartir datos espaciales en la web</h1>
+        <p class="heroSubtitle">
+          <span class="tag">Texto técnico &nbsp;<i class="fas fa-tools"></i></span>
+          <span class="tag warning">Su lectura no requiere conocimientos previos &nbsp;<i class="fas fa-check"></i></span>
+          <span class="tag info">Incluye código &nbsp;<i class="fas fa-code"></i></span>
+          <span class="tag info">Por: <a href="#creditos" class="flecha-icono">Andrés Agudelo&nbsp;&nbsp;<i class="fas fa-caret-down"></i></a></span>
+          <span class="tag">Versión 1 del 18/05/2025.&nbsp;&nbsp;<i class="fas fa-file-signature"></i></span></p>
+    </div>
+    
+    <p class="mensaje-informativo">Archivo sin características responsivas. Apto para la vista en ordenadores. Navegue al menú de herramientas superior derecho para mejorar su experiencia.</p>
+    <div class="citing">
+    <p>- ¿Cómo citar este recurso? - Litorales de Colombia. (2025). GeoJson, una opción liviana para compartir datos espaciales en la web. Recurso en línea sobre su versión 2.0.0., licencias GNU GPL v3. para datos y código / CC BY-NC 4.0. para multimedia. Disponible a través la web www.desarrolloscreativos.dev/html/articles/varietyMagazine/gis/programming/formats/gml.html.</p></div>
+
+    <!-- Descripción de los botónes del menú vertical derecho de herramientas -->
+    <nav class="icon-bar">
+      <!-- Sobre este botón operan códigos interactivos y de despliegue del siguiente div -->
+      <button class="wrench-btn" aria-label="Botón desplegable de Herramientas"><i class="fas fa-wrench"></i></button>
+      <div class="dropWrench">
+        <button class="searcher" aria-label="Botón de búsquedas internas sin terminar"><i class="fa fa-search"></i></button>
+          <div class="search-menu">
+            <form>
+              <input type="text" id="searchInput" placeholder="Busque en el artículo..." />
+              <div class="search-results">
+                <button type="button" id="previousResult" aria-label="Ir al anterior resultado"><i class="fas fa-caret-up"></i></button>
+                <button type="button" id="nextResult" aria-label="Ir al siguiente resultado"><i class="fas fa-caret-down"></i></button>
+              </div>
+              <button type="submit" id="searchSubmit" aria-label="Buscar en la web (no funcional todavía)"><i class="fas fa-arrow-right"></i></button>
+            </form>
+          </div>
+        <!-- Este botón actua sobre el heroImage -->
+        <button class="imageChange" aria-label="Cambiar el fondo de la web"><i class="fas fa-image"></i></button>
+        <!-- Este botón cambia los colores de letras incluidos los textos del título -->
+        <button class="contrastChange" aria-label="Cambiar el contraste de la web"><i class="fas fa-adjust"></i></button>
+        <!-- Este botón cambia el tamaño de la letra -->
+        <button id="fontToggleButton" aria-label="Cambiar el tamaño del texto de 17 pixeles a 20 pixeles"><i class="fas fa-plus toggle-icon"></i><i class="fas fa-font"></i></button>
+        <!-- Este botón despliega un menú de reporte de errores de la web -->
+        <button id="alerta" aria-label="Reportar un error de la web"><i class="fas fa-exclamation-triangle"></i></button>
+        <button id="langToggle" aria-label="Cambiar el lenguaje"><i class="fas fa-language"></i></button>
+        <div class="language-menu" id="languageMenu">
+          <button id="espanishBtn" class="active" aria-label="Lenguaje español Colombia"><span class="fi fi-co"></span></button> 
+          <button id="englishBtn" aria-label="Lenguaje inglés"><span class="fi fi-gb"></span></button>
+          <button id="germanBtn" aria-label="Lenguaje alemán"><span class="fi fi-de"></span></button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Tarjeta flotante tipo popup -->
+    <div id="reportCard" class="floating-card hidden">
+      <!-- Formulario de reporte de error -->
+      <form id="errorForm">
+        <!-- Botón de cerrar -->
+        <button id="closeButton" class="close-btn">X</button>
+        <h3>¿Desea reportar un error? <span>(En construcción, sin funcionalidad)</span></h3>
+        <textarea name="message" placeholder="Describa el problema que evidencia en su navegación... (Sin registro en la presente versión)" required></textarea>
+        <input type="email" name="email" autocomplete="email" placeholder="Indique su correo electrónico para ser informado de la solución del caso (Campo opcional)">
+        <div class="actions">
+          <button type="submit" id="submitButton" aria-label="Enviar reporte de error en la web">Enviar</button>
+          <button type="button" id="cancelButton" aria-label="Cancelar el reporte de error en la web">Cancelar</button>
+        </div>
+      </form>
+    </div>
+
+
+    <article id="concepto">
+      <h2 >¿Qué es GeoJson?</h2>
+      <article style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+        <p>GeoJSON es un formato de información geométrica vectorial, con posibilidad de traducirse en puntos, líneas, polígonos, multi-polígonos y colecciones de geometrías, el cual almacena elementos geográficos en conjuntos con datos denominados propiedades y features de la forma clave : valor como sigue:<br> A = {<br>
+            &nbsp;&nbsp;"type": "Feature",<br>
+            &nbsp;&nbsp;"geometry": {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;"type": "Point",<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;"coordinates": [125.6, 10.1]<br>
+            &nbsp;&nbsp;},<br>
+            &nbsp;&nbsp;"properties": {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;"name": "Isla ejemplo"<br>
+            &nbsp;&nbsp;}<br>
+            }</p>
+          
+        <table class="table1">
+          <caption style="font-style: italic;">Elementos vectoriales admisibles en el formato GeoJSON</caption>
+          <thead>
+            <tr>
+              <th>Punto</th>
+              <th>Línea</th>
+              <th>Polígono</th>
+              <th>Multipunto</th>
+              <th>Multilínea</th>
+              <th>Multipolígono</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align: center; vertical-align: middle;"><img src="/assets/img/auxiliary/svg/SFA_Point.svg" alt="Imagen de punto" style="width: 80px; height: auto;"></td>
+              <td style="text-align: center; vertical-align: middle;"><img src="/assets/img/auxiliary/svg/SFA_LineString.svg" alt="Imagen línea" style="width: 80px; height: auto;"></td>
+              <td style="text-align: center; vertical-align: middle;"><img src="/assets/img/auxiliary/svg/SFA_Polygon.svg" alt="Imagen de polígono" style="width: 80px; height: auto;"></td>
+              <td style="text-align: center; vertical-align: middle;"><img src="/assets/img/auxiliary/svg/SFA_MultiPoint.svg" alt="Imagen de multipunto" style="width: 80px; height: auto;"></td>
+              <td style="text-align: center; vertical-align: middle;"><img src="/assets/img/auxiliary/svg/SFA_MultiLineString.svg" alt="Imagen de multilínea" style="width: 80px; height: auto;"></td>
+              <td style="text-align: center; vertical-align: middle;"><img src="/assets/img/auxiliary/svg/SFA_MultiPolygon.svg" alt="Imagen de multipolígono" style="width: 80px; height: auto;"></td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="6" style="text-align: center;">Consulte las Geometrías en (Wikipedia, 2025b).</td>
+          </tfoot>
+        </table>
+
+        <p>La mencionada sintaxis es similar a un diccionario Python, anotación para quienes utilicen este lenguaje de programación o es directamente un subconjunto del formato JSON (JavaScript Object Notation) para mayor claridad consulte (Wikipedia, 2025a), también puede consultar la especificación de la (Internet Engineering Task Force. 2016).</p>
+
+        <p>La ventaja del formato de datos yace en que puede ser entendido por los Sistemas de Información geográfica (SIG) y software web, además de ser en buena medida, legible para su usuario de todo tipo, así como consume pocos recursos de memoria en equipos de cómputo. Aprenda más en (Wikipedia. 2025b).</p>
+        </article>
+
+        <h3>¡Atención!</h3>
+
+        <p>Como aliciente a conocerlo se detalla que este es procesable con librerías de lenguajes de programación tales como Leaflet.js, Mapbox GL JS, y OpenLayers, por lo que se hace frecuente verlo en internet y es que puede ejecutarse directamente en el navegador (del cliente) sin necesidad del soporte de un servidor. Así el soporte nativo de GeoJSON se extiende incluso a bases de datos como PostGIS y MongoDB. Hay APIs geoespaciales como Mapbox, Google Maps, ArcGIS que también lo soportan.</p>
+
+        <p>Como referencia personal, en el trabajo combinado del formato con SIG encuentro muy favorable el hecho de que se lea como único archivo y que pueda editarlo desde un simple editor de texto hasta en un ambiente de desarrollo integrado al ser abierto.</p>
+      </artcile>
+    </article>
+
+    <article id="historia">
+      <h2>Historia de GeoJSON.</h2>
+
+      <p>GeoJSON no es innovador en sí mismo, pero desde que se creó en 2008 adquirió gran popularidad por las bondades expuestas que se traducen en ser un formato simple y estándar al que se le facilita usarse de manera creativa. Su desarrolló se basó en ser un formato especializado en datos espaciales, fijar una estructura en contrapartida a la flexibilidad de su padre JSON, usar sistemas de coordenadas, geometrías, ser accesible y portable. Así desde 2016 cuenta con estandarización de la Internet engineering Task Force (IETF) en la RFC 7946 como código abierto, lo que habilita la evolución comunitaria.
+      </p>
+
+      <h3 id="contexto">Contexto de los datos.</h3>
+        
+      <p>Entre algunos formatos de almacenamiento de datos geoespaciales abiertos, similares a JSON que se como usuario SIG se puede encontrar están TopoJSON (+ portable, - compatible), KML - Keyhole Markup Language (Basado en XML - Extensible Markup Language; + pesado, popular en Google), GPX - GPS Exchange Format, GPKG - GeoPackage (en crecimiento, - compatible). Entre los privados se listan File Geodatabase - .gdb (Extiende múltiples funcionalidades), Personal Geodatabase - .mdb (En desuso), Esri Shapefile .- .shp (Necesita varios archivos, + popular), CAD - DWG/DXF (De diseño) entre otros GIS (Geography, 2025).</p>
+
+      <h3 id="diferencia">Diferenciación.</h3>
+
+      <p>GeoJSON es un formato de datos estructurados textuales, de manera que usa una estructura de objetos y arrays con pares de información tipo clave: valor, que por naturaleza no necesitan de etiquetas, de manera que se aparta de conceptos como los lenguajes de marcado llámense HTML, XML, KML (Wikipedia, 2025c). GeoJSON se adapta para el intercambio de datos geoespaciales con un set de reglas de codificación, de manera que se parece más a formatos JSON, CSV y Shapefile, aunque este último se trata de datos binarios.</p>
+
+      <p>A este punto la desambiguación de qué concepto es un lenguaje, qué es un formato y en ocasiones, qué es una sintaxis es importante, porque facilita entender los propósitos o facilidades de cada uno, a veces su dependencia y es mejor entenderlos así, porque la semántica evita entrar en estudios profundos de cada recurso. </p>
+    </article>
+      <article id="conocer">
+        <h2>Conozca las herramientas.</h2>
+
+        <p>Una clave para identificar los formatos de almacenamiento y transferencia de datos de los lenguajes de marcado es que, los segundos manejan una lógica de componentes que los hace reutilizables, mientras que los primeros recurren a funcionalidades avanzadas para esto y no son tan necesarias. XML es el único formato que comparte ambas funcionalidades. A su vez los lenguajes de scripting se diferencian de ambas sintaxis por ejecutar acciones y lógica, además de requerir intérpretes o compiladores para entenderse (IONOS, 2025). GeoJSON requiere de un motor o librería de lectura para ejecutarse que pueden ser genéricos para su caso.</p>
+
+        <table class="table2">
+          <caption style="font-style: italic;">Comparativa de herramientas</caption>
+          <thead>
+            <tr>
+              <th>Propósito</th>
+              <th>Estructuración de documentos</th>
+              <th>Bases de datos</th>
+              <th>Mapas y geolocalización</th>
+              <th>Gráficos y multimedia</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Herramienta</td>
+              <td>Markdown, TEX, HTML</td>
+              <td>YAML, JSON</td>
+              <td>KML, GPX, GeoJSON</td>
+              <td>SVG, PNG, JPEG, TIFF</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="5">Consulte estos conceptos de manera externa si desea aprenderlos (Wikipedia, 2025a).</td>
+            </tr>
+          </tfoot>
+        </table>
+
+      </article>
+      <article id="continueLearning">
+      
+        <h3>¿Desea seguir aprendiendo?</h3>
+        <p>Puede consultar otros formatos:</p>
+        <!-- Acordeón -->
+        <button class="accordion">
+          <span class="accordionText">Expandir la lectura...</span><i class="fas fa-caret-right accordionIcon"></i>
+        </button>
+        <!-- Desplegable -->
+        <div class="accordionPanel">
+          <br>
+          <div class="showingCards">
+            <a href="/html/articles/varietyMagazine/gis/programming/formats/gml.html" class="card-link-wrapper">
+              <h4>Gml &nbsp;&nbsp;<i class="fas fa-file-code"></i></h5>
+              <p>Un estándar para la cartografía terrestre y los geoservicios WMS, WFS.</p>
+            </a>
+            <a href="/html/articles/varietyMagazine/gis/programming/formats/shp.html" class="card-link-wrapper">
+              <h4>Shp &nbsp;&nbsp;<i class="fas fa-file-code"></i></h5>
+              <p>Un archivo de alta compatibilidad y soporte a lo largo de múltiples SIG.</p>
+            </a>
+            <a href="/html/articles/varietyMagazine/gis/programming/formats/kmlKmz.html" class="card-link-wrapper">
+              <h4>Kml/Kmz &nbsp;&nbsp;<i class="fas fa-file-code"></i></h5>
+              <p>Archivos con sintaxis similar a XML.</p>
+            </a>
+          </div>
+        </div>
+        <p>Descubra otros contenidos:</p>
+        <!-- Acordeón -->
+        <button class="accordion">
+          <span class="accordionText">Expandir la lectura...</span><i class="fas fa-caret-right accordionIcon"></i>
+        </button>
+        <!-- Desplegable -->
+        <div class="accordionPanel">
+          <br>
+          <div class="showingCards">
+            <a href="/html/articles/geosciences/geomorphology/vocabulary/delts.html" class="card-link-wrapper">
+              <h4>Deltas &nbsp;&nbsp;<i class="fas fa-water"></i></h5>
+              <p>Edificios geomorfológicos que se desarrollan en medios submarinos y subaéreos por un régimen de sedimentación impuesto por desembocaduras fluviales.</p>
+            </a>
+            <a href="/html/articles/geosciences/geomorphology/vocabulary/coastLine.html" class="card-link-wrapper">
+              <h4>Línea de costa &nbsp;&nbsp;<i class="fas fa-umbrella-beach"></i></h5>
+              <p>Interfaz litoral dinámica que marca el límite momentaneo del nivel de la columna de agua frente a la costa</p>
+            </a>
+            <a href="/html/articles/geosciences/geomorphology/vocabulary/bays.html" class="card-link-wrapper">
+              <h4>Bahías &nbsp;&nbsp;<i class="fas fa-anchor"></i></h5>
+              <p>Elementos geográficos costeros que dan abrigo a multitud de puertos y playas de Colombia</p>
+            </a>
+          </div>
+          <br>
+        </div>
+    </article>
+
+      <article id="bibliography">
+        <h2>Bibliografía</h2>
+        <nav>
+          <ul>
+            <li>Wikipedia. (2025a). Formato de archivo. Artículo de enciclopedia. Disponible en la web <a
+                href="https://es.wikipedia.org/wiki/Formato_de_archivo" target="_blank" rel="noopener noreferrer"
+                title="Ir a la wiki relacionada a formato de archivo">https://es.wikipedia.org/wiki/Formato_de_archivo</a>.
+            </li>
+            <li>Wikipedia. (2025b). GeoJSON. Wikipedia, la enciclopedia libre. Disponible en la web <a
+                href="https://en.wikipedia.org/wiki/GeoJSON" target="_blank" rel="noopener noreferrer"
+                title="Ir a la wiki relacionada a GeoJSON">https://en.wikipedia.org/wiki/GeoJSON</a>.</li>
+            <li>Internet Engineering Task Force. (2016). RFC 7946: El formato GeoJSON. IETF. Disponible en la web <a
+                href="https://datatracker.ietf.org/doc/html/rfc7946" target="_blank" rel="noopener noreferrer"
+                title="Ir a la especificación oficial de GeoJSON">https://datatracker.ietf.org/doc/html/rfc7946</a>.</li>
+            <li>GeoJSON. (2025). Especificación del formato de archivo GeoJSON. Disponible en la web <a
+                href="https://geojson.org/" target="_blank" rel="noopener noreferrer"
+                title="Ir a la especificación superficial de GeoJSON">https://geojson.org/</a>.</li>
+            <li>GIS Geography. (2025). Formatos GIS: Descripción general de los tipos de archivos de datos espaciales.
+              Artículo comparativo de GISGeography.com. Disponible en la web <a href="https://gisgeography.com/gis-formats/"
+                target="_blank" rel="noopener noreferrer"
+                title="Ir a conocer más formatos SIG">https://gisgeography.com/gis-formats/</a>.</li>
+            <li>MappingGIS. (2022). Aplicaciones SIG de código abierto. Artículo de recopilación de información. Disponible
+              en la web <a href="https://mappinggis.com/2022/07/aplicaciones-gis-open-source/" target="_blank"
+                rel="noopener noreferrer"
+                title="Ir a conocer sobre SIG">https://mappinggis.com/2022/07/aplicaciones-gis-open-source/</a></li>
+            <li>Wikipedia. (2025c). Lenguaje de marcado. Wikipedia, la enciclopedia libre. Disponible en la web <a
+                href="https://es.wikipedia.org/wiki/Lenguaje_de_marcado" target="_blank" rel="noopener noreferrer"
+                title="Ir a la wiki relacionada a lenguajes de marcado">https://es.wikipedia.org/wiki/Lenguaje_de_marcado</a>.
+            </li>
+            <li>IONOS. (2025). ¿Qué son los lenguajes de scripting?. IONOS Digital Guide. Disponible en la web <a
+                href="https://www.ionos.com/es-us/digitalguide/paginas-web/desarrollo-web/que-son-los-lenguajes-de-scripting/"
+                target="_blank" rel="noopener noreferrer"
+                title="Ir al artículo relacionado con lenguajes de scripting">https://www.ionos.com/es-us/digitalguide/paginas-web/desarrollo-web/que-son-los-lenguajes-de-scripting/</a>.
+            </li>
+          </ul>
+        </nav>
+      </article>
+
+      <article id="credits">
+          <h2>Créditos</h2>
+          <!-- Reorganización de contenedores uno -->
+          <div class="groupsOrder">
+            <div class="editorial">
+              <h3>Artículo de Litorales, por:</h2>
+              <ul>
+              <li class="leader">Andrés Agudelo Bermúdez<br><span>Editor a cargo</span></ñi>
+              </ul>
+            </div>
+            <div class="webEdition">
+              <h3>Edición para la web</h3>
+              <ul>
+                <li><strong>Andrés Agudelo</strong><br><span>Responsable de maquetación y código</span></li>
+              </ul>
+            </div>
+            <div class="litoralsContact">
+              <h3>Aporte nuevos contenidos a:</h3>
+              <p>
+                <strong>Correo:</strong>&nbsp;&nbsp;litoralescolombia@gmail.com</li><br>
+                <strong>Celular:</strong>&nbsp;&nbsp;+57 323 421 3355 &nbsp;<i class="fi fi-co"></i>
+              </p>
+            </div>
+          </div>
+          <!-- Reorganización de contenedores dos -->
+          <div class="contentType">
+            <h3>Revisores</h3>
+            <ul>
+              <li><strong>Andrés Agudelo Bermúdez</strong><br>BSc.Ingeniero geólogo.</li>
+              <li><strong>Nila Parra León</strong><br>MSc. en Geografía, BSc. Ingeniera Geóloga.</li>
+            </ul>
+          </div>
+          <!-- Reorganización de contenedores tres -->
+          <div class="provisional-site-footer">
+            <p>Proyecto litorales de Colombia. Versión 2.0.0. de Abril de 2025. El código de este proyecto está licenciado bajo
+            <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">GNU GPL v3</a>. Los contenidos multimedia relacionan <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>.
+            </p>
+            <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" rel="license">
+              <img src="https://www.gnu.org/graphics/gplv3-127x51.png" alt="Licencia GPL v3">
+            </a>
+            <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="license">
+              <img src="https://licensebuttons.net/l/by-nc/4.0/88x31.png" alt="Licencia CC BY-NC">
+            </a>
+            <p>El proyecto se reserva la posibilidad de introducir licencias comerciales, de terceros o tipo SaaS (Software as a Service) o de suscripción para nuevos módulos de código, así como contenido multimedia que se referencie de esta manera, a partir de nuevas versiones del proyecto. No obstante, el contenido de versiones actuales permanece libre y accesible bajo sus respectivos términos.</p>
+          </div>
+        </article>
+  </main>
+</body>
+
+</html>

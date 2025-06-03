@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="Artículo sobre el formato SIG GML por Litorales de Colombia." />
+  <title>Mapas - Litorales de Colombia</title>
+  <meta name="keywords" content="Litorales de Colombia, Geografía, Geociencias, Mapas, Compilación, Proyecto abierto">
+  <meta name="author" content="Andrés Agudelo Bermúdez"/>
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Recomendación para aclarar las direcciones, siempre poner "/archivo o carpeta/siguiente directorio...
+   porque así se enlaza la raíz de todo el directorio, no guarda relación a la ubicación del HTML y eso
+   permite la mantenibilidad del sitio web y la comprensión con los usuarios" -->
+
+  <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+  <!-- El icono de página corresponde al logo de proyecto, Imagen Dunas del taroa -->
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons/css/flag-icons.min.css" />
+  
+  <!-- Estilos orgánicos del proyecto -->
+  <link href="/css/styles.css" rel="stylesheet"/>
+  <!-- Estilos únicos del capítulo o subcapítulo-->
+   <link href="/css/contentDependent/maps.css" rel="stylesheet"/>
+   <link href="/css/contentDependent/toBegin.css" rel="stylesheet"/>
+
+  <!-- Estilos dependientes de características -->
+  <link href="/css/featureDependent/cardShowing.css" rel="stylesheet"/>
+  <link href="/css/featureDependent/accordionButton.css" rel="stylesheet"/>
+
+  <!-- Para mapas si se usa -->
+  <!-- Hoja de estilos de Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <!-- Recursos de plotly -->
+  <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+  
+  <!-- Lógica de interactividad del proyecto -->
+  <script src="/js/scriptTopNavbar.js"></script>
+  <script src="/js/scriptSidebar.js"></script>
+  <script src="/js/scriptSidebarbuttons.js"></script>
+  <script src="/js/scriptObserver.js"></script>
+  <script src="/js/scriptBreadcrumbs.js"></script>
+  <script src="/js/scriptDropWrench.js"></script>
+  <script src="/js/scriptUserErrorReport.js"></script>
+  <script src="/js/scriptFontSizing.js"></script>
+  <script src="/js/scriptChangeHeroImage.js"></script>
+  <script src="/js/scriptBackgroundChange.js"></script>
+  <script src="/js/scriptLanguageChange.js"></script>
+  <script src="/js/scriptSearchMenu.js"></script>
+  <script src="/js/scriptScroll.js"></script>
+  <script src="/js/scriptAccordion.js"></script>
+  <script src="/js/scriptActiveButColoring.js"></script>
+
+</head>
+
+<!-- El header contiene toda la lógica de los menús de navegación de la cabecera -->
+<header class="topbar">
+    <!-- Comienza la cabecera de navegación a títulos principales -->
+    <nav class="topnav" aria-label="Menú superior de navegación global">
+      <!-- El botón de despliegue del menú lateral izquierdo vertical se halla aquí -->
+      <button class="topSideBar" aria-label="Botón dedespliegue de Menú lateral vertical de navegación tipo índice">
+        <span class="bars">
+          <div class="bar bar1"></div>
+          <div class="bar bar2"></div>
+          <div class="bar bar3"></div>
+        </span>
+        <span>Índice</span>
+      </button>
+      <!-- Siguen los links horizontales -->
+      <a href="/index.html"><i class="fas fa-house"></i>&nbsp;&nbsp;Inicio</a>
+      <a href="/html/articles.html">Artículos</a>
+      <a href="/html/galery.html">Galería de fotos</a>
+      <a href="#inicio" class= "active">Mapas</a>
+      <a href="/html/aboutLit.html"><i class="fas fa-info-circle"></i>&nbsp;&nbsp;Acerca de litorales</a>
+      <a href="/html/commingSoon.html">Próximos desarrollos</a>
+    </nav>
+    <!-- Menú lateral desplegable -->
+    <nav class="sideNav" aria-label="Menú lateral vertical de navegación del tipo índice">
+      <a class= "active" href="#bankOfMaps">Banco de mapas</a>
+      <a href="#aestheticsAndArts">Estética y arte</a>
+      <a href="#mapStandards">Estándares</a>
+      <a href="#mapHistoricals">Históricos</a>
+      <a href="#staticMapping">Mapas estáticos</a>
+      <a href="#webMapping">Mapas en la web</a>
+      <a href="#frameworkInfo">Frameworks y librerías</a>
+      <a href="#bibliography">Bibliografía</a>
+      <a href="#credits">Créditos</a> 
+    </nav>
+    <!-- Menú de volver, las migajas-->
+    <nav class="breadcrumbs" aria-label="Menú superior de navegación hacia atrás en la web">
+      <a class="backBtn" href="/index.html"><i class="fas fa-caret-left"></i></a>
+      <span>Busque segmentos:</span>
+      <a href="/html/maps/bankOfMaps.html">Banco de litorales</a>
+      <a href="/html/maps/aestheticsAndArts.html">Estética y Arte</a>
+      <a href="/html/maps/mapStandards.html">Estándares</a>
+      <a href="/html/maps/mapHistoricals.html">Históricos</a>
+    </nav>
+  </header>
+  
+  <!-- Aquí se inyecta el fondo del heroimage, a su imagen no le importan los desplegables -->
+  
+  <div class="heroImage"></div>
+  
+  <!-- Contenido de lleno es el que se programa semi-responsive -->
+  <main class="content">
+    <!-- Aquí van los textos que juegan con el heroimage, estos sí reponden a los desplegables -->
+    <!-- Su versión de código depende de si es un contenido árbol o rama (enlaza o es un producto final)-->
+    <div class="heroText" id="inicio">
+        <h1 class="heroTitle">Mapas</h1>
+        <p class="herosubchapter">Capitulo 3 del proyecto cartográfico y geocientífico Litorales de Colombia</p>
+    </div>
+
+    <p class="mensaje-informativo">Archivo sin características responsivas. Apto para la vista en ordenadores. Navegue al menú de herramientas superior derecho <span class="arrow">&#10148;</span> para mejorar su experiencia.<br>
+    <div class="citing">
+    <p>- ¿Cómo citar este recurso? - Litorales de Colombia. (2025). Capítulo de proyecto 3 - Mapas. Proyecto colaborativo en descripción cartográfica y geocientífica de las costas colombianas. Recurso en línea sobre su versión 2.0.0., licencias GNU GPL v3. para datos y código / CC BY-NC 4.0. para multimedia. Disponible a través la web www.desarrolloscreativos.dev.</p></div>
+
+    <!-- Descripción de los botónes del menú vertical derecho de herramientas -->
+    <nav class="icon-bar">
+      <!-- Sobre este botón operan códigos interactivos y de despliegue del siguiente div -->
+      <button class="wrench-btn" aria-label="Botón desplegable de Herramientas"><i class="fas fa-wrench"></i></button>
+      <div class="dropWrench">
+        <button class="searcher" aria-label="Botón de búsquedas internas sin terminar"><i class="fa fa-search"></i></button>
+          <div class="search-menu">
+            <form>
+              <input type="text" id="searchInput" placeholder="Busque en el artículo..." />
+              <div class="search-results">
+                <button type="button" id="previousResult" aria-label="Ir al anterior resultado"><i class="fas fa-caret-up"></i></button>
+                <button type="button" id="nextResult" aria-label="Ir al siguiente resultado"><i class="fas fa-caret-down"></i></button>
+              </div>
+              <button type="submit" id="searchSubmit" aria-label="Buscar en la web (no funcional todavía)"><i class="fas fa-arrow-right"></i></button>
+            </form>
+          </div>
+        <!-- Este botón actua sobre el heroImage -->
+        <button class="imageChange" aria-label="Cambiar el fondo de la web"><i class="fas fa-image"></i></button>
+        <!-- Este botón cambia los colores de letras incluidos los textos del título -->
+        <button class="contrastChange" aria-label="Cambiar el contraste de la web"><i class="fas fa-adjust"></i></button>
+        <!-- Este botón cambia el tamaño de la letra -->
+        <button id="fontToggleButton" aria-label="Cambiar el tamaño del texto de 17 pixeles a 20 pixeles"><i class="fas fa-plus toggle-icon"></i><i class="fas fa-font"></i></button>
+        <!-- Este botón despliega un menú de reporte de errores de la web -->
+        <button id="alerta" aria-label="Reportar un error de la web"><i class="fas fa-exclamation-triangle"></i></button>
+        <button id="langToggle" aria-label="Cambiar el lenguaje"><i class="fas fa-language"></i></button>
+        <div class="language-menu" id="languageMenu">
+          <button id="espanishBtn" class="active" aria-label="Lenguaje español Colombia"><span class="fi fi-co"></span></button> 
+          <button id="englishBtn" aria-label="Lenguaje inglés"><span class="fi fi-gb"></span></button>
+          <button id="germanBtn" aria-label="Lenguaje alemán"><span class="fi fi-de"></span></button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Tarjeta flotante tipo popup -->
+    <div id="reportCard" class="floating-card hidden">
+      <!-- Formulario de reporte de error -->
+      <form id="errorForm">
+        <!-- Botón de cerrar -->
+        <button id="closeButton" class="close-btn">X</button>
+        <h3>¿Desea reportar un error? <span>(En construcción, sin funcionalidad)</span></h3>
+        <textarea name="message" placeholder="Describa el problema que evidencia en su navegación... (Sin registro en la presente versión)" required></textarea>
+        <input type="email" name="email" autocomplete="email" placeholder="Indique su correo electrónico para ser informado de la solución del caso (Campo opcional)">
+        <div class="actions">
+          <button type="submit" id="submitButton" aria-label="Enviar reporte de error en la web">Enviar</button>
+          <button type="button" id="cancelButton" aria-label="Cancelar el reporte de error en la web">Cancelar</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Apenas empiezan los contenidos comunes -->
+    <section id="intro">
+      <!-- Primer artículo -->
+      <article>
+        <h2>¿Qué encuentra aquí?</h2>
+          <p>Síntesis</p>
+          <h3>Mapa de contenidos</h3>
+          <p>Síntesis</p>
+      </article>
+
+      <article>
+        <h2 id="bankOfMaps">Banco de mapas de Litorales &nbsp;&nbsp;<a href="/html/maps/bankOfMaps.html"><i class="fas fa-external-link-alt"></i></a></h2>
+        <p>
+          Muchos mapas de litorales de Colombia se construyen con propósitos de apoyo, algo casual en contexto de los mapas puesto que la mayoría se construye como un medio y no tanto como un fin, aunque quien disfruta de esta arte hace un poco de ambos; es por esta razón que la mayoría de los aquí contenidos se derivan del capítulo de <a href="/html/articles.html">Artículos</a> y se contextualizan en un compilado de regiones que busca servir a los usuarios como indice para reconocer el territorio sobre características aleatorias de los contenidos.
+        </p>
+        <button class="accordion">
+          <span class="accordionText">Expandir la lectura...</span><i class="fas fa-caret-right accordionIcon"></i>
+        </button>
+        <div class="accordionPanel">
+          <p>
+            Este apartado se halla en construcción
+          </p>
+          <img src="/assets/img/auxiliary/png/instructions/underConstruction.png" alt="Logo del formato GML" class="imageConstruction">
+        </div>
+      </article>
+
+      <article>
+        <h2 id="aestheticsAndArts">Estética y arte &nbsp;&nbsp;<a href="/html/maps/aestheticsAndArts.html"><i class="fas fa-external-link-alt"></i></a></h2>
+        <p>
+          Muchas piezas gráficas requieren habilidades en el uso de colores, contrastes, características de accesibilidad y sensibilidad a la persepción de los productos frente al público, lo que puede ser un reto para todo amante del dibujo de mapas. Es con esta motivación que se introducen algunos conceptos funcionales para sus primeros o más avanzados trabajos en base a las experiencias y estudios de los autores.
+        </p>
+        <button class="accordion">
+          <span class="accordionText">Expandir la lectura...</span><i class="fas fa-caret-right accordionIcon"></i>
+        </button>
+        <div class="accordionPanel">
+          <p>
+            Este apartado se halla en construcción
+          </p>
+          <img src="/assets/img/auxiliary/png/instructions/underConstruction.png" alt="Logo del formato GML" class="imageConstruction">
+        </div>
+      </article>
+
+      <article>
+        <h2 id="mapStandards">Estándares &nbsp;&nbsp;<a href="/html/maps/mapStandards.html"><i class="fas fa-external-link-alt"></i></a></h2>
+        <p>
+          Como si no bastara con la aplicación correcta de aspectos estéticos, para facilidad de lectura y mayor productividad de diferentes piezas cartográficas, existen convenciones y reglas se asumen claras en determinados gremios y contextos que pueden pasarle desapercibidas si no se encuentra inmerso en sus tareas. Es de esta forma que se extiende la invitación a que conozca reglas de instituciones que pueden documentarle los autores.
+        </p>
+        <button class="accordion">
+          <span class="accordionText">Expandir la lectura...</span><i class="fas fa-caret-right accordionIcon"></i>
+        </button>
+        <div class="accordionPanel">
+          <p>
+            Este apartado se halla en construcción
+          </p>
+          <img src="/assets/img/auxiliary/png/instructions/underConstruction.png" alt="Logo del formato GML" class="imageConstruction">
+        </div>
+      </article>
+
+      <article>
+        <h2 id="mapHistoricals">Históricos &nbsp;&nbsp;<a href="/html/maps/mapHistoricals.html"><i class="fas fa-external-link-alt"></i></a></h2>
+        <p>
+          De entre las piezas de cartografía que más valoran los autores se encuentran las que se convierten en patrimonio y es que, algunas representaciones, más allá de su calidad geográfica y valor contextual cuentan con detalles destacables para los métodos y capacidades técnicas al alcance a lo que se le reconoce un gran mérito.
+        </p>
+        
+        <button class="accordion">
+          <span class="accordionText">Expandir la lectura...</span><i class="fas fa-caret-right accordionIcon"></i>
+        </button>
+        <div class="accordionPanel">
+          <p>
+          Este apartado trata un ejercicio de sensibilidad y empatía con el oficio cartográfico y espera encontrar lugar o apoyo en el público que le apasione este tema, el cual se divide en dos secciones.
+        </p>
+          <h3>Internacionales</h3>
+            <p>
+              Sigue trabajos sobre hitos de la representación del territorio especialmente costero en el mundo.
+            </p>
+            <button class="accordion">
+              <span class="accordionText">Expandir la lectura...</span><i class="fas fa-caret-right accordionIcon"></i>
+            </button>
+            <div class="accordionPanel">
+              <p>
+                Este apartado se halla en construcción.
+              </p>
+              <img src="/assets/img/auxiliary/png/instructions/underConstruction.png" alt="Logo del formato GML" class="imageConstruction">
+            </div>
+          <h3>Nacionales</h3>
+            <p>
+              Señala los aprendizajes cartográficos y las mejoras del trabajo colombiano en estos aspectos.
+            </p>
+            <button class="accordion">
+              <span class="accordionText">Expandir la lectura...</span><i class="fas fa-caret-right accordionIcon"></i>
+            </button>
+            <div class="accordionPanel">
+              <p>
+                Este apartado se halla en construcción.
+              </p>
+              <img src="/assets/img/auxiliary/png/instructions/underConstruction.png" alt="Logo del formato GML" class="imageConstruction">
+            </div>
+        </div>
+      </article>
+      
+      <article>
+        <h2 id="staticMapping">Mapas estáticos</h2>
+        <p>
+          Las representaciones del territorio costero colombiano por parte del proyecto, que no requieran interactividad y busquen transmitir la mayor información con los menores recursos de código, se realizan en formatos .png .tiff y .geotiff a través del uso de Sistemas de Información Geográfica libres como las versiones que así lo especifican de Quantum-GIS, más abiertamente entendido como QGIS.
+        </p>
+        <button class="accordion">
+          <span class="accordionText">Expandir la lectura...</span><i class="fas fa-caret-right accordionIcon"></i>
+        </button>
+        <div class="accordionPanel">
+          <p>
+            Lo anterior se relaciona a la necesidad de recurir a recursos open source con filosofías de programación y consumo similares a este proyecto. De hecho, el criterio para usar esta tecnología también se basa en evitar conflictos en el mantenimiento de licencias de software pagas, así como la intención de aprender e innovar sobre estos recursos que libres que, aunque menos atractivos visualmente y más complicados de implementar en algunos aspectos, se hallan a la vanguardia de diferentes ambitos tecnológicos gracias a el apoyo de robustas cominidades de programadores y cartografos que esperamos encuentren esta decisión correcta.
+          </p>
+          <a href = "https://qgis.org/project/overview/"><img src="/assets/img/auxiliary/png/maps/qgisImage.PNG" alt="Referencia a banner de Sistema de Información Geográfico SIG - Quantum GIS" class="quantumGisImage"></a>
+        </div>
+      </article>
+
+
+      <article id="manejo">
+        <h2 id="webMapping">Mapas en la web</h2>
+
+        <p>El proyecto de litorales de Colombia se está construyendo en base a tecnologías front-end, donde más allá del uso de HTML y CSS para la organización de contenidos, se destaca el uso de Javascript (JS) como la oportunidad para generar visualizaciones de datos georeferenciados sin un servidor gráfico que requiere conexiones de redes al sistema y mayor extensión de servicios para habilitar su funcionamiento. Así el grupo de trabajo comparte las opciones barajadas para el desarrollo de mapas interactivos (no estáticos).</p>
+
+        <button class="accordion">
+          <span class="accordionText">Expandir la lectura...</span><i class="fas fa-caret-right accordionIcon"></i>
+        </button>
+        <div class="accordionPanel">
+          <h3 id="pregunta">¿Cómo funcionan los mapas?</h3>
+
+          <p>Todas estas soluciones se basan en el uso de interfaces de programación de aplicaciones (API) de terceros para conseguir recursos base como mapas de fondo, por lo que es importante reconocer cuales requiere llaves o credenciales, cuales son limitados y cuáles completamente abiertas, gratuitas y aparentemente ilimitadas. (MappingGIS, 2022).</p>
+
+          <table class="table3">
+            <caption>Servicios API disponibles.</caption>
+            <thead>
+              <tr>
+                <th>Servicio</th>
+                <th>Usa llave API</th>
+                <th>Uso limitado</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>OpenStreetMap</td>
+                <td>No</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>Stamen Maps</td>
+                <td>No</td>
+                <td>Sí</td>
+              </tr>
+              <tr>
+                <td>CartoDB</td>
+                <td>No</td>
+                <td>Sí</td>
+              </tr>
+              <tr>
+                <td>Mapbox</td>
+                <td>Sí</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>Google Maps</td>
+                <td>Sí</td>
+                <td>No</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="3">Revise tecnologías en (MappingGIS, 2022).</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </article>
+
+      <article id="programacion">
+        <h2 id="frameworkInfo">Frameworks y librerías</h2>
+          <p>
+            Durante la experimentación de la programación de la web de litorales se practica con tres métodos de despliegue interactivo de los contenidos georeferenciados, los cuales puede consultar a continuación:
+          </p>
+          <button class="accordion">
+          <span class="accordionText">Expandir la lectura...</span><i class="fas fa-caret-right accordionIcon"></i>
+          </button>
+          <div class="accordionPanel">
+            <h3 id="leaflet">Leaflet.</h3>
+              <p>Se trata de un framework de Javascript desplegable en cualquier página web, el cual facilita el control total sobre cualquier mapa que se desee presentar, lo que permite desplegar capas SIG avanzadas (WMS, GeoJSON, etc.). Este un recurso 100% del lado del usuario final (frontend) que presenta un alta interactividad y un peso ligero para cualquier proyecto de software o servicio web. Facilita el uso de API de terceros para presentar sus contenidos. (Leaflet, 2025).</p>
+              <p>Ejemplo de código:</p>
+              <p>// Primero se debe añadir la hoja de estilos a el elemento &lt;head&gt; de la forma:<br><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" /&gt;<br><br>
+              // Luego se deber añadir una etiqueta &lt;div&gt; al HTML donde se desea presentar el mapa final, que también debe identificarse:<br><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;div id="map" style="height: 400px; margin: 20px 0;"&gt;&lt;/div&gt;<br><br>
+              // Posteriormente se hace enlace al modulo del motor de mapeo:<br><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="https://unpkg.com/leaflet/dist/leaflet.js"&gt;&lt;/script&gt;<br><br>
+              // Finalmente se construye el mapa:<br><br>
+              // se empieza por los bordes:<br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;const bounds = [<br> 
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[9.5, -77], // suroeste (lat, lng)<br> 
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[12, -72.5] // noreste (lat, lng)<br> 
+                    &nbsp;&nbsp;&nbsp;&nbsp;];<br><br>
+                  // Luego se crea un objeto del tipo mapa (a través de un constructor) en el cual se indica el identificador de contenedor que va a albergar el mapa, así como se dan detalles para su navegación:<br><br> 
+                  &nbsp;&nbsp;&nbsp;&nbsp;const map = L.map('map',{<br> 
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;maxBounds: bounds,       // Inserta los límites del usuario<br> 
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;maxBoundsViscosity: 1.0, // Fuerza la navgeación a los límites<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minZoom: 6,<br> 
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;maxZoom: 12<br> 
+                  &nbsp;&nbsp;&nbsp;&nbsp;}).setView([10.4, -75.5], 7);<br><br>
+
+                  // Se agrega una capa base, en este caso de OpenStreetMap:<br><br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;attribution: '&copy; OpenStreetMap contributors'<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;}).addTo(map);<br><br>
+
+                  // Luego se añade un marcador sobre Cartagena de Indias con información adicional si se desea:<br><br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;const marker = L.marker([10.4, -75.5]).addTo(map);<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;marker.bindPopup("Cartagena de Indias Puerta del Caribe colombiano.").openPopup();<br><br>
+
+                  // Del mismo modo, se pueden añadir más marcadores:<br><br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;const barranquilla = L.marker([10.9685, -74.7813]).addTo(map)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.bindPopup("Barranquilla");<br><br>
+                  
+                  &nbsp;&nbsp;&nbsp;&nbsp;const santaMarta = L.marker([11.2408, -74.1990]).addTo(map)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.bindPopup("Santa Marta");<br><br>
+
+                // A continuación se presenta el resultado de la implementación:<br>
+              </p>
+              <div style="display: flex; justify-content: center;">
+                <div id="map" style="height: 400px; width: 70%;"></div>
+              </div>
+              <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+              <script>
+                const bounds = [
+                  [9.5, -77], // suroeste (lat, lng)
+                  [12, -72.5] // noreste (lat, lng)
+                ];
+                // Crear el mapa y centrarlo en el Caribe Colombiano (aprox. Cartagena)
+                const map = L.map('map',{
+                  maxBounds: bounds,       // Limita movimiento
+                  maxBoundsViscosity: 1.0, // Qué tan duro es el borde (1.0 = bloque total)
+                  minZoom: 6,
+                  maxZoom: 12
+                }).setView([10.4, -75.5], 7);
+
+                // Capa base de OpenStreetMap
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                  attribution: '&copy; OpenStreetMap contributors'
+                }).addTo(map);
+
+                // Añadir un marcador en Cartagena
+                const marker = L.marker([10.4, -75.5]).addTo(map);
+                marker.bindPopup("<b>Cartagena de Indias</b><br>Puerta del Caribe colombiano.").openPopup();
+
+                // También puedes agregar más marcadores, por ejemplo:
+                const barranquilla = L.marker([10.9685, -74.7813]).addTo(map)
+                  .bindPopup("Barranquilla");
+
+                const santaMarta = L.marker([11.2408, -74.1990]).addTo(map)
+                  .bindPopup("Santa Marta");
+              </script>
+          </div>
+          <p>De las prácticas se determina que Leaflet.js se integra de manera más natural y rápida en el código, además de que parece presentar la visual más sencilla de navegar frente al usuario final, lo que es beneficioso. Bajo estas observaciones dicha librería se hace el estándar más sencillo para la implementación en futuras entregas.</p>
+
+          <button class="accordion">
+          <span class="accordionText">Expandir la lectura...</span><i class="fas fa-caret-right accordionIcon"></i>
+          </button>
+          <div class="accordionPanel">
+            <h3 id="folium">Folium.</h3>
+
+              <p>Se trata de una biblioteca Python que tras la ejecución de su script en máquina de desarrolladores crea un archivo HTML que puede ser añadido a la web en construcción. Ofrece una solución sencilla con lógica similar a lógica similar a la de librerías como matplotlib con interactividad limitada a opciones de zoom, capas, popups; además de tener que realizar cambios de programación desde código de servidor, el cual no se conecta directamente al front-end del proyecto, lo que genera problemas de actualización y mantenimiento del código. Es favorable la integración con dataframes pandas de python y el soporte de capas raster, vectoriales, WMS.</p>
+              <p>En el fondo usa Leaflet como el motor de mapas, es decir, usa internamente esta librería para renderizar productos interactivo. (MappingGIS, 2022).</p>
+
+              <p>Esta herramienta no tiene muestra de código porque resulta un esfuerzo significativo implementar su resultado en la web actual.</p>
+
+              <p>Puede intentar implementarel código de python:</p>
+
+              <p>import folium<br><br>
+
+                # Definir el límite (bounds) del mapa<br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;bounds = [[9.5, -77], [12, -72.5]]<br><br>
+
+                # Crear el mapa centrado en un punto dentro del límite, por ejemplo, Cartagena<br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;map = folium.Map(location=[10.4, -75.5], zoom_start=7, max_bounds=True, 
+                                max_bounds_viscosity=1.0)<br><br>
+
+                # Establecer el límite para que el mapa no se desplace más allá de los extremos definidos<br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;map.fit_bounds(bounds)<br><br>
+
+                # Añadir capa base de OpenStreetMap (es la capa predeterminada)<br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;folium.TileLayer(<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;attr='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors').add_to(map)<br><br>
+
+                # Añadir marcador para Cartagena<br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;folium.Marker([10.4, -75.5], popup="Cartagena de Indias Puerta del Caribe colombiano.").add_to(map)<br><br>
+
+                # Añadir marcador para Barranquilla<br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;folium.Marker([10.9685, -74.7813], popup="<b>Barranquilla</b>").add_to(map)<br><br>
+
+                # Añadir marcador para Santa Marta<br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;folium.Marker([11.2408, -74.1990], popup="<b>Santa Marta</b>").add_to(map)<br><br>
+
+                # Guardar el mapa como archivo HTML<br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;map.save("mapa_con_extremos_y_marcadores.html")<br><br>
+              </p>
+          </div>
+          <p>Por su parte Folium resulta más difícil de utilizar a la escala del presente proyecto, ya que requiere el uso de recursos backend y combinaciones de scripts, las cuales si se cargan una a una consumen mucho tiempo como para considerarse implemnentables, menos aún sostenibles. Por lo anterior, se descarta su uso en futuras entregas.</p>
+
+          <button class="accordion">
+          <span class="accordionText">Expandir la lectura...</span><i class="fas fa-caret-right accordionIcon"></i>
+          </button>
+          <div class="accordionPanel">
+            <h3 id="plotly">Plotly.js</h3>
+              <p>Plotly se puede usar para crear productos 2D con naturaleza geográfica y estadística, ad altamente interactivos. Aunque generalmente a la librería se le asocie con Python, esta opción tiene una versión JavaScript, que facilita crear gráficos directamente en el navegador sin depender de lenguajes de servidor. En términos de código es una opción un poco compleja, pero flexible, además de personalizable con zoom, hover, 3D, animaciones. Como dato adicional, el uso de esta librería puede combinarse con el framework React. (Plotly, 2025).</p>
+              
+              <p>Ejemplo de código:</p>
+              
+              <p>// Primero se debe añadir los recurso de código de plotly en el &lt;head&gt; de la forma:<br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="https://cdn.plot.ly/plotly-2.32.0.min.js"&gt;&lt;/script>&gt;<br><br>
+                // Luego se deber añadir una etiqueta &lt;div&gt; al HTML donde se desea presentar el mapa final, que también debe identificarse:<br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div id="map2" style="height: 400px; width: 100%; margin: 20px 0;"&gt;&lt;/div&gt;<br><br>
+                // Posteriormente se especifican datos de gráfica:<br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;const data = [{type: "scattermapbox",<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mode: "markers+text", textposition: "top right",<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;marker: {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;size: 12,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: "red"<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat: [10.4, 10.9685, 11.2408], lon: [-75.5, -74.7813, -74.199],<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text: [<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Cartagena de Indias Puerta del Caribe colombiano", "Barranquilla", "Santa Marta"]}];<br><br>
+
+                // Luego se especifica la forma de dibujo:<br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;const layout = {<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapbox: {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style: "open-street-map",<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;center: { lat: 10.7, lon: -74.9 },<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zoom: 7,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bounds: {<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;west: -77,<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;east: -72.5,<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;south: 9.5,<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;north: 12}},<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;margin: { t: 0, b: 0, l: 0, r: 0 }};<br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;// Por último se renderiza:<br> 
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plotly.newPlot("map2", data, layout);<br><br>
+        
+                  &nbsp;&nbsp;&nbsp;&nbsp;// A continuación se presenta el resultado de la implementación:<br>
+                </p>
+
+                <div style="display: flex; justify-content: center;">
+                  <div id="map2" style="height: 400px; width: 70%;"></div>
+                </div>
+                <script>
+                const data = [{
+                  type: "scattermapbox",
+                  mode: "markers+text",
+                  textposition: "top right",
+                  marker: {
+                    size: 12,
+                    color: "red"
+                    // NO usar symbol aquí
+                  },
+                  lat: [10.4, 10.9685, 11.2408],
+                  lon: [-75.5, -74.7813, -74.199],
+                  text: [
+                    "Cartagena de Indias<br>Puerta del Caribe colombiano",
+                    "Barranquilla",
+                    "Santa Marta"
+                  ]
+                }];
+
+                const layout = {
+                  mapbox: {
+                    style: "open-street-map",
+                    center: { lat: 10.7, lon: -74.9 },
+                    zoom: 7,
+                    bounds: {
+                      west: -77,
+                      east: -72.5,
+                      south: 9.5,
+                      north: 12
+                    }
+                  },
+                  margin: { t: 0, b: 0, l: 0, r: 0 }
+                };
+
+                Plotly.newPlot("map2", data, layout);
+                </script>
+          </div>
+          <p>Bajo un juicio neutro, Plotly.js puede ser menos amigable que Leaflet.js pero presenta un particularidad y es que, sirve sus resultados como gráficas descargables y versátiles para el amnejo de datos, lo que puede ser beneficioso en el proyecto de implementar soluciones de este tipo. Por lo anterior, su consumo se deja como herramienta esporádica frente a futurras entregas.</p>
+
+      </article>
+
+
+
+        <!-- Octavo artículo -->
+        <article id="bibliography">
+          <h2>Bibliografía</h2>
+          <nav>
+            <ul>
+              <li>Leaflet. (2025). Leaflet: Librería JavaScript para mapas interactivos. Documentación oficial de framework.
+              Disponible en la web <a href="https://leafletjs.com/" target="_blank" rel="noopener noreferrer"
+                title="Ir a la web oficial de Leaflet">https://leafletjs.com/</a>.</li>
+              <li>MappingGIS. (2022). Folium: utilizando Leaflet con Python. Explicación de herramienta. Disponible en la
+                web <a href="https://mappinggis.com/2022/09/folium-utilizando-leaflet-con-python/" target="_blank"
+                rel="noopener noreferrer"
+                title="Ir a un artículo de uso del framework">https://mappinggis.com/2022/09/folium-utilizando-leaflet-con-python/</a>.
+              </li>
+              <li>Plotly. (2025). Plotly JavaScript Graphing Library. Documentación de liberaría. Disponible en la web <a
+                href="https://plotly.com/javascript/" target="_blank" rel="noopener noreferrer"
+                title="Ir a la web oficial de Plotly">https://plotly.com/javascript/</a>.
+              </li>
+            </ul>
+          </nav>
+        </article>
+
+        <!-- Noveno artículo (tiene tres contenedores) -->
+        <article id="credits">
+          <h2>Créditos</h2>
+          <!-- Reorganización de contenedores uno -->
+          <div class="groupsOrder">
+            <div class="editorial">
+              <h3>Producto de Litorales, por:</h2>
+              <ul>
+              <li class="leader">Andrés Agudelo Bermúdez<br><span>Líder del equipo</span></ñi>
+              </ul>
+            </div>
+            <div class="webEdition">
+              <h3>Edición para la web</h3>
+              <ul>
+                <li><strong>Andrés Agudelo</strong><br><span>Responsable de maquetación y código</span></li>
+              </ul>
+            </div>
+            <div class="litoralsContact">
+              <h3>Aporte nuevos contenidos a:</h3>
+              <p>
+                <strong>Correo:</strong>&nbsp;&nbsp;litoralescolombia@gmail.com</li><br>
+                <strong>Celular:</strong>&nbsp;&nbsp;+57 323 421 3355 &nbsp;<i class="fi fi-co"></i>
+              </p>
+            </div>
+          </div>
+          <!-- Reorganización de contenedores dos -->
+          <div class="contentType">
+            <h3>Revisores</h3>
+            <ul>
+              <li><strong>Andrés Agudelo Bermúdez</strong><br>BSc.Ingeniero geólogo.</li>
+              <li><strong>Nila Parra León</strong><br>MSc. en Geografía, BSc. Ingeniera Geóloga.</li>
+            </ul>
+          </div>
+          <!-- Reorganización de contenedores tres -->
+          <div class="provisional-site-footer">
+            <p>Proyecto litorales de Colombia. Versión 2.0.0. de Abril de 2025. El código de este proyecto está licenciado bajo
+            <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">GNU GPL v3</a>. Los contenidos multimedia relacionan <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>.
+            </p>
+            <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" rel="license">
+              <img src="https://www.gnu.org/graphics/gplv3-127x51.png" alt="Licencia GPL v3">
+            </a>
+            <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="license">
+              <img src="https://licensebuttons.net/l/by-nc/4.0/88x31.png" alt="Licencia CC BY-NC">
+            </a>
+            <p>El proyecto se reserva la posibilidad de introducir licencias comerciales, de terceros o tipo SaaS (Software as a Service) o de suscripción para nuevos módulos de código, así como contenido multimedia que se referencie de esta manera, a partir de nuevas versiones del proyecto. No obstante, el contenido de versiones actuales permanece libre y accesible bajo sus respectivos términos.</p>
+          </div>
+        </article>
+    </section>
+  </main>
+</body>

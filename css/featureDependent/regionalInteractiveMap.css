@@ -1,0 +1,38 @@
+/* ==============
+  Mapa regional leaflet dinámico
+  ============ */
+
+/* Contenedor de mapa */
+.map-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* estilos de mapa */
+.map {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  height: 400px;
+  width: 70%;
+}
+
+/* estilos de leyenda de mapas */
+.info.legend {
+  background: white;
+  color: #333;
+  padding: 10px;
+  line-height: 1.5;
+  font-size: 14px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+}
+
+/* Pop-up de los puntos con georeferencia */
+.leaflet-popup-content {
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  word-wrap: break-word;
+  white-space: normal;
+}

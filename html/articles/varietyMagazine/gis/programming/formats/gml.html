@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="Artículo sobre el formato SIG GML por Litorales de Colombia." />
+  <title>Gml, un estándar para la cartografía multipropósito</title>
+  <meta name="keywords" content="Gml, gis, formato, programación, Litorales de Colombia, geografía, geociencias">
+  <meta name="author" content="Andrés Agudelo Bermúdez" />
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+
+  <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+  <!-- El icono de página corresponde al logo de proyecto, Imagen Dunas del taroa -->
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons/css/flag-icons.min.css" />
+
+  <!-- Para mapas si se usa -->
+  <!-- Hoja de estilos de Leaflet -->
+  <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" /> -->
+  <!-- <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script> -->
+  <!-- Recursos de plotly -->
+  <!-- <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script> -->
+  
+  <!-- Estilos orgánicos del proyecto -->
+  <link href="/css/styles.css" rel="stylesheet"/>
+
+  <!-- Estilos únicos del capítulo o subcapítulo-->
+  <link href="/css/contentDependent/gml.css" rel="stylesheet"/>
+
+  <!-- Estilos dependientes de características -->
+  <link href="/css/featureDependent/cardShowing.css" rel="stylesheet"/>
+  <link href="/css/featureDependent/accordionButton.css" rel="stylesheet"/>
+
+  <!-- Lógica de interactividad del proyecto -->
+  <script src="/js/scriptTopNavbar.js"></script>
+  <script src="/js/scriptSidebar.js"></script>
+  <script src="/js/scriptSidebarbuttons.js"></script>
+  <script src="/js/scriptObserver.js"></script>
+  <script src="/js/scriptBreadcrumbs.js"></script>
+  <script src="/js/scriptDropWrench.js"></script>
+  <script src="/js/scriptUserErrorReport.js"></script>
+  <script src="/js/scriptFontSizing.js"></script>
+  <script src="/js/scriptChangeHeroImage.js"></script>
+  <script src="/js/scriptBackgroundChange.js"></script>
+  <script src="/js/scriptLanguageChange.js"></script>
+  <script src="/js/scriptSearchMenu.js"></script>
+  <script src="/js/scriptScroll.js"></script>
+  <script src="/js/scriptAccordion.js"></script>
+  <script src="/js/scriptActiveButColoring.js"></script>
+
+</head>
+
+<body>
+  <!-- El header contiene toda la lógica de los menús de navegación de la cabecera -->
+  <header class="topbar">
+    <!-- Comienza la cabecera de navegación a títulos principales -->
+    <nav class="topnav" aria-label="Menú superior de navegación global">
+      <!-- El botón de despliegue del menú lateral izquierdo vertical se halla aquí -->
+      <button class="topSideBar" aria-label="Botón dedespliegue de Menú lateral vertical de navegación tipo índice">
+        <span class="bars">
+          <div class="bar bar1"></div>
+          <div class="bar bar2"></div>
+          <div class="bar bar3"></div>
+        </span>
+        <span>Índice</span>
+      </button>
+      <!-- Siguen los links horizontales -->
+      <a href="/index.html"><i class="fas fa-house"></i>&nbsp;&nbsp;Inicio</a>
+      <a href="/html/articles.html" class="active">Artículos</a>
+      <a href="/html/galery.html">Galería de fotos</a>
+      <a href="/html/maps.html">Mapas</a>
+      <a href="/html/aboutLit.html"><i class="fas fa-info-circle"></i>&nbsp;&nbsp;Acerca de litorales</a>
+      <a href="/html/commingSoon.html">Próximos desarrollos</a>
+    </nav>
+    <!-- Menú lateral desplegable -->
+    <nav class="sideNav" aria-label="Menú lateral vertical de navegación del tipo índice">
+      <a class="active" href="#concepto">¿Qué es Gml?</a>
+      <a href="#continueLearning">Consulte más</a>
+      <a href="#bibliography">Bibliografía</a>
+      <a href="#credits">créditos</a> 
+    </nav>
+    <!-- Menú de volver, las migajas-->
+    <nav class="breadcrumbs" aria-label="Menú superior de navegación hacia atrás en la web">
+      <span>Vuelva a leer:</span>
+      <a href="/html/articles/varietyMagazine.html">Variedad (Revista)</a>
+      <a href="/html/articles/varietyMagazine/gis.html">Sistemas de información geográfica</a>
+      <a href="/html/articles/varietyMagazine/gis/programming.html">Programación</a>
+      <a href="/html/articles/varietyMagazine/gis/programming/formats.html">Formatos de datos</a>
+      <span>Alterne:</span>
+      <a href="/html/articles/varietyMagazine/gis/programming/formats/geojson.html">GeoJson</a>
+      <a href="/html/articles/varietyMagazine/gis/programming/formats/geotiff.html">GeoTiff</a>
+      <a href="/html/articles/varietyMagazine/gis/programming/formats/gml.html" class="active">Gml</a>
+      <a href="/html/articles/varietyMagazine/gis/programming/formats/kmlKmz.html">Kml y Kmz</a>
+      <a href="/html/articles/varietyMagazine/gis/programming/formats/shp.html">Shp</a> 
+    </nav>
+  </header>
+  <!-- Aquí se inyecta el fondo del heroimage, a su imagen no le importan los desplegables -->
+  <div class="heroImage"></div>
+ 
+  <!-- Contenido de lleno es el que se programa semi-responsive -->
+  <main class="content">
+    <!-- Aquí van los textos que juegan con el heroimage, estos sí reponden a los desplegables -->
+    <!-- Su versión de código depende de si es un contenido árbol o rama (enlaza o es un producto final)-->
+    <div class="heroTextSubcontent">
+        <h1 class="heroTitleSubcontent">Gml, un estándar para la cartografía multipropósito</h1>
+        <p class="heroSubtitle">
+          <span class="tag">Texto técnico &nbsp;<i class="fas fa-tools"></i></span>
+          <span class="tag warning">Su lectura no requiere conocimientos previos &nbsp;<i class="fas fa-check"></i></span>
+          <span class="tag info">Incluye código &nbsp;<i class="fas fa-code"></i></span>
+          <span class="tag info">Por: <a href="#creditos" class="flecha-icono">Andrés Agudelo&nbsp;&nbsp;<i class="fas fa-caret-down"></i></a></span>
+          <span class="tag">Versión 1 del 18/05/2025.&nbsp;&nbsp;<i class="fas fa-file-signature"></i></span></p>
+    </div>
+    
+    <p class="mensaje-informativo">Archivo sin características responsivas. Apto para la vista en ordenadores. Navegue al menú de herramientas superior derecho para mejorar su experiencia.</p>
+    <div class="citing">
+    <p>- ¿Cómo citar este recurso? - Litorales de Colombia. (2025). Gml, un estándar para la cartografía multipropósito. Proyecto colaborativo en descripción cartográfica y geocientífica de las costas colombianas. Recurso en línea sobre su versión 2.0.0., licencias GNU GPL v3. para datos y código / CC BY-NC 4.0. para multimedia. Disponible a través la web www.desarrolloscreativos.dev/html/articles/varietyMagazine/gis/programming/formats/gml.html.</p></div>
+
+    <!-- Descripción de los botónes del menú vertical derecho de herramientas -->
+    <nav class="icon-bar">
+      <!-- Sobre este botón operan códigos interactivos y de despliegue del siguiente div -->
+      <button class="wrench-btn" aria-label="Botón desplegable de Herramientas"><i class="fas fa-wrench"></i></button>
+      <div class="dropWrench">
+        <button class="searcher" aria-label="Botón de búsquedas internas sin terminar"><i class="fa fa-search"></i></button>
+          <div class="search-menu">
+            <form>
+              <input type="text" id="searchInput" placeholder="Busque en el artículo..." />
+              <div class="search-results">
+                <button type="button" id="previousResult" aria-label="Ir al anterior resultado"><i class="fas fa-caret-up"></i></button>
+                <button type="button" id="nextResult" aria-label="Ir al siguiente resultado"><i class="fas fa-caret-down"></i></button>
+              </div>
+              <button type="submit" id="searchSubmit" aria-label="Buscar en la web (no funcional todavía)"><i class="fas fa-arrow-right"></i></button>
+            </form>
+          </div>
+        <!-- Este botón actua sobre el heroImage -->
+        <button class="imageChange" aria-label="Cambiar el fondo de la web"><i class="fas fa-image"></i></button>
+        <!-- Este botón cambia los colores de letras incluidos los textos del título -->
+        <button class="contrastChange" aria-label="Cambiar el contraste de la web"><i class="fas fa-adjust"></i></button>
+        <!-- Este botón cambia el tamaño de la letra -->
+        <button id="fontToggleButton" aria-label="Cambiar el tamaño del texto de 17 pixeles a 20 pixeles"><i class="fas fa-plus toggle-icon"></i><i class="fas fa-font"></i></button>
+        <!-- Este botón despliega un menú de reporte de errores de la web -->
+        <button id="alerta" aria-label="Reportar un error de la web"><i class="fas fa-exclamation-triangle"></i></button>
+        <button id="langToggle" aria-label="Cambiar el lenguaje"><i class="fas fa-language"></i></button>
+        <div class="language-menu" id="languageMenu">
+          <button id="espanishBtn" class="active" aria-label="Lenguaje español Colombia"><span class="fi fi-co"></span></button> 
+          <button id="englishBtn" aria-label="Lenguaje inglés"><span class="fi fi-gb"></span></button>
+          <button id="germanBtn" aria-label="Lenguaje alemán"><span class="fi fi-de"></span></button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Tarjeta flotante tipo popup -->
+    <div id="reportCard" class="floating-card hidden">
+      <!-- Formulario de reporte de error -->
+      <form id="errorForm">
+        <!-- Botón de cerrar -->
+        <button id="closeButton" class="close-btn">X</button>
+        <h3>¿Desea reportar un error? <span>(En construcción, sin funcionalidad)</span></h3>
+        <textarea name="message" placeholder="Describa el problema que evidencia en su navegación... (Sin registro en la presente versión)" required></textarea>
+        <input type="email" name="email" autocomplete="email" placeholder="Indique su correo electrónico para ser informado de la solución del caso (Campo opcional)">
+        <div class="actions">
+          <button type="submit" id="submitButton" aria-label="Enviar reporte de error en la web">Enviar</button>
+          <button type="button" id="cancelButton" aria-label="Cancelar el reporte de error en la web">Cancelar</button>
+        </div>
+      </form>
+    </div>
+
+
+    <article id="concepto">
+      <h2>¿Qué es Gml?</h2>
+      <div id="conceptoParalelo">
+        <p>GML traduce Geography Markup Language y se trata de un formato de información geoespacial, el cual se basa en el lenguaje de marcado Extensible Markup Languaje (XML), para describir el contenido o funcionalidad de un set datos a través de su propio sistema de etiquetas. Este formato lo diseña el Open Geospatial Consortium (OGC) con el fin de proporcionar al público general un recurso interoperable entre Sistemas de Información Geográficos (SIG), de manera que se desarrolla como un formato estándar.
+        <br><br>
+        Veamos en la margen derecha un ejemplo de cómo se estructura un objeto "ciudad". <span>&#10148;</span><br>Bajo la lógica de GML, en este se crean atributos tales como nombre, población y ubicación geográfica a través de la especificación de coordenadas no sin antes especificar una geometría. Note que la sintaxis del archivo permite organizar la información de manera jerárquica y estructurada, lo cual lo hace legible incluso para un usuario sin un SIG como ocurre con otras sintaxis de archivos que son subconjuntos de XML.</p>
+
+        <p>
+        &lt;gml:featureMember&gt;<br>
+          &nbsp;&nbsp;&lt;my:City gml:id="c001"&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;my:name>Barcelona&lt;/my:name&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;my:population>1600000&lt;/my:population&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;my:location&gt;<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;gml:Point&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;gml:coordinates>2.1734,41.3851&lt;/gml:coordinates&gt;<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/gml:Point&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;/my:location&gt;<br>
+          &nbsp;&nbsp;&lt;/my:City&gt;<br>
+        &lt;/gml:featureMember&gt;<br><br>
+        <span id="note">Sintaxis modificada de un prompt de ChatGPT.</span>
+        </p>
+      </div>
+
+        <h3>¿En qué contexto se halla comunmente?</h3>
+
+        <p>En todo tipo de plataformas u ofertas de información que busquen proveer información geográfica abstracta, porque permite representar geometrías, topologías, atributos, Sistemas de Georeferencia de Coordenadas (CRS) e incluso metadatos. Así su inclusión es razonable en Infraestructuras de Datos Espaciales internacionales, nacionales y regionales de caracter público y privado.</p>
+
+        <p>De hecho el formato GML es la base de transmición de características o elementos "feature" (también objetos espaciales vectoriales) de servicios del tipo Web Feature Service (WFS) que se identifican como estas capas de información que pueden modificarse en un SIG y se consumen a través de una red con protocolo específico. No obstante, también es posible determinar la cabida de GML en Servicios de Cobertura (WCS) que es la alternativa raster de la anterior implementación, también de la OGC y adicionalmente, puede aparecer en Servicios de Observación de Sensores (SOS).</p>
+
+        <table class="table2">
+          <caption>GML en contexto</caption>
+          <thead>
+            <tr>
+              <th>/</th>
+              <th>Archivo individual</th>
+              <th>En WFS</th>
+              <th>Ventajas</th>
+              <th>Desventajas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Sintesis de conocimientos</td>
+              <td><img src="/assets/img/auxiliary/png/GML_example.png" alt="Ejemplo de archivo GML"></td>
+              <td><img src="/assets/img/auxiliary/png/GML_example_in_WFS.png" alt="Ejemplo de archivo GML"></td>
+              <td>
+                <ul>
+                  <li>Interoperabilidad</li>
+                  <li>Flexibilidad</li>
+                  <li>Extensibilidad</li>
+                  <li>Extensibilidad</li>
+                  <li>Extensibilidad</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Interoperabilidad</li>
+                  <li>Flexibilidad</li>
+                  <li>Extensibilidad</li>
+                  <li>Extensibilidad</li>
+                  <li>Extensibilidad</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="5">Como sugerencia: Consulte este y otros conceptos a través del apartado de <a href="#bibliography">bibliografía</a> provisto por esta web.</td>
+            </tr>
+          </tfoot>
+        </table>
+    </article>
+    <article id="continueLearning">
+        <h3>¿Desea seguir aprendiendo?</h3>
+        <p>Puede consultar otros formatos:</p>
+        <!-- Acordeón -->
+        <button class="accordion">
+          <span class="accordionText">Expandir la lectura...</span><i class="fas fa-caret-right accordionIcon"></i>
+        </button>
+        <!-- Desplegable -->
+        <div class="accordionPanel">
+          <br>
+          <div class="showingCards">
+            <a href="/html/articles/varietyMagazine/gis/programming/formats/geojson.html" class="card-link-wrapper">
+              <h4>Geojson &nbsp;&nbsp;<i class="fas fa-file-code"></i></h5>
+              <p>Una alternativa para la comunicación web de datos geoespaciales liviana.</p>
+            </a>
+            <a href="/html/articles/varietyMagazine/gis/programming/formats/shp.html" class="card-link-wrapper">
+              <h4>Shp &nbsp;&nbsp;<i class="fas fa-file-code"></i></h5>
+              <p>Un archivo de alta compatibilidad y soporte a lo largo de múltiples SIG.</p>
+            </a>
+            <a href="/html/articles/varietyMagazine/gis/programming/formats/kmlKmz.html" class="card-link-wrapper">
+              <h4>Kml/Kmz &nbsp;&nbsp;<i class="fas fa-file-code"></i></h5>
+              <p>Archivos con sintaxis similar a XML.</p>
+            </a>
+          </div>
+        </div>
+        <p>Descubra otros contenidos:</p>
+        <!-- Acordeón -->
+        <button class="accordion">
+          <span class="accordionText">Expandir la lectura...</span><i class="fas fa-caret-right accordionIcon"></i>
+        </button>
+        <!-- Desplegable -->
+        <div class="accordionPanel">
+          <br>
+          <div class="showingCards">
+            <a href="/html/articles/geosciences/geomorphology/vocabulary/delts.html" class="card-link-wrapper">
+              <h4>Deltas &nbsp;&nbsp;<i class="fas fa-water"></i></h5>
+              <p>Edificios geomorfológicos que se desarrollan en medios submarinos y subaéreos por un régimen de sedimentación impuesto por desembocaduras fluviales.</p>
+            </a>
+            <a href="/html/articles/geosciences/geomorphology/vocabulary/coastLine.html" class="card-link-wrapper">
+              <h4>Línea de costa &nbsp;&nbsp;<i class="fas fa-umbrella-beach"></i></h5>
+              <p>Interfaz litoral dinámica que marca el límite momentaneo del nivel de la columna de agua frente a la costa</p>
+            </a>
+            <a href="/html/articles/geosciences/geomorphology/vocabulary/bays.html" class="card-link-wrapper">
+              <h4>Bahías &nbsp;&nbsp;<i class="fas fa-anchor"></i></h5>
+              <p>Elementos geográficos costeros que dan abrigo a multitud de puertos y playas de Colombia</p>
+            </a>
+          </div>
+          <br>
+        </div>
+    </article>
+
+      <article id="bibliography">
+        <h2>Bibliografía</h2>
+        <nav>
+          <ul>
+            <li>Open Geospatial Consortium, GML. (2025). Geography Markup Language (GML). Artículo documental de archivo. Disponible en la web <a href="https://www.ogc.org/standards/gml/" target="_blank" rel="noopener noreferrer"
+                title="Ir a la documentación oficial del formato de archivo">https://www.ogc.org/standards/gml/</a>.<br>
+            </li>
+            <li>Wikipedia. (2025). Geography Markup Language. Archivo de enciclopedia libre. Disponible en la web <a
+                href="https://es.wikipedia.org/wiki/Geography_Markup_Language" target="_blank" rel="noopener noreferrer"
+                title="Ir a la wiki relacionada al formato GML">https://es.wikipedia.org/wiki/Geography_Markup_Language</a>.
+            <br>
+            </li>
+            <li>GISGeography. (2025). 50+ GIS formats: Vector, raster, and more. Artículo de divulgación. Disponible en la web <a
+                href="https://gisgeography.com/gis-formats/" target="_blank" rel="noopener noreferrer"
+                title="Ir a un glosario de formatos SIG">https://gisgeography.com/gis-formats/</a>.
+            <br></li>
+            
+            <li>Wikipedia. (2025). Web Feature Service. Artículo de divulgación. Disponible en la web <a
+                href="https://es.wikipedia.org/wiki/Web_Feature_Service" target="_blank" rel="noopener noreferrer"
+                title="Ir a la wiki relacionada al servicio WFS">https://es.wikipedia.org/wiki/Web_Feature_Service</a>.
+            <br></li>
+            
+            <li>Spatial Manager. (2025). Algunos servidores WFS devuelven datos en formato GML.. Artículo de divulgación. Disponible en la web <a href="https://www.spatialmanager.com/tip-wfs-servers-return-gml-data/" target="_blank" rel="noopener noreferrer" title="Ir a la wiki relacionada al servicio WFS">https://www.spatialmanager.com/tip-wfs-servers-return-gml-data/</a>.
+            </li>
+            <li>OpenAI. (2025). ChatGPT (modelo o3). Modelo de lenguaje. OpenAI. Disponible en la web <a href="https://chat.openai.com" target="_blank" rel="noopener noreferrer" title="Ir a la wiki relacionada al servicio WFS">https://chat.openai.com</a>.
+            </li>
+          </ul>
+        </nav>
+      </article>
+
+      <article id="credits">
+          <h2>Créditos</h2>
+          <!-- Reorganización de contenedores uno -->
+          <div class="groupsOrder">
+            <div class="editorial">
+              <h3>Artículo de Litorales, por:</h2>
+              <ul>
+              <li class="leader">Andrés Agudelo Bermúdez<br><span>Editor a cargo</span></ñi>
+              </ul>
+            </div>
+            <div class="webEdition">
+              <h3>Edición para la web</h3>
+              <ul>
+                <li><strong>Andrés Agudelo</strong><br><span>Responsable de maquetación y código</span></li>
+              </ul>
+            </div>
+            <div class="litoralsContact">
+              <h3>Aporte nuevos contenidos a:</h3>
+              <p>
+                <strong>Correo:</strong>&nbsp;&nbsp;litoralescolombia@gmail.com</li><br>
+                <strong>Celular:</strong>&nbsp;&nbsp;+57 323 421 3355 &nbsp;<i class="fi fi-co"></i>
+              </p>
+            </div>
+          </div>
+          <!-- Reorganización de contenedores dos -->
+          <div class="contentType">
+            <h3>Revisores</h3>
+            <ul>
+              <li><strong>Andrés Agudelo Bermúdez</strong><br>BSc.Ingeniero geólogo.</li>
+              <li><strong>Nila Parra León</strong><br>MSc. en Geografía, BSc. Ingeniera Geóloga.</li>
+            </ul>
+          </div>
+          <!-- Reorganización de contenedores tres -->
+          <div class="provisional-site-footer">
+            <p>Proyecto litorales de Colombia. Versión 2.0.0. de Abril de 2025. El código de este proyecto está licenciado bajo
+            <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">GNU GPL v3</a>. Los contenidos multimedia relacionan <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>.
+            </p>
+            <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" rel="license">
+              <img src="https://www.gnu.org/graphics/gplv3-127x51.png" alt="Licencia GPL v3">
+            </a>
+            <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="license">
+              <img src="https://licensebuttons.net/l/by-nc/4.0/88x31.png" alt="Licencia CC BY-NC">
+            </a>
+            <p>El proyecto se reserva la posibilidad de introducir licencias comerciales, de terceros o tipo SaaS (Software as a Service) o de suscripción para nuevos módulos de código, así como contenido multimedia que se referencie de esta manera, a partir de nuevas versiones del proyecto. No obstante, el contenido de versiones actuales permanece libre y accesible bajo sus respectivos términos.</p>
+          </div>
+      </article>
+  </main>
+</body>
+
+</html>
