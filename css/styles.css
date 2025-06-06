@@ -302,6 +302,22 @@ button .active {
 
   }
 
+.content a {
+  color: rgb(78, 181, 215);
+}
+
+#credits .leader span {
+  color: rgb(78, 181, 215);
+}
+
+#credits ul li::before {
+  color: rgb(78, 181, 215);
+}
+
+#credits .webEdition span {
+  color: rgb(78, 181, 215);
+}
+
 .contentBackgroundToggle {
   color: black;
 }
