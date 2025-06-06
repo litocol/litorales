@@ -36,21 +36,7 @@ button .active {
 
 .flecha-icono:hover {
   color: #F39237; /* Cambia el color si quieres al hacer hover */
-}
-
-#credits .leader span {
-  color: #F39237;
-}
-
-#credits ul li::before {
-  color: #F39237;
-}
-
-#credits .webEdition span {
-  color: #F39237;
-}
-
-/* ==============
+}/* ==============
   Modificaciones aplicables a los featuredependent styles
   ============ */
 

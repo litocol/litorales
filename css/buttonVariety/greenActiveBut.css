@@ -38,18 +38,6 @@ button .active {
   color: #04AA6D; /* Cambia el color si quieres al hacer hover */
 }
 
-#credits .leader span {
-  color: #04AA6D;
-}
-
-#credits ul li::before {
-  color: #04AA6D;
-}
-
-#credits .webEdition span {
-  color: #04AA6D;
-}
-
 /* ==============
   Modificaciones aplicables a los featuredependent styles
   ============ */
