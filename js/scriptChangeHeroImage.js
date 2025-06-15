@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   // Aplica el gradiente de recibimiento
-  const gradientDark = "linear-gradient(rgba(51, 51, 51, 0.3), rgba(86, 86, 86, 1))";
+  const gradientDark = "linear-gradient(rgba(51, 51, 51, 0.3), #393939)";
 
   let currentGalleryIndex = -1;
   let currentImageIndex = -1;

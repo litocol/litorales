@@ -55,10 +55,10 @@ html {
 body {
     margin: 0;
     font-family: 'nunito', sans-serif;
-    background-color: rgb(86, 86, 86);
+    background-color: #393939;
     color: white;
     font-size: 17px;
-    text-align: justify;
+    text-align: left;
   }
 
 /* Sería interesante aplicarlo más bien al body */

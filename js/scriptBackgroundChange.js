@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!heroImg || !toggleBtn) return;
 
-  const darkGradient  = "linear-gradient(rgba(51,51,51, 0.3), rgba(86,86,86, 1))";
+  const darkGradient  = "linear-gradient(rgba(51,51,51, 0.3), #393939)";
   const lightGradient = "linear-gradient(rgba(51,51,51, 0.3), rgb(238, 238, 238, 1))";
 
   let isLight = false; // estado inicial oscuro
